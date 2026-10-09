@@ -1,0 +1,486 @@
+{
+  "n_checks": 60,
+  "n_fail": 0,
+  "max_deviation": 0.000589415857266129,
+  "verdict": "MATCH",
+  "pairs": [
+    {
+      "config": "baseline",
+      "plain": "plainUNet_bf64",
+      "base_filters": 64,
+      "module_detection": 0.6326530612244898,
+      "capacity_detection": 0.6326530612244898,
+      "gain_pp": 0.0,
+      "boot_point_pp": 0.0,
+      "boot_ci": [
+        0.0,
+        0.0
+      ],
+      "branch": "B"
+    },
+    {
+      "config": "egm_only",
+      "plain": "plainUNet_bf71",
+      "base_filters": 71,
+      "module_detection": 0.6785714285714286,
+      "capacity_detection": 0.576530612244898,
+      "gain_pp": 10.204081632653061,
+      "boot_point_pp": 10.204081632653061,
+      "boot_ci": [
+        5.612244897959184,
+        15.318877551020337
+      ],
+      "branch": "A"
+    },
+    {
+      "config": "egm_dpa",
+      "plain": "plainUNet_bf72",
+      "base_filters": 72,
+      "module_detection": 0.8418367346938775,
+      "capacity_detection": 0.6836734693877551,
+      "gain_pp": 15.816326530612246,
+      "boot_point_pp": 15.816326530612246,
+      "boot_ci": [
+        10.204081632653061,
+        21.428571428571427
+      ],
+      "branch": "A"
+    },
+    {
+      "config": "egm_msfa",
+      "plain": "plainUNet_bf79",
+      "base_filters": 79,
+      "module_detection": 0.8520408163265306,
+      "capacity_detection": 0.6071428571428571,
+      "gain_pp": 24.489795918367353,
+      "boot_point_pp": 24.489795918367346,
+      "boot_ci": [
+        18.367346938775512,
+        31.122448979591837
+      ],
+      "branch": "A"
+    }
+  ],
+  "checks": [
+    {
+      "check": "baseline:module_dice_vs_npy_field",
+      "deviation": 2.9734081530286005e-08,
+      "tol": 1e-06,
+      "ok": true,
+      "note": "独立 Dice vs npy 自带逐样本 dice（float32 字段，信息性）"
+    },
+    {
+      "check": "baseline:module_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:module_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:capacity_det_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_det) vs etis_detection"
+    },
+    {
+      "check": "baseline:capacity_dice_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_dice) vs etis_dice"
+    },
+    {
+      "check": "baseline:capacity_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:capacity_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:gain_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:delta_point",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:delta_ci_lo",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:delta_ci_hi",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "baseline:crosses_zero",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "CI 是否跨 0"
+    },
+    {
+      "check": "baseline:id_gate_gap_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "与主脚本同口径（容量侧重算 vs 模块侧记录）"
+    },
+    {
+      "check": "baseline:id_gate_gap_pp_alt",
+      "deviation": 0.000589415857266129,
+      "tol": 0.001,
+      "ok": true,
+      "note": "替代口径（两侧记录值）与主口径差 5.894e-04 pp（= 容量侧自洽 Δ×100）"
+    },
+    {
+      "check": "baseline:branch",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "期望 B / 已发布 B"
+    },
+    {
+      "check": "egm_only:module_dice_vs_npy_field",
+      "deviation": 2.964678968986334e-08,
+      "tol": 1e-06,
+      "ok": true,
+      "note": "独立 Dice vs npy 自带逐样本 dice（float32 字段，信息性）"
+    },
+    {
+      "check": "egm_only:module_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:module_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:capacity_det_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_det) vs etis_detection"
+    },
+    {
+      "check": "egm_only:capacity_dice_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_dice) vs etis_dice"
+    },
+    {
+      "check": "egm_only:capacity_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:capacity_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:gain_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:delta_point",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:delta_ci_lo",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:delta_ci_hi",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_only:crosses_zero",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "CI 是否跨 0"
+    },
+    {
+      "check": "egm_only:id_gate_gap_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "与主脚本同口径（容量侧重算 vs 模块侧记录）"
+    },
+    {
+      "check": "egm_only:id_gate_gap_pp_alt",
+      "deviation": 0.0004828882720691041,
+      "tol": 0.001,
+      "ok": true,
+      "note": "替代口径（两侧记录值）与主口径差 4.829e-04 pp（= 容量侧自洽 Δ×100）"
+    },
+    {
+      "check": "egm_only:branch",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "期望 A / 已发布 A"
+    },
+    {
+      "check": "egm_dpa:module_dice_vs_npy_field",
+      "deviation": 2.9788473465686138e-08,
+      "tol": 1e-06,
+      "ok": true,
+      "note": "独立 Dice vs npy 自带逐样本 dice（float32 字段，信息性）"
+    },
+    {
+      "check": "egm_dpa:module_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:module_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:capacity_det_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_det) vs etis_detection"
+    },
+    {
+      "check": "egm_dpa:capacity_dice_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_dice) vs etis_dice"
+    },
+    {
+      "check": "egm_dpa:capacity_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:capacity_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:gain_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:delta_point",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:delta_ci_lo",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:delta_ci_hi",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_dpa:crosses_zero",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "CI 是否跨 0"
+    },
+    {
+      "check": "egm_dpa:id_gate_gap_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "与主脚本同口径（容量侧重算 vs 模块侧记录）"
+    },
+    {
+      "check": "egm_dpa:id_gate_gap_pp_alt",
+      "deviation": 2.854761508297443e-05,
+      "tol": 0.001,
+      "ok": true,
+      "note": "替代口径（两侧记录值）与主口径差 2.855e-05 pp（= 容量侧自洽 Δ×100）"
+    },
+    {
+      "check": "egm_dpa:branch",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "期望 A / 已发布 A"
+    },
+    {
+      "check": "egm_msfa:module_dice_vs_npy_field",
+      "deviation": 2.897279682834153e-08,
+      "tol": 1e-06,
+      "ok": true,
+      "note": "独立 Dice vs npy 自带逐样本 dice（float32 字段，信息性）"
+    },
+    {
+      "check": "egm_msfa:module_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:module_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:capacity_det_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_det) vs etis_detection"
+    },
+    {
+      "check": "egm_msfa:capacity_dice_internal",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": "raw json: mean(per_sample_dice) vs etis_dice"
+    },
+    {
+      "check": "egm_msfa:capacity_detection",
+      "deviation": 0.0,
+      "tol": 1e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:capacity_dice",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:gain_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:delta_point",
+      "deviation": 7.105427357601002e-15,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:delta_ci_lo",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:delta_ci_hi",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "egm_msfa:crosses_zero",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "CI 是否跨 0"
+    },
+    {
+      "check": "egm_msfa:id_gate_gap_pp",
+      "deviation": 0.0,
+      "tol": 1e-09,
+      "ok": true,
+      "note": "与主脚本同口径（容量侧重算 vs 模块侧记录）"
+    },
+    {
+      "check": "egm_msfa:id_gate_gap_pp_alt",
+      "deviation": 0.00010215575242344954,
+      "tol": 0.001,
+      "ok": true,
+      "note": "替代口径（两侧记录值）与主口径差 1.022e-04 pp（= 容量侧自洽 Δ×100）"
+    },
+    {
+      "check": "egm_msfa:branch",
+      "deviation": 0.0,
+      "tol": 0.0,
+      "ok": true,
+      "note": "期望 A / 已发布 A"
+    }
+  ]
+}

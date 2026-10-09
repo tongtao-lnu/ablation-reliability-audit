@@ -1,0 +1,598 @@
+{
+  "meta": {
+    "segment": "P2-7 基准构成审计",
+    "script": "02_code/audit/benchmark_composition.py",
+    "generated_for": "论文二 v4.2.1",
+    "read_only": true,
+    "tau_primary": 127,
+    "small_lesion_px": 100,
+    "filter_resize": [
+      352,
+      352
+    ],
+    "pil_road_enabled": true
+  },
+  "raw_datasets": {
+    "Kvasir-SEG": {
+      "role": "分布内（训练源）",
+      "img_dir": "D:/medical_segmentation/data_raw/Kvasir-SEG/images",
+      "msk_dir": "D:/medical_segmentation/data_raw/Kvasir-SEG/masks",
+      "n_img": 1000,
+      "n_msk": 1000,
+      "pair": {
+        "img_without_msk": [],
+        "msk_without_img": [],
+        "n_paired": 1000
+      },
+      "mask_ext": {
+        ".jpg": 1000
+      },
+      "img_ext": {
+        ".jpg": 1000
+      },
+      "mask_pil_mode": {
+        "RGB": 1000
+      },
+      "mask_pil_format": {
+        "JPEG": 1000
+      },
+      "img_sizes": [
+        {
+          "w": 622,
+          "h": 530,
+          "n": 78
+        },
+        {
+          "w": 626,
+          "h": 547,
+          "n": 66
+        },
+        {
+          "w": 626,
+          "h": 546,
+          "n": 61
+        },
+        {
+          "w": 622,
+          "h": 529,
+          "n": 56
+        },
+        {
+          "w": 622,
+          "h": 528,
+          "n": 53
+        },
+        {
+          "w": 622,
+          "h": 531,
+          "n": 50
+        },
+        {
+          "w": 570,
+          "h": 530,
+          "n": 33
+        },
+        {
+          "w": 570,
+          "h": 531,
+          "n": 19
+        }
+      ],
+      "msk_sizes": [
+        {
+          "w": 622,
+          "h": 530,
+          "n": 78
+        },
+        {
+          "w": 626,
+          "h": 547,
+          "n": 66
+        },
+        {
+          "w": 626,
+          "h": 546,
+          "n": 61
+        },
+        {
+          "w": 622,
+          "h": 529,
+          "n": 56
+        },
+        {
+          "w": 622,
+          "h": 528,
+          "n": 53
+        },
+        {
+          "w": 622,
+          "h": 531,
+          "n": 50
+        },
+        {
+          "w": 570,
+          "h": 530,
+          "n": 33
+        },
+        {
+          "w": 570,
+          "h": 531,
+          "n": 19
+        }
+      ],
+      "empty_gt": {
+        "tau_gt_127": 0,
+        "tau_gt_0": 0,
+        "max_eq_0": 0
+      },
+      "n_positive": 1000,
+      "value_bands_sum": {
+        "zero": 295670293,
+        "low_1_127": 1312515,
+        "mid_128_254": 1263482,
+        "full_255": 53804604
+      },
+      "strictly_binary_n": 0,
+      "n_bad_mask": 0,
+      "imgsize_unique": 333,
+      "msksize_unique": 333,
+      "img_size_span": {
+        "w_min": 332,
+        "w_max": 1920,
+        "h_min": 352,
+        "h_max": 1072
+      },
+      "msk_size_span": {
+        "w_min": 332,
+        "w_max": 1920,
+        "h_min": 352,
+        "h_max": 1072
+      },
+      "fg_px_gt127_stats": {
+        "mean": 55068.086,
+        "p1": 3991.9,
+        "p5": 8336.55,
+        "p25": 19447.0,
+        "median": 38013.5,
+        "p75": 70480.0,
+        "p95": 145516.6,
+        "p99": 292030.72,
+        "min": 998,
+        "max": 1101059
+      },
+      "fg_frac_gt127_stats": {
+        "mean": 0.15390989411452588,
+        "p1": 0.012494165999321998,
+        "p5": 0.025429539273429308,
+        "p25": 0.059352105258683924,
+        "median": 0.11400724156702018,
+        "p75": 0.20976061538648866,
+        "p95": 0.4078171876947211,
+        "p99": 0.6168339540408776,
+        "min": 0.004739268974883774,
+        "max": 0.8118197138419853
+      },
+      "filter_352": {
+        "tau": 127,
+        "n_mask": 1000,
+        "n_below_100px": 0,
+        "n_empty_after_resize": 0,
+        "min_fg_px": 591,
+        "p1_fg_px": 1555.51,
+        "median_fg_px": 14128.5,
+        "max_fg_px": 100530
+      },
+      "verify_pil": {
+        "n_bad": 0,
+        "empty_gt_tau_gt_127": 0,
+        "strictly_binary_n": 0
+      }
+    },
+    "CVC-ClinicDB": {
+      "role": "分布内（训练源）",
+      "img_dir": "D:/medical_segmentation/data_raw/CVC-ClinicDB/Original",
+      "msk_dir": "D:/medical_segmentation/data_raw/CVC-ClinicDB/Ground Truth",
+      "n_img": 612,
+      "n_msk": 612,
+      "pair": {
+        "img_without_msk": [],
+        "msk_without_img": [],
+        "n_paired": 612
+      },
+      "mask_ext": {
+        ".tif": 612
+      },
+      "img_ext": {
+        ".tif": 612
+      },
+      "mask_pil_mode": {
+        "L": 612
+      },
+      "mask_pil_format": {
+        "TIFF": 612
+      },
+      "img_sizes": [
+        {
+          "w": 384,
+          "h": 288,
+          "n": 612
+        }
+      ],
+      "msk_sizes": [
+        {
+          "w": 384,
+          "h": 288,
+          "n": 612
+        }
+      ],
+      "empty_gt": {
+        "tau_gt_127": 0,
+        "tau_gt_0": 0,
+        "max_eq_0": 0
+      },
+      "n_positive": 612,
+      "value_bands_sum": {
+        "zero": 61387764,
+        "low_1_127": 91011,
+        "mid_128_254": 32,
+        "full_255": 6203497
+      },
+      "strictly_binary_n": 474,
+      "n_bad_mask": 0,
+      "imgsize_unique": 1,
+      "msksize_unique": 1,
+      "img_size_span": {
+        "w_min": 384,
+        "w_max": 384,
+        "h_min": 288,
+        "h_max": 288
+      },
+      "msk_size_span": {
+        "w_min": 384,
+        "w_max": 384,
+        "h_min": 288,
+        "h_max": 288
+      },
+      "fg_px_gt127_stats": {
+        "mean": 10136.485294117647,
+        "p1": 881.8000000000001,
+        "p5": 1493.85,
+        "p25": 4017.75,
+        "median": 7557.5,
+        "p75": 14077.0,
+        "p95": 25827.24999999999,
+        "p99": 36111.679999999986,
+        "min": 373,
+        "max": 54148
+      },
+      "fg_frac_gt127_stats": {
+        "mean": 0.09165658722256265,
+        "p1": 0.007973451967592594,
+        "p5": 0.013507758246527777,
+        "p25": 0.03632948133680555,
+        "median": 0.06833676938657407,
+        "p75": 0.1272876880787037,
+        "p95": 0.23353633174189806,
+        "p99": 0.32653067129629615,
+        "min": 0.003372757523148148,
+        "max": 0.4896195023148148
+      },
+      "filter_352": {
+        "tau": 127,
+        "n_mask": 612,
+        "n_below_100px": 0,
+        "n_empty_after_resize": 0,
+        "min_fg_px": 414,
+        "p1_fg_px": 999.58,
+        "median_fg_px": 8474.5,
+        "max_fg_px": 60673
+      },
+      "verify_pil": {
+        "n_bad": 0,
+        "empty_gt_tau_gt_127": 0,
+        "strictly_binary_n": 474
+      }
+    },
+    "ETIS-LaribPolypDB": {
+      "role": "域外（零样本评估）",
+      "img_dir": "D:/ETIS-LaribPolypDB/images",
+      "msk_dir": "D:/ETIS-LaribPolypDB/masks",
+      "n_img": 196,
+      "n_msk": 196,
+      "pair": {
+        "img_without_msk": [],
+        "msk_without_img": [],
+        "n_paired": 196
+      },
+      "mask_ext": {
+        ".png": 196
+      },
+      "img_ext": {
+        ".png": 196
+      },
+      "mask_pil_mode": {
+        "L": 196
+      },
+      "mask_pil_format": {
+        "PNG": 196
+      },
+      "img_sizes": [
+        {
+          "w": 1225,
+          "h": 966,
+          "n": 196
+        }
+      ],
+      "msk_sizes": [
+        {
+          "w": 1225,
+          "h": 966,
+          "n": 196
+        }
+      ],
+      "empty_gt": {
+        "tau_gt_127": 0,
+        "tau_gt_0": 0,
+        "max_eq_0": 0
+      },
+      "n_positive": 196,
+      "value_bands_sum": {
+        "zero": 221434100,
+        "low_1_127": 0,
+        "mid_128_254": 0,
+        "full_255": 10502500
+      },
+      "strictly_binary_n": 196,
+      "n_bad_mask": 0,
+      "imgsize_unique": 1,
+      "msksize_unique": 1,
+      "img_size_span": {
+        "w_min": 1225,
+        "w_max": 1225,
+        "h_min": 966,
+        "h_max": 966
+      },
+      "msk_size_span": {
+        "w_min": 1225,
+        "w_max": 1225,
+        "h_min": 966,
+        "h_max": 966
+      },
+      "fg_px_gt127_stats": {
+        "mean": 53584.183673469386,
+        "p1": 1338.4,
+        "p5": 3780.5,
+        "p25": 10489.5,
+        "median": 23376.5,
+        "p75": 63081.0,
+        "p95": 204877.25,
+        "p99": 306768.30000000034,
+        "min": 1257,
+        "max": 343815
+      },
+      "fg_frac_gt127_stats": {
+        "mean": 0.04528177096672108,
+        "p1": 0.0011310263235729074,
+        "p5": 0.0031947437360037184,
+        "p25": 0.008864241348713399,
+        "median": 0.019754510499852114,
+        "p75": 0.053307136519203956,
+        "p95": 0.1731332657286517,
+        "p99": 0.2592371656737232,
+        "min": 0.0010622385600202813,
+        "max": 0.2905437951578147
+      },
+      "filter_352": {
+        "tau": 127,
+        "n_mask": 196,
+        "n_below_100px": 0,
+        "n_empty_after_resize": 0,
+        "min_fg_px": 133,
+        "p1_fg_px": 142.7,
+        "median_fg_px": 2441.5,
+        "max_fg_px": 35977
+      },
+      "verify_pil": {
+        "n_bad": 0,
+        "empty_gt_tau_gt_127": 0,
+        "strictly_binary_n": 196
+      }
+    }
+  },
+  "totals": {
+    "n_masks": 1808,
+    "n_positive": 1808,
+    "empty_gt_tau_gt_127": 0,
+    "empty_gt_tau_gt_0": 0,
+    "empty_gt_max_eq_0": 0,
+    "empty_gt_rate": 0.0
+  },
+  "id_benchmark": {
+    "union_dir": "D:/medical_segmentation/data",
+    "n_union": 1612,
+    "union_by_source": {
+      "Kvasir-SEG": 1000,
+      "CVC-ClinicDB": 612,
+      "n_other_nondigit": 0
+    },
+    "split_ratio_requested": "0.70 train / 0.15 val / 0.15 test（random_state=42）",
+    "split_counts": {
+      "ID-split/test": 242,
+      "ID-split/val": 242,
+      "ID-split/train": 1128
+    },
+    "test_by_source": {
+      "Kvasir-SEG": 143,
+      "CVC-ClinicDB": 99,
+      "n_other_nondigit": 0
+    }
+  },
+  "derived_benchmarks": {
+    "ID-union(data/)": {
+      "role": "分布内并集（Kvasir ∪ CVC，未切分）",
+      "img_dir": "D:/medical_segmentation/data/images",
+      "n_img": 1612,
+      "n_msk": 1612,
+      "n_paired": 1612,
+      "img_ext": {
+        ".tif": 612,
+        ".jpg": 1000
+      },
+      "empty_gt": 0,
+      "n_below_100px": 0,
+      "min_fg_px": 373,
+      "median_fg_px": 20763.5,
+      "n_read_ok": 1612,
+      "max_fg_px": 1101059,
+      "p1_fg_px": 1261.66
+    },
+    "ID-split/test": {
+      "role": "分布内测试集（报告 242 样本的来源）",
+      "img_dir": "D:/medical_segmentation/processed_data/test/images",
+      "n_img": 242,
+      "n_msk": 242,
+      "n_paired": 242,
+      "img_ext": {
+        ".npy": 242
+      },
+      "empty_gt": 0,
+      "n_below_100px": 0,
+      "min_fg_px": 717,
+      "median_fg_px": 11885.0,
+      "n_read_ok": 242,
+      "max_fg_px": 92319,
+      "p1_fg_px": 1082.94
+    },
+    "ID-split/val": {
+      "role": "分布内验证集",
+      "img_dir": "D:/medical_segmentation/processed_data/val/images",
+      "n_img": 242,
+      "n_msk": 242,
+      "n_paired": 242,
+      "img_ext": {
+        ".npy": 242
+      },
+      "empty_gt": 0,
+      "n_below_100px": 0,
+      "min_fg_px": 591,
+      "median_fg_px": 10263.0,
+      "n_read_ok": 242,
+      "max_fg_px": 100530,
+      "p1_fg_px": 1459.23
+    },
+    "ID-split/train": {
+      "role": "分布内训练集",
+      "img_dir": "D:/medical_segmentation/processed_data/train/images",
+      "n_img": 1128,
+      "n_msk": 1128,
+      "n_paired": 1128,
+      "img_ext": {
+        ".npy": 1128
+      },
+      "empty_gt": 0,
+      "n_below_100px": 0,
+      "min_fg_px": 414,
+      "median_fg_px": 12117.0,
+      "n_read_ok": 1128,
+      "max_fg_px": 94496,
+      "p1_fg_px": 1237.75
+    }
+  },
+  "cross_processed_dirs": {
+    "processed_data_cross": {
+      "cvc_full": {
+        "n_img": 612,
+        "n_msk": 612,
+        "n_paired": 612
+      },
+      "cvc_train": {
+        "n_img": 520,
+        "n_msk": 520,
+        "n_paired": 520
+      },
+      "cvc_val": {
+        "n_img": 92,
+        "n_msk": 92,
+        "n_paired": 92
+      },
+      "kvasir_full": {
+        "n_img": 1000,
+        "n_msk": 1000,
+        "n_paired": 1000
+      },
+      "kvasir_train": {
+        "n_img": 850,
+        "n_msk": 850,
+        "n_paired": 850
+      },
+      "kvasir_val": {
+        "n_img": 150,
+        "n_msk": 150,
+        "n_paired": 150
+      }
+    },
+    "processed_data_cross_fixed": {
+      "cvc_full": {
+        "n_img": 612,
+        "n_msk": 612,
+        "n_paired": 612
+      },
+      "cvc_train": {
+        "n_img": 520,
+        "n_msk": 520,
+        "n_paired": 520
+      },
+      "cvc_val": {
+        "n_img": 92,
+        "n_msk": 92,
+        "n_paired": 92
+      },
+      "kvasir_full": {
+        "n_img": 1000,
+        "n_msk": 1000,
+        "n_paired": 1000
+      },
+      "kvasir_train": {
+        "n_img": 850,
+        "n_msk": 850,
+        "n_paired": 850
+      },
+      "kvasir_val": {
+        "n_img": 150,
+        "n_msk": 150,
+        "n_paired": 150
+      }
+    }
+  },
+  "dual_path_verification": {
+    "per_dataset": {
+      "Kvasir-SEG": {
+        "cv2_empty_gt": 0,
+        "pil_empty_gt": 0,
+        "agree": true
+      },
+      "CVC-ClinicDB": {
+        "cv2_empty_gt": 0,
+        "pil_empty_gt": 0,
+        "agree": true
+      },
+      "ETIS-LaribPolypDB": {
+        "cv2_empty_gt": 0,
+        "pil_empty_gt": 0,
+        "agree": true
+      }
+    },
+    "conflicts": []
+  },
+  "verdict": {
+    "three_benchmarks_are_100pct_positive": true,
+    "expected_1808_0": {
+      "masks": 1808,
+      "empty_gt": 0,
+      "match": true
+    },
+    "tau_sensitivity_changes_verdict": false,
+    "small_lesion_filter_is_noop": true,
+    "dual_path_agree": true
+  }
+}

@@ -1,0 +1,2874 @@
+{
+  "segment": "P3-6b",
+  "generated_at": "2026-09-15T00:55:55",
+  "script": "02_code/analysis/p3_6b_occlusion_input.py",
+  "spec": "00_docs/P3-6b规格冻结_2026-09-15.md",
+  "frozen": {
+    "area_targets": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "placements": [
+      "target",
+      "random"
+    ],
+    "axis_ratio": 1.6,
+    "eps": 1e-08,
+    "pixel_thresh": 0.5,
+    "fills": [
+      "zero",
+      "mean"
+    ],
+    "primary_fill": "zero",
+    "conditions_run": [
+      "0_clean",
+      "10_target",
+      "10_random",
+      "30_target",
+      "30_random",
+      "50_target",
+      "50_random"
+    ],
+    "n_unit_id": 13,
+    "n_unit_ood": 7,
+    "names_id": [
+      "AttentionUNet",
+      "CaraNet",
+      "M2SNet",
+      "MultiResUNet",
+      "PSPNet",
+      "PolypPVT",
+      "PraNet",
+      "ResUNet",
+      "SANet",
+      "SegNet",
+      "TransUNet",
+      "UACANet",
+      "UNet"
+    ],
+    "names_ood": [
+      "baseline",
+      "egm_only",
+      "dpa_only",
+      "msfa_only",
+      "egm_dpa",
+      "egm_msfa",
+      "dpa_msfa"
+    ]
+  },
+  "gates": {
+    "G1_identity_rerun": {
+      "n": 9036,
+      "max_abs_dice_diff": 2.9788473465686138e-08,
+      "tol": 1e-06,
+      "pass_": true,
+      "pix_mismatch_total": 0,
+      "pix_mismatch_max_per_sample": 0,
+      "by_unit_set": {
+        "ID": {
+          "n": 6292,
+          "max_abs_dice_diff": 0.0
+        },
+        "OOD": {
+          "n": 2744,
+          "max_abs_dice_diff": 2.9788473465686138e-08
+        }
+      }
+    },
+    "G4_clean_matches_p3_6": {
+      "ID": {
+        "mean_F_frozen_recomputed": 0.8411039998288352,
+        "p3_6_reference": 0.8411039998288351,
+        "abs_diff": 1.1102230246251565e-16,
+        "tol": 1e-06,
+        "pass_": true,
+        "skipped": false
+      },
+      "OOD": {
+        "mean_F_frozen_recomputed": 0.5591206905623467,
+        "p3_6_reference": 0.5591206907338347,
+        "abs_diff": 1.7148804598576817e-10,
+        "tol": 1e-06,
+        "pass_": true,
+        "skipped": false
+      }
+    },
+    "G2_occlusion_applied": {
+      "10_target": {
+        "area_target": 0.1,
+        "occ_frac_mean": 0.09999394031712909,
+        "applied": true
+      },
+      "10_random": {
+        "area_target": 0.1,
+        "occ_frac_mean": 0.09999376525406638,
+        "applied": true
+      },
+      "30_target": {
+        "area_target": 0.3,
+        "occ_frac_mean": 0.2999657205086907,
+        "applied": true
+      },
+      "30_random": {
+        "area_target": 0.3,
+        "occ_frac_mean": 0.2999371334250921,
+        "applied": true
+      },
+      "50_target": {
+        "area_target": 0.5,
+        "occ_frac_mean": 0.4993960717334976,
+        "applied": true
+      },
+      "50_random": {
+        "area_target": 0.5,
+        "occ_frac_mean": 0.4993446567837923,
+        "applied": true
+      }
+    },
+    "G3_zero_tier_V_eq_F": {
+      "n": 9036,
+      "max_abs_diff": 0.0,
+      "pass_": true
+    },
+    "G6_partition": {
+      "n": 63252,
+      "n_bad_pred_side": 0,
+      "n_bad_gt_side": 0,
+      "pass_": true
+    },
+    "verdict": "PASS",
+    "g4_mode": "enforced"
+  },
+  "per_fill": {
+    "zero": {
+      "per_condition": {
+        "0_clean": {
+          "cond": "0_clean",
+          "area": 0.0,
+          "placement": "none",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.8411039998288351,
+              "mean_V": 0.8411039998288351,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.0,
+              "mean_t": 0.0,
+              "mean_f": 0.0,
+              "mean_u": 0.0,
+              "mean_gt_coverage": 0.0,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": null,
+              "delta_V_minus_F": 0.0
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.5591206907338347,
+              "mean_V": 0.5591206907338347,
+              "mean_F_frozen": 0.5591206905623467,
+              "mean_occ_frac": 0.0,
+              "mean_t": 0.0,
+              "mean_f": 0.0,
+              "mean_u": 0.0,
+              "mean_gt_coverage": 0.0,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": null,
+              "delta_V_minus_F": 0.0
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 1.0,
+              "spearman_p": 0.0,
+              "kendall_tau": 0.9999999999999998,
+              "n_pairs": 78,
+              "n_reversed_pairs": 0,
+              "pct_reversed_pairs": 0.0
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": 1.0,
+              "spearman_p": 0.0,
+              "kendall_tau": 1.0,
+              "n_pairs": 21,
+              "n_reversed_pairs": 0,
+              "pct_reversed_pairs": 0.0
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.8394898226404438,
+              "mean_V": 0.8394898226404438
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.8316442656364065,
+              "mean_V": 0.8316442656364065
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.8603479380379639,
+              "mean_V": 0.8603479380379639
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.8424785194947291,
+              "mean_V": 0.8424785194947291
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.8646062004418408,
+              "mean_V": 0.8646062004418408
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.8638302927963105,
+              "mean_V": 0.8638302927963105
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.8445122607932337,
+              "mean_V": 0.8445122607932337
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.791859694621517,
+              "mean_V": 0.791859694621517
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.8488297470773221,
+              "mean_V": 0.8488297470773221
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.8506006612701678,
+              "mean_V": 0.8506006612701678
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.8390788241710456,
+              "mean_V": 0.8390788241710456
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.8332554599640426,
+              "mean_V": 0.8332554599640426
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.8238183108298337,
+              "mean_V": 0.8238183108298337
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.4531518872767689,
+              "mean_V": 0.4531518872767689
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.5683978024912566,
+              "mean_V": 0.5683978024912566
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.5024596259803112,
+              "mean_V": 0.5024596259803112
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.6391361780191932,
+              "mean_V": 0.6391361780191932
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.6672612960354813,
+              "mean_V": 0.6672612960354813
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.5341996585567944,
+              "mean_V": 0.5341996585567944
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.5492383867770375,
+              "mean_V": 0.5492383867770375
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.28198330909500036,
+            "gap_V": 0.28198330909500036,
+            "delta_gap": 0.0,
+            "compression": 0.0,
+            "sign_flip": false
+          }
+        },
+        "10_target": {
+          "cond": "10_target",
+          "area": 0.1,
+          "placement": "target",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.2388353628928554,
+              "mean_V": 0.44061741633984947,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.09999710519687864,
+              "mean_t": 22.70089001907184,
+              "mean_f": 0.6913541004450096,
+              "mean_u": 8313.20820089002,
+              "mean_gt_coverage": 0.6896146413311799,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.001888031735820792,
+              "delta_V_minus_F": 0.20178205344699407
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.0570495329739169,
+              "mean_V": 0.39925920812231985,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.09998668323863637,
+              "mean_t": 7.967930029154519,
+              "mean_f": 1.3593294460641399,
+              "mean_u": 4013.0932944606416,
+              "mean_gt_coverage": 0.9114455042209356,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.0007528473007318113,
+              "delta_V_minus_F": 0.34220967514840295
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 0.2087912087912088,
+              "spearman_p": 0.493621819356885,
+              "kendall_tau": 0.15384615384615383,
+              "n_pairs": 78,
+              "n_reversed_pairs": 33,
+              "pct_reversed_pairs": 42.30769230769231
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.10714285714285716,
+              "spearman_p": 0.8191508555699912,
+              "kendall_tau": -0.04761904761904762,
+              "n_pairs": 21,
+              "n_reversed_pairs": 11,
+              "pct_reversed_pairs": 52.38095238095239
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.2348003691167441,
+              "mean_V": 0.5140088411077294
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.2353415932613519,
+              "mean_V": 0.3908822219426638
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.2644734655911631,
+              "mean_V": 0.4965477516380522
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.2262179426020963,
+              "mean_V": 0.4997263440438804
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.2698499435063114,
+              "mean_V": 0.46214517498487656
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.2667391955583046,
+              "mean_V": 0.4926293762818295
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.2393007875027329,
+              "mean_V": 0.4059694953270822
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.1879808724296498,
+              "mean_V": 0.37136507044960226
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.2567958210315759,
+              "mean_V": 0.4224918667640085
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.238153677041047,
+              "mean_V": 0.47309973865621546
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.22397288329462756,
+              "mean_V": 0.3332787635557093
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.24345029178383518,
+              "mean_V": 0.3852061668972585
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.21778287488768042,
+              "mean_V": 0.48067560076913474
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.032113670735394964,
+              "mean_V": 0.5522215215894991
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.07317622562526672,
+              "mean_V": 0.2808797787226795
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.04969269384944877,
+              "mean_V": 0.08861719345230931
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.05166272552272261,
+              "mean_V": 0.3281181882945403
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.06954004903440061,
+              "mean_V": 0.47045062682736677
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.05425942714493999,
+              "mean_V": 0.6130789532781198
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.06890193890524464,
+              "mean_V": 0.4614481946917238
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.1817858299189385,
+            "gap_V": 0.04135820821752961,
+            "delta_gap": -0.14042762170140888,
+            "compression": 0.7724893725986675,
+            "sign_flip": false
+          }
+        },
+        "10_random": {
+          "cond": "10_random",
+          "area": 0.1,
+          "placement": "random",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.6921060790119301,
+              "mean_V": 0.7577054208589928,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.09999360341890923,
+              "mean_t": 14.244437380801017,
+              "mean_f": 0.5804195804195804,
+              "mean_u": 2608.920851875397,
+              "mean_gt_coverage": 0.17374562356410475,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.0011965268940040403,
+              "delta_V_minus_F": 0.06559934184706273
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.445244806926767,
+              "mean_V": 0.4945788466661317,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.09999413634255357,
+              "mean_t": 4.042274052478134,
+              "mean_f": 0.5123906705539358,
+              "mean_u": 1083.2179300291546,
+              "mean_gt_coverage": 0.17188079800103173,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.0003675949503827567,
+              "delta_V_minus_F": 0.04933403973936473
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 0.9340659340659341,
+              "spearman_p": 2.998703750099579e-06,
+              "kendall_tau": 0.8205128205128204,
+              "n_pairs": 78,
+              "n_reversed_pairs": 7,
+              "pct_reversed_pairs": 8.974358974358974
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": 0.9642857142857145,
+              "spearman_p": 0.0004541491691941689,
+              "kendall_tau": 0.9047619047619049,
+              "n_pairs": 21,
+              "n_reversed_pairs": 1,
+              "pct_reversed_pairs": 4.761904761904762
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.6927495643254409,
+              "mean_V": 0.7708365374139848
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.6747194949383987,
+              "mean_V": 0.7337267825814031
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.7082660321999042,
+              "mean_V": 0.7808659685067901
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.686233251376061,
+              "mean_V": 0.7533783545849194
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.7294226139400533,
+              "mean_V": 0.790887771365182
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.7031419654864568,
+              "mean_V": 0.7729757482580949
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.6946881850863994,
+              "mean_V": 0.756392682318869
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.6405260259665906,
+              "mean_V": 0.697761288568607
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.7121600635813321,
+              "mean_V": 0.7770548777901539
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.7007320999575114,
+              "mean_V": 0.7707169257479323
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.6915190164447663,
+              "mean_V": 0.7475918035108969
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.6792935495506108,
+              "mean_V": 0.7346088767050234
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.6839271643015669,
+              "mean_V": 0.7633728538150502
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.3628965700528284,
+              "mean_V": 0.4172930462167987
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.4838770423641803,
+              "mean_V": 0.5257827319804631
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.3771950103272111,
+              "mean_V": 0.403194505407391
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.5039801051331092,
+              "mean_V": 0.5551803889250767
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.5370554968113854,
+              "mean_V": 0.5998306971420873
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.4025528523671163,
+              "mean_V": 0.4525099460423438
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.4491565714315385,
+              "mean_V": 0.5082606109487616
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.24686127208516312,
+            "gap_V": 0.2631265741928611,
+            "delta_gap": 0.016265302107698,
+            "compression": -0.06588843187232185,
+            "sign_flip": false
+          }
+        },
+        "30_target": {
+          "cond": "30_target",
+          "area": 0.3,
+          "placement": "target",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.04927282404862988,
+              "mean_V": 0.3129783187867129,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.2999716055832081,
+              "mean_t": 7.776223776223776,
+              "mean_f": 2.2832167832167833,
+              "mean_u": 13786.856007628734,
+              "mean_gt_coverage": 0.9199389646002251,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.0002706364823085434,
+              "delta_V_minus_F": 0.263705494738083
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.0035984342617053295,
+              "mean_V": 0.39531412027775664,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.2999522260156645,
+              "mean_t": 0.271865889212828,
+              "mean_f": 2.607142857142857,
+              "mean_u": 5346.728134110787,
+              "mean_gt_coverage": 0.9862102295838441,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 7.746585166126016e-05,
+              "delta_V_minus_F": 0.39171568601605133
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": -0.5714285714285714,
+              "spearman_p": 0.04134226737172355,
+              "kendall_tau": -0.4102564102564102,
+              "n_pairs": 78,
+              "n_reversed_pairs": 55,
+              "pct_reversed_pairs": 70.51282051282051
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.7500000000000002,
+              "spearman_p": 0.05218140045705776,
+              "kendall_tau": -0.5238095238095238,
+              "n_pairs": 21,
+              "n_reversed_pairs": 16,
+              "pct_reversed_pairs": 76.19047619047619
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.04611732755731801,
+              "mean_V": 0.4834558685802333
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.04523353518682691,
+              "mean_V": 0.16211334404247546
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.050243408258844255,
+              "mean_V": 0.3611363394551028
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.0382475755705873,
+              "mean_V": 0.4955254815038647
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.05523909213752802,
+              "mean_V": 0.2495140972109148
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.059031446462619035,
+              "mean_V": 0.2961363911867942
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.05876238386839234,
+              "mean_V": 0.14450683039850926
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.032839694525014035,
+              "mean_V": 0.40035522057476947
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.05937833444611548,
+              "mean_V": 0.18260921427739163
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.04783851217936304,
+              "mean_V": 0.4728848285043093
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.05498893254404528,
+              "mean_V": 0.1640902284840407
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.04828675900420758,
+              "mean_V": 0.16012579052388917
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.04433971089132712,
+              "mean_V": 0.49626450948497314
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.001224346962935617,
+              "mean_V": 0.658502687675106
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.0031938191703549945,
+              "mean_V": 0.1614462051599864
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.005995698078733201,
+              "mean_V": 0.03143769967883374
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.004232186389328192,
+              "mean_V": 0.2960634167062651
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.005681223541618034,
+              "mean_V": 0.4615810599652045
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.0030985282953890606,
+              "mean_V": 0.6648248815523361
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.0017632373935782082,
+              "mean_V": 0.4933428912065643
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.04567438978692455,
+            "gap_V": -0.08233580149104375,
+            "delta_gap": -0.1280101912779683,
+            "compression": 2.802668888958303,
+            "sign_flip": true
+          }
+        },
+        "30_random": {
+          "cond": "30_random",
+          "area": 0.3,
+          "placement": "random",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.41604389629008875,
+              "mean_V": 0.573586283330193,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.2999382553168329,
+              "mean_t": 16.047679593134138,
+              "mean_f": 1.2612841703750794,
+              "mean_u": 7312.249841068023,
+              "mean_gt_coverage": 0.5036664117583238,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.0004657702756390384,
+              "delta_V_minus_F": 0.15754238704010426
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.26653382274187215,
+              "mean_V": 0.40572771955124737,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.29993456092405973,
+              "mean_t": 4.048833819241983,
+              "mean_f": 1.7594752186588922,
+              "mean_u": 2458.5532069970845,
+              "mean_gt_coverage": 0.4480200402691761,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.0001562912468118268,
+              "delta_V_minus_F": 0.13919389680937522
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 0.40659340659340654,
+              "spearman_p": 0.16797834614789645,
+              "kendall_tau": 0.25641025641025633,
+              "n_pairs": 78,
+              "n_reversed_pairs": 29,
+              "pct_reversed_pairs": 37.17948717948718
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": 0.3214285714285715,
+              "spearman_p": 0.4820720382996776,
+              "kendall_tau": 0.23809523809523814,
+              "n_pairs": 21,
+              "n_reversed_pairs": 8,
+              "pct_reversed_pairs": 38.095238095238095
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.40625447944586424,
+              "mean_V": 0.5796365047133406
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.4004923775114309,
+              "mean_V": 0.5333551857448038
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.42489306585109593,
+              "mean_V": 0.59695579466347
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.3979903341364721,
+              "mean_V": 0.592062367464739
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.4320420033886567,
+              "mean_V": 0.5787626646537282
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.4372029301944438,
+              "mean_V": 0.5966087977297944
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.42127246704731347,
+              "mean_V": 0.549086846487703
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.36297964058134585,
+              "mean_V": 0.5192966004587602
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.4431630145254702,
+              "mean_V": 0.5925707454580508
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.41850992048687524,
+              "mean_V": 0.6010875125447465
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.4341570387562154,
+              "mean_V": 0.5699135965295495
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.41292379298995124,
+              "mean_V": 0.5363218320665815
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.4166895868560197,
+              "mean_V": 0.6109632347772426
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.21655878736597328,
+              "mean_V": 0.4079687109669768
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.30096860929661046,
+              "mean_V": 0.365828382278264
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.24452000859661818,
+              "mean_V": 0.2843888238390803
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.29731411584761835,
+              "mean_V": 0.4161897683688208
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.32128144123824615,
+              "mean_V": 0.48933778646900916
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.22562760727482367,
+              "mean_V": 0.4375800603827496
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.25946618957321493,
+              "mean_V": 0.4388005045538305
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.1495100735482166,
+            "gap_V": 0.16785856377894565,
+            "delta_gap": 0.018348490230729042,
+            "compression": -0.12272410677941181,
+            "sign_flip": false
+          }
+        },
+        "50_target": {
+          "cond": "50_target",
+          "area": 0.5,
+          "placement": "target",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.015345612343430739,
+              "mean_V": 0.3438896306957107,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.4994034971356124,
+              "mean_t": 3.3083280356007627,
+              "mean_f": 2.5524475524475525,
+              "mean_u": 15319.311506675143,
+              "mean_gt_coverage": 0.9679634074696228,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 9.469935197882546e-05,
+              "delta_V_minus_F": 0.32854401835228
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.00043609532136661713,
+              "mean_V": 0.5004831263648644,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.4993790452648001,
+              "mean_t": 0.056851311953352766,
+              "mean_f": 3.443877551020408,
+              "mean_u": 5548.443148688047,
+              "mean_gt_coverage": 0.9957818671432883,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 5.658416501118233e-05,
+              "delta_V_minus_F": 0.5000470310434978
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": -0.8351648351648352,
+              "spearman_p": 0.00038020808018512014,
+              "kendall_tau": -0.6666666666666665,
+              "n_pairs": 78,
+              "n_reversed_pairs": 65,
+              "pct_reversed_pairs": 83.33333333333334
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.9285714285714288,
+              "spearman_p": 0.0025194724037946874,
+              "kendall_tau": -0.8095238095238096,
+              "n_pairs": 21,
+              "n_reversed_pairs": 19,
+              "pct_reversed_pairs": 90.47619047619048
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.012592178551655777,
+              "mean_V": 0.49048205861521127
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.013353638243958282,
+              "mean_V": 0.2233369489071016
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.015634498112049134,
+              "mean_V": 0.41048215335852456
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.009243864724623234,
+              "mean_V": 0.5812040811233385
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.014883095320365894,
+              "mean_V": 0.21994912746986559
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.01857787897957841,
+              "mean_V": 0.28074761489013494
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.023100925878244888,
+              "mean_V": 0.07310463102686064
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.007320299911293364,
+              "mean_V": 0.5110978818331945
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.022588799804005903,
+              "mean_V": 0.18297913395502635
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.013435494009945273,
+              "mean_V": 0.5845959564644619
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.02075159936837843,
+              "mean_V": 0.10730781247867888
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.017522674417813723,
+              "mean_V": 0.21841057212162357
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.010488013142687285,
+              "mean_V": 0.5868672268002166
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 5.367561105706534e-05,
+              "mean_V": 0.7972062611806937
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.0003299904226041936,
+              "mean_V": 0.25472224772453583
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.0009549408251512194,
+              "mean_V": 0.0430438810579961
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.0008099987880085096,
+              "mean_V": 0.3129817741620682
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.0003134961062780433,
+              "mean_V": 0.6271081670509505
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.0002939460219146636,
+              "mean_V": 0.805583365476768
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.00029661947455262503,
+              "mean_V": 0.662736187901038
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.014909517022064122,
+            "gap_V": -0.15659349566915365,
+            "delta_gap": -0.17150301269121776,
+            "compression": 11.502922089120386,
+            "sign_flip": true
+          }
+        },
+        "50_random": {
+          "cond": "50_random",
+          "area": 0.5,
+          "placement": "random",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.23318410825559446,
+              "mean_V": 0.474284659126426,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.4993478688912984,
+              "mean_t": 12.363000635727909,
+              "mean_f": 2.1891290527654164,
+              "mean_u": 11627.521296884934,
+              "mean_gt_coverage": 0.7152809241420749,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.00023522672894913548,
+              "delta_V_minus_F": 0.24110055087083151
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.13257725671180962,
+              "mean_V": 0.4113904378812584,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.4993372914119159,
+              "mean_t": 4.243440233236152,
+              "mean_f": 2.316326530612245,
+              "mean_u": 4079.037172011662,
+              "mean_gt_coverage": 0.7338922130910701,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.00010602306306746462,
+              "delta_V_minus_F": 0.27881318116944875
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": -0.4230769230769231,
+              "spearman_p": 0.14974854155496814,
+              "kendall_tau": -0.23076923076923073,
+              "n_pairs": 78,
+              "n_reversed_pairs": 48,
+              "pct_reversed_pairs": 61.53846153846154
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.21428571428571433,
+              "spearman_p": 0.6445115810207203,
+              "kendall_tau": -0.14285714285714288,
+              "n_pairs": 21,
+              "n_reversed_pairs": 12,
+              "pct_reversed_pairs": 57.14285714285714
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.23020464446056424,
+              "mean_V": 0.5535542611073684
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.22475828823845131,
+              "mean_V": 0.4331201755078582
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.22030799046501434,
+              "mean_V": 0.4911146483461021
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.2132868150492413,
+              "mean_V": 0.5301472771146625
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.22839597782348045,
+              "mean_V": 0.41895165429734577
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.24421312437498505,
+              "mean_V": 0.46019129556366345
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.25290521030264995,
+              "mean_V": 0.3916238887884805
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.19774399851716754,
+              "mean_V": 0.4749790144583299
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.26562912900308633,
+              "mean_V": 0.4681700392320005
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.22241815286533237,
+              "mean_V": 0.5311884955163145
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.26388402764034496,
+              "mean_V": 0.42939228945049357
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.2382883096628822,
+              "mean_V": 0.4212911023136007
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.2293577389195281,
+              "mean_V": 0.5619764269473182
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.0898790659103303,
+              "mean_V": 0.5052407589961482
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.1587779192486123,
+              "mean_V": 0.28683198743248617
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.12537335117029716,
+              "mean_V": 0.18606451532863988
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.17059545773981405,
+              "mean_V": 0.3799166784250829
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.1676398226412498,
+              "mean_V": 0.5307515125337721
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.09404358522362533,
+              "mean_V": 0.5086540710272993
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.12173159504873846,
+              "mean_V": 0.48227354142538015
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.10060685154378485,
+            "gap_V": 0.06289422124516758,
+            "delta_gap": -0.03771263029861727,
+            "compression": 0.3748515108059459,
+            "sign_flip": false
+          }
+        }
+      },
+      "by_fill": "zero"
+    },
+    "mean": {
+      "per_condition": {
+        "0_clean": {
+          "cond": "0_clean",
+          "area": 0.0,
+          "placement": "none",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.8411039998288351,
+              "mean_V": 0.8411039998288351,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.0,
+              "mean_t": 0.0,
+              "mean_f": 0.0,
+              "mean_u": 0.0,
+              "mean_gt_coverage": 0.0,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": null,
+              "delta_V_minus_F": 0.0
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.5591206907338347,
+              "mean_V": 0.5591206907338347,
+              "mean_F_frozen": 0.5591206905623467,
+              "mean_occ_frac": 0.0,
+              "mean_t": 0.0,
+              "mean_f": 0.0,
+              "mean_u": 0.0,
+              "mean_gt_coverage": 0.0,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": null,
+              "delta_V_minus_F": 0.0
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 1.0,
+              "spearman_p": 0.0,
+              "kendall_tau": 0.9999999999999998,
+              "n_pairs": 78,
+              "n_reversed_pairs": 0,
+              "pct_reversed_pairs": 0.0
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": 1.0,
+              "spearman_p": 0.0,
+              "kendall_tau": 1.0,
+              "n_pairs": 21,
+              "n_reversed_pairs": 0,
+              "pct_reversed_pairs": 0.0
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.8394898226404438,
+              "mean_V": 0.8394898226404438
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.8316442656364065,
+              "mean_V": 0.8316442656364065
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.8603479380379639,
+              "mean_V": 0.8603479380379639
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.8424785194947291,
+              "mean_V": 0.8424785194947291
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.8646062004418408,
+              "mean_V": 0.8646062004418408
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.8638302927963105,
+              "mean_V": 0.8638302927963105
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.8445122607932337,
+              "mean_V": 0.8445122607932337
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.791859694621517,
+              "mean_V": 0.791859694621517
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.8488297470773221,
+              "mean_V": 0.8488297470773221
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.8506006612701678,
+              "mean_V": 0.8506006612701678
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.8390788241710456,
+              "mean_V": 0.8390788241710456
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.8332554599640426,
+              "mean_V": 0.8332554599640426
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.8238183108298337,
+              "mean_V": 0.8238183108298337
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.4531518872767689,
+              "mean_V": 0.4531518872767689
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.5683978024912566,
+              "mean_V": 0.5683978024912566
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.5024596259803112,
+              "mean_V": 0.5024596259803112
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.6391361780191932,
+              "mean_V": 0.6391361780191932
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.6672612960354813,
+              "mean_V": 0.6672612960354813
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.5341996585567944,
+              "mean_V": 0.5341996585567944
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.5492383867770375,
+              "mean_V": 0.5492383867770375
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.28198330909500036,
+            "gap_V": 0.28198330909500036,
+            "delta_gap": 0.0,
+            "compression": 0.0,
+            "sign_flip": false
+          }
+        },
+        "10_target": {
+          "cond": "10_target",
+          "area": 0.1,
+          "placement": "target",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.20055115494842599,
+              "mean_V": 0.3527445171582736,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.09999710519687864,
+              "mean_t": 303.5197075651621,
+              "mean_f": 55.34583598219962,
+              "mean_u": 8032.389383343929,
+              "mean_gt_coverage": 0.6896146413311799,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.028962506547083433,
+              "delta_V_minus_F": 0.1521933622098476
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.06968606609485467,
+              "mean_V": 0.33483055583899274,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.09998668323863637,
+              "mean_t": 531.6333819241983,
+              "mean_f": 353.59256559766766,
+              "mean_u": 3489.4278425655975,
+              "mean_gt_coverage": 0.9114455042209356,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.07145069680349249,
+              "delta_V_minus_F": 0.26514448974413807
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 0.46703296703296704,
+              "spearman_p": 0.1076091403991392,
+              "kendall_tau": 0.33333333333333326,
+              "n_pairs": 78,
+              "n_reversed_pairs": 26,
+              "pct_reversed_pairs": 33.33333333333333
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.28571428571428575,
+              "spearman_p": 0.5345092286010406,
+              "kendall_tau": -0.14285714285714288,
+              "n_pairs": 21,
+              "n_reversed_pairs": 12,
+              "pct_reversed_pairs": 57.14285714285714
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.19194198607923293,
+              "mean_V": 0.4037292260735709
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.23780520929603108,
+              "mean_V": 0.37596265139107354
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.2397006825026489,
+              "mean_V": 0.42743053149303045
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.13412947537645598,
+              "mean_V": 0.3485383849240759
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.22907748070543077,
+              "mean_V": 0.36752738141268243
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.1404332524349681,
+              "mean_V": 0.29644513589352267
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.1954336948418504,
+              "mean_V": 0.3016944113142593
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.16953102502330128,
+              "mean_V": 0.3030505772899117
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.2010014387245762,
+              "mean_V": 0.29108369248727195
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.27116101602881515,
+              "mean_V": 0.42957993986899884
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.24676414737119073,
+              "mean_V": 0.3420407523701158
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.1655785376335471,
+              "mean_V": 0.31136503529154996
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.1846070683114892,
+              "mean_V": 0.3872310032474936
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.031210770140199583,
+              "mean_V": 0.4711062677164901
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.1095614425643642,
+              "mean_V": 0.20155124170001187
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.05435946562870412,
+              "mean_V": 0.09386376046312533
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.03551704034326742,
+              "mean_V": 0.25721152390098734
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.07230513857032655,
+              "mean_V": 0.3791633039742717
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.05268054401576835,
+              "mean_V": 0.5538194471384098
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.1321680614013525,
+              "mean_V": 0.38709834597965276
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.13086508885357132,
+            "gap_V": 0.017913961319280858,
+            "delta_gap": -0.11295112753429046,
+            "compression": 0.863111227935471,
+            "sign_flip": false
+          }
+        },
+        "10_random": {
+          "cond": "10_random",
+          "area": 0.1,
+          "placement": "random",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.685079055391787,
+              "mean_V": 0.7455051750876226,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.09999360341890923,
+              "mean_t": 80.80801017164653,
+              "mean_f": 22.392244119516846,
+              "mean_u": 2542.357279084552,
+              "mean_gt_coverage": 0.17374562356410475,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.00832973631571603,
+              "delta_V_minus_F": 0.060426119695835556
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.41453269193944975,
+              "mean_V": 0.46121025174157876,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.09999413634255357,
+              "mean_t": 90.4067055393586,
+              "mean_f": 505.06486880466474,
+              "mean_u": 996.853498542274,
+              "mean_gt_coverage": 0.17188079800103173,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.04806611798618672,
+              "delta_V_minus_F": 0.04667755980212901
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 0.967032967032967,
+              "spearman_p": 7.064113887175154e-08,
+              "kendall_tau": 0.8717948717948716,
+              "n_pairs": 78,
+              "n_reversed_pairs": 5,
+              "pct_reversed_pairs": 6.41025641025641
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": 0.8571428571428573,
+              "spearman_p": 0.01369732661532562,
+              "kendall_tau": 0.7142857142857143,
+              "n_pairs": 21,
+              "n_reversed_pairs": 3,
+              "pct_reversed_pairs": 14.285714285714285
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.6779131290222463,
+              "mean_V": 0.7428366392281107
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.6869023632388693,
+              "mean_V": 0.7468011000163862
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.7040136494453876,
+              "mean_V": 0.7730128562809472
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.6712281999851736,
+              "mean_V": 0.7333400857574245
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.7240008847314205,
+              "mean_V": 0.7884166151567065
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.6680713345844088,
+              "mean_V": 0.7146658224243851
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.6900337870854921,
+              "mean_V": 0.7487524691385319
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.6357949569878265,
+              "mean_V": 0.6936190073505545
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.7025702285474684,
+              "mean_V": 0.7597203084764675
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.7105149600740797,
+              "mean_V": 0.7645390403487246
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.7018786872150189,
+              "mean_V": 0.7605147625340609
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.6632276442205114,
+              "mean_V": 0.7219271039158289
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.6698778949553282,
+              "mean_V": 0.7434214655109663
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.35382862716759195,
+              "mean_V": 0.3990057957459444
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.43091424816035445,
+              "mean_V": 0.4608501615614111
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.3629272547524257,
+              "mean_V": 0.3870611456763817
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.4743668507187142,
+              "mean_V": 0.5226354055780612
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.47929262741897716,
+              "mean_V": 0.5478537348240776
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.40119118038568735,
+              "mean_V": 0.4429303018026748
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.3992080549723974,
+              "mean_V": 0.4681352170025004
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.2705463634523373,
+            "gap_V": 0.28429492334604384,
+            "delta_gap": 0.013748559893706547,
+            "compression": -0.05081775899060892,
+            "sign_flip": false
+          }
+        },
+        "30_target": {
+          "cond": "30_target",
+          "area": 0.3,
+          "placement": "target",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.04526992015357827,
+              "mean_V": 0.235950181305561,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.2999716055832081,
+              "mean_t": 98.87794024157661,
+              "mean_f": 101.39415130324221,
+              "mean_u": 13695.754291163383,
+              "mean_gt_coverage": 0.9199389646002251,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.005388010990666403,
+              "delta_V_minus_F": 0.19068026115198272
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.011350042959126389,
+              "mean_V": 0.3089725471904292,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.2999522260156645,
+              "mean_t": 127.03425655976676,
+              "mean_f": 1019.8986880466472,
+              "mean_u": 5219.965743440233,
+              "mean_gt_coverage": 0.9862102295838441,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.030857481104896337,
+              "delta_V_minus_F": 0.2976225042313028
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": -0.2967032967032967,
+              "spearman_p": 0.3249215884859752,
+              "kendall_tau": -0.2051282051282051,
+              "n_pairs": 78,
+              "n_reversed_pairs": 47,
+              "pct_reversed_pairs": 60.256410256410255
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.3571428571428572,
+              "spearman_p": 0.4316113520383278,
+              "kendall_tau": -0.33333333333333337,
+              "n_pairs": 21,
+              "n_reversed_pairs": 14,
+              "pct_reversed_pairs": 66.66666666666666
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.03535023064122293,
+              "mean_V": 0.4098542229021445
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.05342443232024881,
+              "mean_V": 0.135662491527448
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.04105315468332793,
+              "mean_V": 0.285907537926857
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.02410437943643429,
+              "mean_V": 0.40393483345696785
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.07734193056311275,
+              "mean_V": 0.16000898119832174
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.03546187719374656,
+              "mean_V": 0.18521507891900268
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.04400954746224817,
+              "mean_V": 0.1282750511947196
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.037277230216541724,
+              "mean_V": 0.2522530096524842
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.04777842875073251,
+              "mean_V": 0.1259216135967485
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.05646405285658423,
+              "mean_V": 0.27880042304708624
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.06347924143931696,
+              "mean_V": 0.20230870526530054
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.03345875873274309,
+              "mean_V": 0.12329823306100174
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.039305697700257575,
+              "mean_V": 0.3759121752242104
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.0069284538171135385,
+              "mean_V": 0.45806932705413617
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.010109379715980957,
+              "mean_V": 0.09057678107075129
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.016156718329808195,
+              "mean_V": 0.03589946273367563
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.0029667284878464005,
+              "mean_V": 0.2053889698557779
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.0209383790393738,
+              "mean_V": 0.3038419649391444
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.0020233494748867504,
+              "mean_V": 0.6247358479222909
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.020327291848875068,
+              "mean_V": 0.44429547675722836
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.033919877194451886,
+            "gap_V": -0.07302236588486821,
+            "delta_gap": -0.1069422430793201,
+            "compression": 3.152789807175721,
+            "sign_flip": true
+          }
+        },
+        "30_random": {
+          "cond": "30_random",
+          "area": 0.3,
+          "placement": "random",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.39983045520144045,
+              "mean_V": 0.5300666382207185,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.2999382553168329,
+              "mean_t": 57.47838525111252,
+              "mean_f": 64.59376986649714,
+              "mean_u": 7270.8191354100445,
+              "mean_gt_coverage": 0.5036664117583238,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.0032845043837367027,
+              "delta_V_minus_F": 0.13023618301927808
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.25710826746302,
+              "mean_V": 0.379533742262612,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.29993456092405973,
+              "mean_t": 97.24344023323616,
+              "mean_f": 1291.6931486880467,
+              "mean_u": 2365.3586005830903,
+              "mean_gt_coverage": 0.4480200402691761,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.03737114278553742,
+              "delta_V_minus_F": 0.12242547479959198
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": 0.8241758241758241,
+              "spearman_p": 0.0005302228375973583,
+              "kendall_tau": 0.6666666666666665,
+              "n_pairs": 78,
+              "n_reversed_pairs": 13,
+              "pct_reversed_pairs": 16.666666666666664
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": 0.14285714285714288,
+              "spearman_p": 0.7599453002180929,
+              "kendall_tau": 0.14285714285714288,
+              "n_pairs": 21,
+              "n_reversed_pairs": 9,
+              "pct_reversed_pairs": 42.857142857142854
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.3958023687693225,
+              "mean_V": 0.5500734256897978
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.40307063567864443,
+              "mean_V": 0.5242753198343661
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.40813223823008804,
+              "mean_V": 0.5588023696424294
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.3807833181976489,
+              "mean_V": 0.5203001212074585
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.4299411156345373,
+              "mean_V": 0.5463592157821828
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.3985379276152249,
+              "mean_V": 0.5204406468557229
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.38067662895442644,
+              "mean_V": 0.47813174669032965
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.37326629762980185,
+              "mean_V": 0.5135942866111494
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.3973542216498335,
+              "mean_V": 0.49656568445139176
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.4163322609276605,
+              "mean_V": 0.5651224560950268
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.43121610562911356,
+              "mean_V": 0.5751456216401738
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.37889771548903556,
+              "mean_V": 0.4751936845356079
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.4037850832133881,
+              "mean_V": 0.5668617178337041
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.22351525369007988,
+              "mean_V": 0.3984727407203173
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.28509644234903886,
+              "mean_V": 0.34160635320138233
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.23798232718363535,
+              "mean_V": 0.2666389508069936
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.2677983192991853,
+              "mean_V": 0.35473599768448055
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.2781469785677509,
+              "mean_V": 0.44090193575829373
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.24007671347092033,
+              "mean_V": 0.4175764712706708
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.26714183768052946,
+              "mean_V": 0.43680374639614566
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.14272218773842044,
+            "gap_V": 0.15053289595810654,
+            "delta_gap": 0.007810708219686102,
+            "compression": -0.05472665703528512,
+            "sign_flip": false
+          }
+        },
+        "50_target": {
+          "cond": "50_target",
+          "area": 0.5,
+          "placement": "target",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.018771832010426558,
+              "mean_V": 0.242404727486176,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.4994034971356124,
+              "mean_t": 89.18404322949777,
+              "mean_f": 206.4297520661157,
+              "mean_u": 15233.435791481246,
+              "mean_gt_coverage": 0.9679634074696228,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.00477690619530642,
+              "delta_V_minus_F": 0.22363289547574944
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.01179074806403338,
+              "mean_V": 0.4152083043126377,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.4993790452648001,
+              "mean_t": 126.86443148688046,
+              "mean_f": 863.146501457726,
+              "mean_u": 5421.635568513119,
+              "mean_gt_coverage": 0.9957818671432883,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.015999156155037702,
+              "delta_V_minus_F": 0.4034175562486043
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": -0.7912087912087913,
+              "spearman_p": 0.0012750239017411194,
+              "kendall_tau": -0.6153846153846153,
+              "n_pairs": 78,
+              "n_reversed_pairs": 63,
+              "pct_reversed_pairs": 80.76923076923077
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.28571428571428575,
+              "spearman_p": 0.5345092286010406,
+              "kendall_tau": -0.23809523809523814,
+              "n_pairs": 21,
+              "n_reversed_pairs": 13,
+              "pct_reversed_pairs": 61.904761904761905
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.009680315324309269,
+              "mean_V": 0.498575870919552
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.01991370326968136,
+              "mean_V": 0.108040397980301
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.01893729087162016,
+              "mean_V": 0.31839988015662035
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.007513041267260123,
+              "mean_V": 0.476363152335702
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.0448707487683902,
+              "mean_V": 0.08603091953734793
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.014871845596753435,
+              "mean_V": 0.1434146132029754
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.01998155225799621,
+              "mean_V": 0.0722810087843063
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.010573839365634278,
+              "mean_V": 0.34969771781571113
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.02230070672876259,
+              "mean_V": 0.08433880554685044
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.019357855970163526,
+              "mean_V": 0.2948259733954336
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.028594214690124065,
+              "mean_V": 0.15990414297501382
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.016224817597904694,
+              "mean_V": 0.09857215076392754
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.011213884426945353,
+              "mean_V": 0.4608168239065468
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.06385701072965329,
+              "mean_V": 0.5561607837376742
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.0007856953530999961,
+              "mean_V": 0.05725576526216836
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.015861897226680386,
+              "mean_V": 0.05233649948567774
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 2.9906216134251427e-12,
+              "mean_V": 0.22448979594139948
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.0005204037953483663,
+              "mean_V": 0.6224489797211591
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 4.4134509490635304e-05,
+              "mean_V": 0.7605900913423479
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.0014660948309703713,
+              "mean_V": 0.6331762146980374
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.006981083946393178,
+            "gap_V": -0.17280357682646172,
+            "delta_gap": -0.1797846607728549,
+            "compression": 25.753115440724905,
+            "sign_flip": true
+          }
+        },
+        "50_random": {
+          "cond": "50_random",
+          "area": 0.5,
+          "placement": "random",
+          "by_unit_set": [
+            {
+              "unit_set": "ID",
+              "n_samples": 3146,
+              "mean_F": 0.2374283292045567,
+              "mean_V": 0.4227865316933223,
+              "mean_F_frozen": 0.8411039998288351,
+              "mean_occ_frac": 0.4993478688912984,
+              "mean_t": 57.11411315956771,
+              "mean_f": 109.01303242212333,
+              "mean_u": 11582.770184361094,
+              "mean_gt_coverage": 0.7152809241420749,
+              "mean_gt_area": 16511.338842975205,
+              "mean_pos_occ_frac": 0.002684559501301182,
+              "delta_V_minus_F": 0.1853582024887656
+            },
+            {
+              "unit_set": "OOD",
+              "n_samples": 1372,
+              "mean_F": 0.11875919737611683,
+              "mean_V": 0.35021055785065847,
+              "mean_F_frozen": null,
+              "mean_occ_frac": 0.4993372914119159,
+              "mean_t": 110.72886297376094,
+              "mean_f": 792.8330903790087,
+              "mean_u": 3972.551749271137,
+              "mean_gt_coverage": 0.7338922130910701,
+              "mean_gt_area": 5610.357142857143,
+              "mean_pos_occ_frac": 0.01460425559955857,
+              "delta_V_minus_F": 0.23145136047454162
+            }
+          ],
+          "rank_agreement": {
+            "ID": {
+              "n_units": 13,
+              "spearman_rho": -0.027472527472527472,
+              "spearman_p": 0.929011729160351,
+              "kendall_tau": 0.025641025641025637,
+              "n_pairs": 78,
+              "n_reversed_pairs": 38,
+              "pct_reversed_pairs": 48.717948717948715
+            },
+            "OOD": {
+              "n_units": 7,
+              "spearman_rho": -0.10714285714285716,
+              "spearman_p": 0.8191508555699912,
+              "kendall_tau": -0.14285714285714288,
+              "n_pairs": 21,
+              "n_reversed_pairs": 12,
+              "pct_reversed_pairs": 57.14285714285714
+            }
+          },
+          "unit_means": [
+            {
+              "unit_set": "ID",
+              "unit": "AttentionUNet",
+              "mean_F": 0.23327780019502123,
+              "mean_V": 0.5124045294258147
+            },
+            {
+              "unit_set": "ID",
+              "unit": "CaraNet",
+              "mean_F": 0.25011579617922086,
+              "mean_V": 0.39829085977522544
+            },
+            {
+              "unit_set": "ID",
+              "unit": "M2SNet",
+              "mean_F": 0.2222894268111469,
+              "mean_V": 0.43626016692105907
+            },
+            {
+              "unit_set": "ID",
+              "unit": "MultiResUNet",
+              "mean_F": 0.2114016687130161,
+              "mean_V": 0.4554428203870838
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PSPNet",
+              "mean_F": 0.2607316441993013,
+              "mean_V": 0.3912915549236033
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PolypPVT",
+              "mean_F": 0.2411174348300347,
+              "mean_V": 0.3888492269535056
+            },
+            {
+              "unit_set": "ID",
+              "unit": "PraNet",
+              "mean_F": 0.2332497179722226,
+              "mean_V": 0.3539906445383029
+            },
+            {
+              "unit_set": "ID",
+              "unit": "ResUNet",
+              "mean_F": 0.21460613208701765,
+              "mean_V": 0.42863318746058215
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SANet",
+              "mean_F": 0.24225041034272884,
+              "mean_V": 0.3692093368953381
+            },
+            {
+              "unit_set": "ID",
+              "unit": "SegNet",
+              "mean_F": 0.2527066664560783,
+              "mean_V": 0.4682694280196289
+            },
+            {
+              "unit_set": "ID",
+              "unit": "TransUNet",
+              "mean_F": 0.2674590029180344,
+              "mean_V": 0.44958823489315475
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UACANet",
+              "mean_F": 0.22431098938189126,
+              "mean_V": 0.3349104082742006
+            },
+            {
+              "unit_set": "ID",
+              "unit": "UNet",
+              "mean_F": 0.233051589573523,
+              "mean_V": 0.509084513545691
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "baseline",
+              "mean_F": 0.12167617773050321,
+              "mean_V": 0.43170040625655137
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_msfa",
+              "mean_F": 0.13239255714423673,
+              "mean_V": 0.21322572271106918
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "dpa_only",
+              "mean_F": 0.10697190148002236,
+              "mean_V": 0.15385307376448434
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_dpa",
+              "mean_F": 0.12536953887536287,
+              "mean_V": 0.2698353201335066
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_msfa",
+              "mean_F": 0.14042322301801868,
+              "mean_V": 0.4676962762048577
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "egm_only",
+              "mean_F": 0.09359285854572039,
+              "mean_V": 0.4704653711002277
+            },
+            {
+              "unit_set": "OOD",
+              "unit": "msfa_only",
+              "mean_F": 0.11088812483895355,
+              "mean_V": 0.4446977347839125
+            }
+          ],
+          "interdomain_gap": {
+            "gap_F": 0.11866913182843987,
+            "gap_V": 0.07257597384266384,
+            "delta_gap": -0.046093157985776026,
+            "compression": 0.38841741972472643,
+            "sign_flip": false
+          }
+        }
+      },
+      "by_fill": "mean"
+    }
+  },
+  "runtime_sec": 1104.9,
+  "throughput": {
+    "n_forward": 63252,
+    "sec_per_forward": 0.01747
+  },
+  "unit_meta": {
+    "ID/AttentionUNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/CaraNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/M2SNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/MultiResUNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/PSPNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/PolypPVT": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/PraNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/ResUNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/SANet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/SegNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/TransUNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/UACANet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "ID/UNet": {
+      "weight_format": "checkpoint_dict",
+      "n": 242
+    },
+    "OOD/baseline": {
+      "modules": {
+        "use_egm": false,
+        "use_dpa": false,
+        "use_msfa": false
+      },
+      "n": 196
+    },
+    "OOD/egm_only": {
+      "modules": {
+        "use_egm": true,
+        "use_dpa": false,
+        "use_msfa": false
+      },
+      "n": 196
+    },
+    "OOD/dpa_only": {
+      "modules": {
+        "use_egm": false,
+        "use_dpa": true,
+        "use_msfa": false
+      },
+      "n": 196
+    },
+    "OOD/msfa_only": {
+      "modules": {
+        "use_egm": false,
+        "use_dpa": false,
+        "use_msfa": true
+      },
+      "n": 196
+    },
+    "OOD/egm_dpa": {
+      "modules": {
+        "use_egm": true,
+        "use_dpa": true,
+        "use_msfa": false
+      },
+      "n": 196
+    },
+    "OOD/egm_msfa": {
+      "modules": {
+        "use_egm": true,
+        "use_dpa": false,
+        "use_msfa": true
+      },
+      "n": 196
+    },
+    "OOD/dpa_msfa": {
+      "modules": {
+        "use_egm": false,
+        "use_dpa": true,
+        "use_msfa": true
+      },
+      "n": 196
+    }
+  }
+}

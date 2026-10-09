@@ -1,0 +1,167 @@
+{
+  "n_pairs": 4,
+  "missing": [
+    {
+      "config": "dpa_only",
+      "plain": "plainUNet_bf66",
+      "have_module": true,
+      "have_capacity": false
+    },
+    {
+      "config": "msfa_only",
+      "plain": "plainUNet_bf73",
+      "have_module": true,
+      "have_capacity": false
+    },
+    {
+      "config": "dpa_msfa",
+      "plain": "plainUNet_bf74",
+      "have_module": true,
+      "have_capacity": false
+    }
+  ],
+  "pairs": [
+    {
+      "config": "baseline",
+      "plain": "plainUNet_bf64",
+      "base_filters": 64,
+      "is_null_control": true,
+      "module_etis_detection": 0.6326530612244898,
+      "capacity_etis_detection": 0.6326530612244898,
+      "module_etis_dice": 0.45315188727676886,
+      "capacity_etis_dice": 0.45315188727676886,
+      "module_id_dice": 0.819680721015582,
+      "capacity_id_dice": 0.8196866151741546,
+      "id_gate_gap_pp": 0.000589415857266129,
+      "id_gate_pass": true,
+      "id_consistency_delta": 5.89415857266129e-06,
+      "id_consistency_state": "NUMERIC_DRIFT",
+      "gain_detection_pp": 0.0,
+      "delta_detection": {
+        "point": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "crosses_zero": true
+      },
+      "delta_dice": {
+        "point": 0.0,
+        "lo": 0.0,
+        "hi": 0.0,
+        "crosses_zero": true
+      },
+      "module_n_undetected": 72,
+      "capacity_n_undetected": 72,
+      "branch": "B"
+    },
+    {
+      "config": "egm_only",
+      "plain": "plainUNet_bf71",
+      "base_filters": 71,
+      "is_null_control": false,
+      "module_etis_detection": 0.6785714285714286,
+      "capacity_etis_detection": 0.576530612244898,
+      "module_etis_dice": 0.5341996585567944,
+      "capacity_etis_dice": 0.43079437204296556,
+      "module_id_dice": 0.8667129291117589,
+      "capacity_id_dice": 0.8111786970844032,
+      "id_gate_gap_pp": 5.5534232027355745,
+      "id_gate_pass": false,
+      "id_consistency_delta": 4.8288827206866e-06,
+      "id_consistency_state": "NUMERIC_DRIFT",
+      "gain_detection_pp": 10.204081632653061,
+      "delta_detection": {
+        "point": 0.10204081632653061,
+        "lo": 0.05612244897959184,
+        "hi": 0.15318877551020338,
+        "crosses_zero": false
+      },
+      "delta_dice": {
+        "point": 0.10340528651382877,
+        "lo": 0.06091808687278897,
+        "hi": 0.14716717614991578,
+        "crosses_zero": false
+      },
+      "module_n_undetected": 63,
+      "capacity_n_undetected": 83,
+      "branch": "A"
+    },
+    {
+      "config": "egm_dpa",
+      "plain": "plainUNet_bf72",
+      "base_filters": 72,
+      "is_null_control": false,
+      "module_etis_detection": 0.8418367346938775,
+      "capacity_etis_detection": 0.6836734693877551,
+      "module_etis_dice": 0.6391361780191932,
+      "capacity_etis_dice": 0.4587679861002573,
+      "module_id_dice": 0.8695947115640474,
+      "capacity_id_dice": 0.8307373085509804,
+      "id_gate_gap_pp": 3.885740301306706,
+      "id_gate_pass": false,
+      "id_consistency_delta": 2.854761508297443e-07,
+      "id_consistency_state": "EQUIVALENT",
+      "gain_detection_pp": 15.816326530612246,
+      "delta_detection": {
+        "point": 0.15816326530612246,
+        "lo": 0.10204081632653061,
+        "hi": 0.21428571428571427,
+        "crosses_zero": false
+      },
+      "delta_dice": {
+        "point": 0.18036819191893586,
+        "lo": 0.13762996073836503,
+        "hi": 0.22773597387209885,
+        "crosses_zero": false
+      },
+      "module_n_undetected": 31,
+      "capacity_n_undetected": 62,
+      "branch": "A"
+    },
+    {
+      "config": "egm_msfa",
+      "plain": "plainUNet_bf79",
+      "base_filters": 79,
+      "is_null_control": false,
+      "module_etis_detection": 0.8520408163265306,
+      "capacity_etis_detection": 0.6071428571428571,
+      "module_etis_dice": 0.6672612960354816,
+      "capacity_etis_dice": 0.43475797956512546,
+      "module_id_dice": 0.883173281859344,
+      "capacity_id_dice": 0.826815927706225,
+      "id_gate_gap_pp": 5.635735415311894,
+      "id_gate_pass": false,
+      "id_consistency_delta": 1.0215575242389363e-06,
+      "id_consistency_state": "NUMERIC_DRIFT",
+      "gain_detection_pp": 24.489795918367353,
+      "delta_detection": {
+        "point": 0.24489795918367346,
+        "lo": 0.1836734693877551,
+        "hi": 0.3112244897959184,
+        "crosses_zero": false
+      },
+      "delta_dice": {
+        "point": 0.23250331647035596,
+        "lo": 0.18378160147400457,
+        "hi": 0.28259227371462026,
+        "crosses_zero": false
+      },
+      "module_n_undetected": 29,
+      "capacity_n_undetected": 77,
+      "branch": "A"
+    }
+  ],
+  "eval_errors": {},
+  "frozen": {
+    "ID_GATE_PP": 1.0,
+    "BRANCH_A_PP": 5.0,
+    "detection": "I >= 1 px (no-eps)",
+    "eps": 1e-08,
+    "id_consist_tiers": {
+      "IDENTICAL": 1e-09,
+      "EQUIVALENT": 1e-06,
+      "NUMERIC_DRIFT": 0.0001,
+      "MISMATCH": ">0.0001"
+    },
+    "boot": "B=2000, seed=42, 配对百分位法"
+  }
+}

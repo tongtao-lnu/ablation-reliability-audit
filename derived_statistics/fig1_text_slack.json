@@ -1,0 +1,1046 @@
+{
+ "tall": [
+  {
+   "text": "P  prediction",
+   "pt": 8.0,
+   "w_mm": 17.13,
+   "cap_mm": 18.0,
+   "slack_mm": 0.87,
+   "what": "txt"
+  },
+  {
+   "text": "Dice =",
+   "pt": 8.5,
+   "w_mm": 8.93,
+   "cap_mm": 9.82,
+   "slack_mm": 0.89,
+   "what": "txt"
+  },
+  {
+   "text": "G  annotation",
+   "pt": 8.0,
+   "w_mm": 17.03,
+   "cap_mm": 18.0,
+   "slack_mm": 0.97,
+   "what": "txt"
+  },
+  {
+   "text": "Dice = 2|P∩G| / (|P|+|G|)",
+   "pt": 8.0,
+   "w_mm": 31.94,
+   "cap_mm": 33.3,
+   "slack_mm": 1.36,
+   "what": "rbox"
+  },
+  {
+   "text": "D   A 0.63–0.76   B 0.79–0",
+   "pt": 8.0,
+   "w_mm": 55.3,
+   "cap_mm": 57.0,
+   "slack_mm": 1.7,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.984",
+   "pt": 8.0,
+   "w_mm": 17.07,
+   "cap_mm": 19.0,
+   "slack_mm": 1.93,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.985",
+   "pt": 8.0,
+   "w_mm": 17.07,
+   "cap_mm": 19.0,
+   "slack_mm": 1.93,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.527",
+   "pt": 8.0,
+   "w_mm": 17.07,
+   "cap_mm": 19.0,
+   "slack_mm": 1.93,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.987",
+   "pt": 8.0,
+   "w_mm": 17.07,
+   "cap_mm": 19.0,
+   "slack_mm": 1.93,
+   "what": "txt"
+  },
+  {
+   "text": "segmentation/model",
+   "pt": 8.0,
+   "w_mm": 16.97,
+   "cap_mm": 19.2,
+   "slack_mm": 2.23,
+   "what": "rbox"
+  },
+  {
+   "text": "Q   A 0.75–0.83   B 0.72–0",
+   "pt": 8.0,
+   "w_mm": 54.28,
+   "cap_mm": 57.0,
+   "slack_mm": 2.72,
+   "what": "txt"
+  },
+  {
+   "text": "∩",
+   "pt": 8.5,
+   "w_mm": 2.16,
+   "cap_mm": 6.02,
+   "slack_mm": 3.86,
+   "what": "opcir"
+  },
+  {
+   "text": "gate closed",
+   "pt": 8.0,
+   "w_mm": 15.67,
+   "cap_mm": 19.6,
+   "slack_mm": 3.93,
+   "what": "txt"
+  },
+  {
+   "text": "gate closed",
+   "pt": 8.0,
+   "w_mm": 15.67,
+   "cap_mm": 19.6,
+   "slack_mm": 3.93,
+   "what": "txt"
+  },
+  {
+   "text": "∩",
+   "pt": 8.0,
+   "w_mm": 2.03,
+   "cap_mm": 6.02,
+   "slack_mm": 3.98,
+   "what": "opcir"
+  },
+  {
+   "text": "×",
+   "pt": 8.5,
+   "w_mm": 1.75,
+   "cap_mm": 6.02,
+   "slack_mm": 4.27,
+   "what": "opcir"
+  },
+  {
+   "text": "×",
+   "pt": 8.0,
+   "w_mm": 1.65,
+   "cap_mm": 6.02,
+   "slack_mm": 4.37,
+   "what": "opcir"
+  },
+  {
+   "text": "Dice 0.984",
+   "pt": 8.0,
+   "w_mm": 13.89,
+   "cap_mm": 19.0,
+   "slack_mm": 5.11,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.987",
+   "pt": 8.0,
+   "w_mm": 13.89,
+   "cap_mm": 19.0,
+   "slack_mm": 5.11,
+   "what": "txt"
+  },
+  {
+   "text": "D 0 · Q n/a",
+   "pt": 8.0,
+   "w_mm": 13.89,
+   "cap_mm": 19.0,
+   "slack_mm": 5.11,
+   "what": "txt"
+  },
+  {
+   "text": "D 0 · Q n/a",
+   "pt": 8.0,
+   "w_mm": 13.89,
+   "cap_mm": 19.0,
+   "slack_mm": 5.11,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.985",
+   "pt": 8.0,
+   "w_mm": 13.86,
+   "cap_mm": 19.0,
+   "slack_mm": 5.14,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.527",
+   "pt": 8.0,
+   "w_mm": 13.86,
+   "cap_mm": 19.0,
+   "slack_mm": 5.14,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.000",
+   "pt": 8.0,
+   "w_mm": 13.79,
+   "cap_mm": 19.0,
+   "slack_mm": 5.21,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.000",
+   "pt": 8.0,
+   "w_mm": 13.79,
+   "cap_mm": 19.0,
+   "slack_mm": 5.21,
+   "what": "txt"
+  },
+  {
+   "text": "multiplicative gate",
+   "pt": 8.0,
+   "w_mm": 22.53,
+   "cap_mm": 27.96,
+   "slack_mm": 5.43,
+   "what": "txt"
+  },
+  {
+   "text": "no output",
+   "pt": 8.0,
+   "w_mm": 13.0,
+   "cap_mm": 18.7,
+   "slack_mm": 5.7,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.38,
+   "cap_mm": 19.6,
+   "slack_mm": 6.22,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.38,
+   "cap_mm": 19.6,
+   "slack_mm": 6.22,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.38,
+   "cap_mm": 19.6,
+   "slack_mm": 6.22,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.38,
+   "cap_mm": 19.6,
+   "slack_mm": 6.22,
+   "what": "txt"
+  },
+  {
+   "text": "never closes in-domain",
+   "pt": 8.0,
+   "w_mm": 29.05,
+   "cap_mm": 36.83,
+   "slack_mm": 7.78,
+   "what": "rbox"
+  },
+  {
+   "text": "where the gate is open",
+   "pt": 8.0,
+   "w_mm": 28.63,
+   "cap_mm": 36.83,
+   "slack_mm": 8.19,
+   "what": "rbox"
+  },
+  {
+   "text": "set intersection",
+   "pt": 8.0,
+   "w_mm": 19.0,
+   "cap_mm": 27.96,
+   "slack_mm": 8.96,
+   "what": "txt"
+  },
+  {
+   "text": "3  P  vs  G",
+   "pt": 8.0,
+   "w_mm": 13.22,
+   "cap_mm": 22.5,
+   "slack_mm": 9.28,
+   "what": "step chip"
+  },
+  {
+   "text": "EGM + DPA  (B)",
+   "pt": 8.0,
+   "w_mm": 20.5,
+   "cap_mm": 29.92,
+   "slack_mm": 9.43,
+   "what": "txt"
+  },
+  {
+   "text": "and the cross-domain gap i",
+   "pt": 9.0,
+   "w_mm": 49.64,
+   "cap_mm": 59.52,
+   "slack_mm": 9.89,
+   "what": "panel_title"
+  },
+  {
+   "text": "4  overlap",
+   "pt": 8.0,
+   "w_mm": 12.46,
+   "cap_mm": 22.5,
+   "slack_mm": 10.04,
+   "what": "step chip"
+  },
+  {
+   "text": "a 0/1 gate per image",
+   "pt": 8.0,
+   "w_mm": 25.96,
+   "cap_mm": 36.83,
+   "slack_mm": 10.86,
+   "what": "rbox"
+  },
+  {
+   "text": "it drives cross-domain var",
+   "pt": 9.0,
+   "w_mm": 47.73,
+   "cap_mm": 58.67,
+   "slack_mm": 10.93,
+   "what": "panel_title"
+  },
+  {
+   "text": "MSFA only  (A)",
+   "pt": 8.0,
+   "w_mm": 18.85,
+   "cap_mm": 29.92,
+   "slack_mm": 11.08,
+   "what": "txt"
+  },
+  {
+   "text": "D ≡ 1  →  Dice ≡ Q",
+   "pt": 8.5,
+   "w_mm": 25.61,
+   "cap_mm": 36.83,
+   "slack_mm": 11.21,
+   "what": "rbox"
+  },
+  {
+   "text": "2 × covariance",
+   "pt": 8.0,
+   "w_mm": 18.46,
+   "cap_mm": 29.92,
+   "slack_mm": 11.46,
+   "what": "txt"
+  },
+  {
+   "text": "1  image",
+   "pt": 8.0,
+   "w_mm": 10.84,
+   "cap_mm": 22.5,
+   "slack_mm": 11.66,
+   "what": "step chip"
+  },
+  {
+   "text": "2  model",
+   "pt": 8.0,
+   "w_mm": 10.84,
+   "cap_mm": 22.5,
+   "slack_mm": 11.66,
+   "what": "step chip"
+  },
+  {
+   "text": "Detection D moves, Q does ",
+   "pt": 9.0,
+   "w_mm": 46.94,
+   "cap_mm": 58.86,
+   "slack_mm": 11.92,
+   "what": "panel_title"
+  },
+  {
+   "text": "ignoring 2×cov inflates de",
+   "pt": 8.0,
+   "w_mm": 50.05,
+   "cap_mm": 63.0,
+   "slack_mm": 12.95,
+   "what": "txt"
+  },
+  {
+   "text": "5  Dice",
+   "pt": 8.0,
+   "w_mm": 8.83,
+   "cap_mm": 22.5,
+   "slack_mm": 13.67,
+   "what": "step chip"
+  },
+  {
+   "text": "FP  spurious",
+   "pt": 8.0,
+   "w_mm": 15.86,
+   "cap_mm": 29.92,
+   "slack_mm": 14.07,
+   "what": "txt"
+  },
+  {
+   "text": "FN  missed",
+   "pt": 8.0,
+   "w_mm": 14.24,
+   "cap_mm": 29.92,
+   "slack_mm": 15.69,
+   "what": "txt"
+  },
+  {
+   "text": "TP  (found)",
+   "pt": 8.0,
+   "w_mm": 14.08,
+   "cap_mm": 29.92,
+   "slack_mm": 15.85,
+   "what": "txt"
+  },
+  {
+   "text": "delineation",
+   "pt": 8.0,
+   "w_mm": 13.67,
+   "cap_mm": 29.92,
+   "slack_mm": 16.26,
+   "what": "txt"
+  },
+  {
+   "text": "Q  delineation",
+   "pt": 8.5,
+   "w_mm": 19.86,
+   "cap_mm": 36.83,
+   "slack_mm": 16.96,
+   "what": "rbox"
+  },
+  {
+   "text": "detection",
+   "pt": 8.0,
+   "w_mm": 11.44,
+   "cap_mm": 29.92,
+   "slack_mm": 18.48,
+   "what": "txt"
+  },
+  {
+   "text": "cross-domain   ETIS   (D c",
+   "pt": 8.0,
+   "w_mm": 47.35,
+   "cap_mm": 66.3,
+   "slack_mm": 18.95,
+   "what": "txt"
+  },
+  {
+   "text": "D  detection",
+   "pt": 8.5,
+   "w_mm": 17.16,
+   "cap_mm": 36.83,
+   "slack_mm": 19.67,
+   "what": "rbox"
+  },
+  {
+   "text": "operator",
+   "pt": 8.0,
+   "w_mm": 11.5,
+   "cap_mm": 32.17,
+   "slack_mm": 20.67,
+   "what": "txt"
+  },
+  {
+   "text": "overlap",
+   "pt": 8.0,
+   "w_mm": 10.11,
+   "cap_mm": 32.17,
+   "slack_mm": 22.07,
+   "what": "txt"
+  },
+  {
+   "text": "config",
+   "pt": 8.0,
+   "w_mm": 8.55,
+   "cap_mm": 32.17,
+   "slack_mm": 23.63,
+   "what": "txt"
+  },
+  {
+   "text": "in-domain   Kvasir-SEG   (",
+   "pt": 8.0,
+   "w_mm": 42.62,
+   "cap_mm": 66.3,
+   "slack_mm": 23.68,
+   "what": "txt"
+  },
+  {
+   "text": "factor",
+   "pt": 8.0,
+   "w_mm": 7.88,
+   "cap_mm": 32.17,
+   "slack_mm": 24.29,
+   "what": "txt"
+  },
+  {
+   "text": "so the ranking inverts",
+   "pt": 9.0,
+   "w_mm": 33.08,
+   "cap_mm": 58.83,
+   "slack_mm": 25.74,
+   "what": "panel_title"
+  },
+  {
+   "text": "Six cases, four readings: ",
+   "pt": 9.0,
+   "w_mm": 101.6,
+   "cap_mm": 131.09,
+   "slack_mm": 29.49,
+   "what": "panel_title"
+  },
+  {
+   "text": "A Dice score is one number",
+   "pt": 9.0,
+   "w_mm": 99.28,
+   "cap_mm": 131.31,
+   "slack_mm": 32.03,
+   "what": "panel_title"
+  },
+  {
+   "text": "Kvasir-SEG case:  TP 60776",
+   "pt": 8.0,
+   "w_mm": 82.21,
+   "cap_mm": 132.0,
+   "slack_mm": 49.79,
+   "what": "txt"
+  }
+ ],
+ "wide": [
+  {
+   "text": "P  prediction",
+   "pt": 8.0,
+   "w_mm": 17.12,
+   "cap_mm": 18.0,
+   "slack_mm": 0.88,
+   "what": "txt"
+  },
+  {
+   "text": "Dice =",
+   "pt": 8.5,
+   "w_mm": 8.92,
+   "cap_mm": 9.82,
+   "slack_mm": 0.9,
+   "what": "txt"
+  },
+  {
+   "text": "G  annotation",
+   "pt": 8.0,
+   "w_mm": 17.02,
+   "cap_mm": 18.0,
+   "slack_mm": 0.98,
+   "what": "txt"
+  },
+  {
+   "text": "Dice = 2|P∩G| / (|P|+|G|)",
+   "pt": 8.0,
+   "w_mm": 31.91,
+   "cap_mm": 33.3,
+   "slack_mm": 1.39,
+   "what": "rbox"
+  },
+  {
+   "text": "D   A 0.63–0.76   B 0.79–0",
+   "pt": 8.0,
+   "w_mm": 55.25,
+   "cap_mm": 57.0,
+   "slack_mm": 1.75,
+   "what": "txt"
+  },
+  {
+   "text": "segmentation/model",
+   "pt": 8.0,
+   "w_mm": 16.96,
+   "cap_mm": 19.2,
+   "slack_mm": 2.24,
+   "what": "rbox"
+  },
+  {
+   "text": "Q   A 0.75–0.83   B 0.72–0",
+   "pt": 8.0,
+   "w_mm": 54.24,
+   "cap_mm": 57.0,
+   "slack_mm": 2.76,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.984",
+   "pt": 8.0,
+   "w_mm": 17.05,
+   "cap_mm": 20.24,
+   "slack_mm": 3.19,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.985",
+   "pt": 8.0,
+   "w_mm": 17.05,
+   "cap_mm": 20.24,
+   "slack_mm": 3.19,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.527",
+   "pt": 8.0,
+   "w_mm": 17.05,
+   "cap_mm": 20.24,
+   "slack_mm": 3.19,
+   "what": "txt"
+  },
+  {
+   "text": "D 1 · Q 0.987",
+   "pt": 8.0,
+   "w_mm": 17.05,
+   "cap_mm": 20.24,
+   "slack_mm": 3.19,
+   "what": "txt"
+  },
+  {
+   "text": "∩",
+   "pt": 8.5,
+   "w_mm": 2.16,
+   "cap_mm": 6.02,
+   "slack_mm": 3.86,
+   "what": "opcir"
+  },
+  {
+   "text": "∩",
+   "pt": 8.0,
+   "w_mm": 2.03,
+   "cap_mm": 6.02,
+   "slack_mm": 3.99,
+   "what": "opcir"
+  },
+  {
+   "text": "×",
+   "pt": 8.5,
+   "w_mm": 1.75,
+   "cap_mm": 6.02,
+   "slack_mm": 4.27,
+   "what": "opcir"
+  },
+  {
+   "text": "×",
+   "pt": 8.0,
+   "w_mm": 1.65,
+   "cap_mm": 6.02,
+   "slack_mm": 4.37,
+   "what": "opcir"
+  },
+  {
+   "text": "gate closed",
+   "pt": 8.0,
+   "w_mm": 15.66,
+   "cap_mm": 20.84,
+   "slack_mm": 5.18,
+   "what": "txt"
+  },
+  {
+   "text": "gate closed",
+   "pt": 8.0,
+   "w_mm": 15.66,
+   "cap_mm": 20.84,
+   "slack_mm": 5.18,
+   "what": "txt"
+  },
+  {
+   "text": "multiplicative gate",
+   "pt": 8.0,
+   "w_mm": 22.51,
+   "cap_mm": 28.02,
+   "slack_mm": 5.5,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.984",
+   "pt": 8.0,
+   "w_mm": 13.88,
+   "cap_mm": 20.24,
+   "slack_mm": 6.36,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.987",
+   "pt": 8.0,
+   "w_mm": 13.88,
+   "cap_mm": 20.24,
+   "slack_mm": 6.36,
+   "what": "txt"
+  },
+  {
+   "text": "D 0 · Q n/a",
+   "pt": 8.0,
+   "w_mm": 13.88,
+   "cap_mm": 20.24,
+   "slack_mm": 6.36,
+   "what": "txt"
+  },
+  {
+   "text": "D 0 · Q n/a",
+   "pt": 8.0,
+   "w_mm": 13.88,
+   "cap_mm": 20.24,
+   "slack_mm": 6.36,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.985",
+   "pt": 8.0,
+   "w_mm": 13.84,
+   "cap_mm": 20.24,
+   "slack_mm": 6.39,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.527",
+   "pt": 8.0,
+   "w_mm": 13.84,
+   "cap_mm": 20.24,
+   "slack_mm": 6.39,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.000",
+   "pt": 8.0,
+   "w_mm": 13.78,
+   "cap_mm": 20.24,
+   "slack_mm": 6.46,
+   "what": "txt"
+  },
+  {
+   "text": "Dice 0.000",
+   "pt": 8.0,
+   "w_mm": 13.78,
+   "cap_mm": 20.24,
+   "slack_mm": 6.46,
+   "what": "txt"
+  },
+  {
+   "text": "no output",
+   "pt": 8.0,
+   "w_mm": 12.99,
+   "cap_mm": 19.94,
+   "slack_mm": 6.95,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.37,
+   "cap_mm": 20.84,
+   "slack_mm": 7.47,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.37,
+   "cap_mm": 20.84,
+   "slack_mm": 7.47,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.37,
+   "cap_mm": 20.84,
+   "slack_mm": 7.47,
+   "what": "txt"
+  },
+  {
+   "text": "gate open",
+   "pt": 8.0,
+   "w_mm": 13.37,
+   "cap_mm": 20.84,
+   "slack_mm": 7.47,
+   "what": "txt"
+  },
+  {
+   "text": "set intersection",
+   "pt": 8.0,
+   "w_mm": 18.99,
+   "cap_mm": 28.02,
+   "slack_mm": 9.03,
+   "what": "txt"
+  },
+  {
+   "text": "EGM + DPA  (B)",
+   "pt": 8.0,
+   "w_mm": 20.48,
+   "cap_mm": 29.98,
+   "slack_mm": 9.5,
+   "what": "txt"
+  },
+  {
+   "text": "never closes in-domain",
+   "pt": 8.0,
+   "w_mm": 29.02,
+   "cap_mm": 39.3,
+   "slack_mm": 10.28,
+   "what": "rbox"
+  },
+  {
+   "text": "where the gate is open",
+   "pt": 8.0,
+   "w_mm": 28.61,
+   "cap_mm": 39.3,
+   "slack_mm": 10.69,
+   "what": "rbox"
+  },
+  {
+   "text": "3  P  vs  G",
+   "pt": 8.0,
+   "w_mm": 13.21,
+   "cap_mm": 23.99,
+   "slack_mm": 10.78,
+   "what": "step chip"
+  },
+  {
+   "text": "MSFA only  (A)",
+   "pt": 8.0,
+   "w_mm": 18.83,
+   "cap_mm": 29.98,
+   "slack_mm": 11.15,
+   "what": "txt"
+  },
+  {
+   "text": "2 × covariance",
+   "pt": 8.0,
+   "w_mm": 18.45,
+   "cap_mm": 29.98,
+   "slack_mm": 11.53,
+   "what": "txt"
+  },
+  {
+   "text": "4  overlap",
+   "pt": 8.0,
+   "w_mm": 12.45,
+   "cap_mm": 23.99,
+   "slack_mm": 11.54,
+   "what": "step chip"
+  },
+  {
+   "text": "ignoring 2×cov inflates de",
+   "pt": 8.0,
+   "w_mm": 50.01,
+   "cap_mm": 63.0,
+   "slack_mm": 12.99,
+   "what": "txt"
+  },
+  {
+   "text": "1  image",
+   "pt": 8.0,
+   "w_mm": 10.83,
+   "cap_mm": 23.99,
+   "slack_mm": 13.16,
+   "what": "step chip"
+  },
+  {
+   "text": "2  model",
+   "pt": 8.0,
+   "w_mm": 10.83,
+   "cap_mm": 23.99,
+   "slack_mm": 13.16,
+   "what": "step chip"
+  },
+  {
+   "text": "a 0/1 gate per image",
+   "pt": 8.0,
+   "w_mm": 25.94,
+   "cap_mm": 39.3,
+   "slack_mm": 13.36,
+   "what": "rbox"
+  },
+  {
+   "text": "and the cross-domain gap i",
+   "pt": 9.0,
+   "w_mm": 49.6,
+   "cap_mm": 63.24,
+   "slack_mm": 13.64,
+   "what": "panel_title"
+  },
+  {
+   "text": "D ≡ 1  →  Dice ≡ Q",
+   "pt": 8.5,
+   "w_mm": 25.59,
+   "cap_mm": 39.3,
+   "slack_mm": 13.71,
+   "what": "rbox"
+  },
+  {
+   "text": "FP  spurious",
+   "pt": 8.0,
+   "w_mm": 15.85,
+   "cap_mm": 29.98,
+   "slack_mm": 14.14,
+   "what": "txt"
+  },
+  {
+   "text": "it drives cross-domain var",
+   "pt": 9.0,
+   "w_mm": 47.7,
+   "cap_mm": 62.38,
+   "slack_mm": 14.69,
+   "what": "panel_title"
+  },
+  {
+   "text": "5  Dice",
+   "pt": 8.0,
+   "w_mm": 8.83,
+   "cap_mm": 23.99,
+   "slack_mm": 15.16,
+   "what": "step chip"
+  },
+  {
+   "text": "Detection D moves, Q does ",
+   "pt": 9.0,
+   "w_mm": 46.9,
+   "cap_mm": 62.57,
+   "slack_mm": 15.67,
+   "what": "panel_title"
+  },
+  {
+   "text": "FN  missed",
+   "pt": 8.0,
+   "w_mm": 14.23,
+   "cap_mm": 29.98,
+   "slack_mm": 15.76,
+   "what": "txt"
+  },
+  {
+   "text": "TP  (found)",
+   "pt": 8.0,
+   "w_mm": 14.07,
+   "cap_mm": 29.98,
+   "slack_mm": 15.92,
+   "what": "txt"
+  },
+  {
+   "text": "delineation",
+   "pt": 8.0,
+   "w_mm": 13.65,
+   "cap_mm": 29.98,
+   "slack_mm": 16.33,
+   "what": "txt"
+  },
+  {
+   "text": "detection",
+   "pt": 8.0,
+   "w_mm": 11.43,
+   "cap_mm": 29.98,
+   "slack_mm": 18.55,
+   "what": "txt"
+  },
+  {
+   "text": "Q  delineation",
+   "pt": 8.5,
+   "w_mm": 19.85,
+   "cap_mm": 39.3,
+   "slack_mm": 19.46,
+   "what": "rbox"
+  },
+  {
+   "text": "operator",
+   "pt": 8.0,
+   "w_mm": 11.5,
+   "cap_mm": 32.23,
+   "slack_mm": 20.74,
+   "what": "txt"
+  },
+  {
+   "text": "overlap",
+   "pt": 8.0,
+   "w_mm": 10.1,
+   "cap_mm": 32.23,
+   "slack_mm": 22.14,
+   "what": "txt"
+  },
+  {
+   "text": "D  detection",
+   "pt": 8.5,
+   "w_mm": 17.15,
+   "cap_mm": 39.3,
+   "slack_mm": 22.16,
+   "what": "rbox"
+  },
+  {
+   "text": "cross-domain   ETIS   (D c",
+   "pt": 8.0,
+   "w_mm": 47.31,
+   "cap_mm": 70.02,
+   "slack_mm": 22.7,
+   "what": "txt"
+  },
+  {
+   "text": "config",
+   "pt": 8.0,
+   "w_mm": 8.54,
+   "cap_mm": 32.23,
+   "slack_mm": 23.69,
+   "what": "txt"
+  },
+  {
+   "text": "factor",
+   "pt": 8.0,
+   "w_mm": 7.88,
+   "cap_mm": 32.23,
+   "slack_mm": 24.36,
+   "what": "txt"
+  },
+  {
+   "text": "in-domain   Kvasir-SEG   (",
+   "pt": 8.0,
+   "w_mm": 42.58,
+   "cap_mm": 70.02,
+   "slack_mm": 27.43,
+   "what": "txt"
+  },
+  {
+   "text": "so the ranking inverts",
+   "pt": 9.0,
+   "w_mm": 33.06,
+   "cap_mm": 62.54,
+   "slack_mm": 29.49,
+   "what": "panel_title"
+  },
+  {
+   "text": "Six cases, four readings: ",
+   "pt": 9.0,
+   "w_mm": 101.52,
+   "cap_mm": 138.52,
+   "slack_mm": 37.0,
+   "what": "panel_title"
+  },
+  {
+   "text": "A Dice score is one number",
+   "pt": 9.0,
+   "w_mm": 99.2,
+   "cap_mm": 138.74,
+   "slack_mm": 39.54,
+   "what": "panel_title"
+  },
+  {
+   "text": "Kvasir-SEG case:  TP 60776",
+   "pt": 8.0,
+   "w_mm": 82.15,
+   "cap_mm": 139.43,
+   "slack_mm": 57.28,
+   "what": "txt"
+  }
+ ]
+}

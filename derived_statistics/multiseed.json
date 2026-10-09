@@ -1,0 +1,564 @@
+{
+  "segment": "P3-3",
+  "kind": "multiseed_h4",
+  "generated_at": "2026-09-20T12:21:53",
+  "script": "02_code/analysis/p3_3_multiseed_eval.py",
+  "spec": "00_docs/P3-3规格冻结_2026-09-15.md",
+  "seeds": [
+    42,
+    123,
+    2024
+  ],
+  "configs": [
+    "msfa_only",
+    "dpa_msfa",
+    "egm_msfa",
+    "egm_dpa_msfa",
+    "egm_dpa"
+  ],
+  "protocol": {
+    "ood_data": "data_zeroshot/etis",
+    "n_ood": 196,
+    "eps_ood": 1e-06,
+    "id_source": "results.json::test_metrics.Dice (eps=1e-8)",
+    "binarize": "sigmoid>0.5",
+    "autocast": true,
+    "tie_tol": 1e-06,
+    "gate_tol": 1e-06
+  },
+  "gate_g2": {
+    "ok": true,
+    "rows": [
+      {
+        "config": "msfa_only",
+        "got": 54.92383870691737,
+        "expected": 54.923838456478634,
+        "delta": 2.5043873819186047e-07,
+        "ok": true
+      },
+      {
+        "config": "dpa_msfa",
+        "got": 56.83978028617565,
+        "expected": 56.839780358810785,
+        "delta": 7.263513168709324e-08,
+        "ok": true
+      },
+      {
+        "config": "egm_msfa",
+        "got": 66.72612963268027,
+        "expected": 66.72612952678554,
+        "delta": 1.0589472765332175e-07,
+        "ok": true
+      },
+      {
+        "config": "egm_dpa_msfa",
+        "got": 65.50365702441032,
+        "expected": 65.5036571034353,
+        "delta": 7.902498566636496e-08,
+        "ok": true
+      },
+      {
+        "config": "egm_dpa",
+        "got": 63.91361783131752,
+        "expected": 63.913617849793305,
+        "delta": 1.8475788010619e-08,
+        "ok": true
+      }
+    ]
+  },
+  "per_seed": {
+    "42": {
+      "id_dice": {
+        "msfa_only": 0.8746076873459224,
+        "dpa_msfa": 0.8711658362464941,
+        "egm_msfa": 0.883173281859344,
+        "egm_dpa_msfa": 0.895885044772858,
+        "egm_dpa": 0.8695947115640474
+      },
+      "ood_dice": {
+        "msfa_only": 0.5492383870691737,
+        "dpa_msfa": 0.5683978028617566,
+        "egm_msfa": 0.6672612963268026,
+        "egm_dpa_msfa": 0.6550365702441031,
+        "egm_dpa": 0.6391361783131752
+      },
+      "id_rank": {
+        "egm_dpa_msfa": 1,
+        "egm_msfa": 2,
+        "msfa_only": 3,
+        "dpa_msfa": 4,
+        "egm_dpa": 5
+      },
+      "ood_rank": {
+        "egm_msfa": 1,
+        "egm_dpa_msfa": 2,
+        "egm_dpa": 3,
+        "dpa_msfa": 4,
+        "msfa_only": 5
+      },
+      "reversals": [
+        {
+          "a": "dpa_msfa",
+          "b": "egm_dpa",
+          "d_id": 0.0015711246824466896,
+          "d_ood": -0.07073837545141859,
+          "winner_id": "dpa_msfa",
+          "winner_ood": "egm_dpa",
+          "amp": 45.024036756432814
+        },
+        {
+          "a": "dpa_msfa",
+          "b": "msfa_only",
+          "d_id": -0.0034418510994282947,
+          "d_ood": 0.019159415792582846,
+          "winner_id": "msfa_only",
+          "winner_ood": "dpa_msfa",
+          "amp": 5.566602168166224
+        },
+        {
+          "a": "egm_dpa",
+          "b": "msfa_only",
+          "d_id": -0.005012975781874984,
+          "d_ood": 0.08989779124400143,
+          "winner_id": "msfa_only",
+          "winner_ood": "egm_dpa",
+          "amp": 17.933019259545937
+        },
+        {
+          "a": "egm_dpa_msfa",
+          "b": "egm_msfa",
+          "d_id": 0.012711762913514058,
+          "d_ood": -0.012224726082699533,
+          "winner_id": "egm_dpa_msfa",
+          "winner_ood": "egm_msfa",
+          "amp": 0.9616861300727416
+        }
+      ],
+      "ties": [],
+      "n_reversals": 4,
+      "flagship": {
+        "a": "egm_dpa",
+        "b": "msfa_only",
+        "d_id": -0.005012975781874984,
+        "d_ood": 0.08989779124400143,
+        "id_tie": false,
+        "ood_tie": false,
+        "reversed": true,
+        "winner_id": "msfa_only",
+        "winner_ood": "egm_dpa"
+      }
+    },
+    "123": {
+      "id_dice": {
+        "msfa_only": 0.8729794245598864,
+        "dpa_msfa": 0.8664599240523516,
+        "egm_msfa": 0.8858275986762612,
+        "egm_dpa_msfa": 0.8784680209853575,
+        "egm_dpa": 0.8829341227536475
+      },
+      "ood_dice": {
+        "msfa_only": 0.5467317924652995,
+        "dpa_msfa": 0.5318723252648979,
+        "egm_msfa": 0.6523799407773693,
+        "egm_dpa_msfa": 0.6185425609649614,
+        "egm_dpa": 0.6199750351192762
+      },
+      "id_rank": {
+        "egm_msfa": 1,
+        "egm_dpa": 2,
+        "egm_dpa_msfa": 3,
+        "msfa_only": 4,
+        "dpa_msfa": 5
+      },
+      "ood_rank": {
+        "egm_msfa": 1,
+        "egm_dpa": 2,
+        "egm_dpa_msfa": 3,
+        "msfa_only": 4,
+        "dpa_msfa": 5
+      },
+      "reversals": [],
+      "ties": [],
+      "n_reversals": 0,
+      "flagship": {
+        "a": "egm_dpa",
+        "b": "msfa_only",
+        "d_id": 0.009954698193761047,
+        "d_ood": 0.07324324265397675,
+        "id_tie": false,
+        "ood_tie": false,
+        "reversed": false,
+        "winner_id": "egm_dpa",
+        "winner_ood": "egm_dpa"
+      }
+    },
+    "2024": {
+      "id_dice": {
+        "msfa_only": 0.8743163499077626,
+        "dpa_msfa": 0.8724784453058324,
+        "egm_msfa": 0.8907774394953991,
+        "egm_dpa_msfa": 0.8867988989488443,
+        "egm_dpa": 0.8755781248264984
+      },
+      "ood_dice": {
+        "msfa_only": 0.5613275284331509,
+        "dpa_msfa": 0.557389225997366,
+        "egm_msfa": 0.6210241237817988,
+        "egm_dpa_msfa": 0.6364133028755669,
+        "egm_dpa": 0.5837437127131159
+      },
+      "id_rank": {
+        "egm_msfa": 1,
+        "egm_dpa_msfa": 2,
+        "egm_dpa": 3,
+        "msfa_only": 4,
+        "dpa_msfa": 5
+      },
+      "ood_rank": {
+        "egm_dpa_msfa": 1,
+        "egm_msfa": 2,
+        "egm_dpa": 3,
+        "msfa_only": 4,
+        "dpa_msfa": 5
+      },
+      "reversals": [
+        {
+          "a": "egm_dpa_msfa",
+          "b": "egm_msfa",
+          "d_id": -0.003978540546554776,
+          "d_ood": 0.015389179093768024,
+          "winner_id": "egm_msfa",
+          "winner_ood": "egm_dpa_msfa",
+          "amp": 3.8680463133885388
+        }
+      ],
+      "ties": [],
+      "n_reversals": 1,
+      "flagship": {
+        "a": "egm_dpa",
+        "b": "msfa_only",
+        "d_id": 0.001261774918735803,
+        "d_ood": 0.022416184279964946,
+        "id_tie": false,
+        "ood_tie": false,
+        "reversed": false,
+        "winner_id": "egm_dpa",
+        "winner_ood": "egm_dpa"
+      }
+    }
+  },
+  "per_config_raw": {
+    "42": {
+      "msfa_only": {
+        "mean_dice": 0.5492383870691737,
+        "std": 0.4157143914004239,
+        "id_dice": 0.8746076873459224,
+        "n": 196,
+        "train_min": 107.65563685894013,
+        "best_epoch": 100,
+        "modules": {
+          "EGM": false,
+          "DPA": false,
+          "MSFA": true
+        }
+      },
+      "dpa_msfa": {
+        "mean_dice": 0.5683978028617566,
+        "std": 0.3964822716496801,
+        "id_dice": 0.8711658362464941,
+        "n": 196,
+        "train_min": 138.76393242677054,
+        "best_epoch": 85,
+        "modules": {
+          "EGM": false,
+          "DPA": true,
+          "MSFA": true
+        }
+      },
+      "egm_msfa": {
+        "mean_dice": 0.6672612963268026,
+        "std": 0.3427906953002188,
+        "id_dice": 0.883173281859344,
+        "n": 196,
+        "train_min": 147.15621992349625,
+        "best_epoch": 85,
+        "modules": {
+          "EGM": true,
+          "DPA": false,
+          "MSFA": true
+        }
+      },
+      "egm_dpa_msfa": {
+        "mean_dice": 0.6550365702441031,
+        "std": 0.3735892074167436,
+        "id_dice": 0.895885044772858,
+        "n": 196,
+        "train_min": 213.50534672339757,
+        "best_epoch": 100,
+        "modules": {
+          "EGM": true,
+          "DPA": true,
+          "MSFA": true
+        }
+      },
+      "egm_dpa": {
+        "mean_dice": 0.6391361783131752,
+        "std": 0.3716234102726324,
+        "id_dice": 0.8695947115640474,
+        "n": 196,
+        "train_min": 438.50714766581854,
+        "best_epoch": 100,
+        "modules": {
+          "EGM": true,
+          "DPA": true,
+          "MSFA": false
+        }
+      }
+    },
+    "123": {
+      "msfa_only": {
+        "mean_dice": 0.5467317924652995,
+        "std": 0.40618925222071184,
+        "id_dice": 0.8729794245598864,
+        "n": 196,
+        "train_min": 123.44520194133123,
+        "best_epoch": 100,
+        "modules": {
+          "EGM": false,
+          "DPA": false,
+          "MSFA": true
+        }
+      },
+      "dpa_msfa": {
+        "mean_dice": 0.5318723252648979,
+        "std": 0.4015694765276436,
+        "id_dice": 0.8664599240523516,
+        "n": 196,
+        "train_min": 156.85344310601553,
+        "best_epoch": 95,
+        "modules": {
+          "EGM": false,
+          "DPA": true,
+          "MSFA": true
+        }
+      },
+      "egm_msfa": {
+        "mean_dice": 0.6523799407773693,
+        "std": 0.38055563736063713,
+        "id_dice": 0.8858275986762612,
+        "n": 196,
+        "train_min": 214.79098258415857,
+        "best_epoch": 90,
+        "modules": {
+          "EGM": true,
+          "DPA": false,
+          "MSFA": true
+        }
+      },
+      "egm_dpa_msfa": {
+        "mean_dice": 0.6185425609649614,
+        "std": 0.3602372081506229,
+        "id_dice": 0.8784680209853575,
+        "n": 196,
+        "train_min": 1372.833524676164,
+        "best_epoch": 85,
+        "modules": {
+          "EGM": true,
+          "DPA": true,
+          "MSFA": true
+        }
+      },
+      "egm_dpa": {
+        "mean_dice": 0.6199750351192762,
+        "std": 0.3626269353877496,
+        "id_dice": 0.8829341227536475,
+        "n": 196,
+        "train_min": 971.5435886104901,
+        "best_epoch": 100,
+        "modules": {
+          "EGM": true,
+          "DPA": true,
+          "MSFA": false
+        }
+      }
+    },
+    "2024": {
+      "msfa_only": {
+        "mean_dice": 0.5613275284331509,
+        "std": 0.40738586529721643,
+        "id_dice": 0.8743163499077626,
+        "n": 196,
+        "train_min": 125.85042665799459,
+        "best_epoch": 95,
+        "modules": {
+          "EGM": false,
+          "DPA": false,
+          "MSFA": true
+        }
+      },
+      "dpa_msfa": {
+        "mean_dice": 0.557389225997366,
+        "std": 0.3914624642344981,
+        "id_dice": 0.8724784453058324,
+        "n": 196,
+        "train_min": 160.9348624587059,
+        "best_epoch": 95,
+        "modules": {
+          "EGM": false,
+          "DPA": true,
+          "MSFA": true
+        }
+      },
+      "egm_msfa": {
+        "mean_dice": 0.6210241237817988,
+        "std": 0.39102793777867184,
+        "id_dice": 0.8907774394953991,
+        "n": 196,
+        "train_min": 209.9376619140307,
+        "best_epoch": 100,
+        "modules": {
+          "EGM": true,
+          "DPA": false,
+          "MSFA": true
+        }
+      },
+      "egm_dpa_msfa": {
+        "mean_dice": 0.6364133028755669,
+        "std": 0.3709986438116115,
+        "id_dice": 0.8867988989488443,
+        "n": 196,
+        "train_min": 1310.557292755445,
+        "best_epoch": 90,
+        "modules": {
+          "EGM": true,
+          "DPA": true,
+          "MSFA": true
+        }
+      },
+      "egm_dpa": {
+        "mean_dice": 0.5837437127131159,
+        "std": 0.38064189332691606,
+        "id_dice": 0.8755781248264984,
+        "n": 196,
+        "train_min": 1381.7807356754938,
+        "best_epoch": 100,
+        "modules": {
+          "EGM": true,
+          "DPA": true,
+          "MSFA": false
+        }
+      }
+    }
+  },
+  "h4": {
+    "flagship_pair": [
+      "egm_dpa",
+      "msfa_only"
+    ],
+    "flagship_per_seed": {
+      "42": {
+        "a": "egm_dpa",
+        "b": "msfa_only",
+        "d_id": -0.005012975781874984,
+        "d_ood": 0.08989779124400143,
+        "id_tie": false,
+        "ood_tie": false,
+        "reversed": true,
+        "winner_id": "msfa_only",
+        "winner_ood": "egm_dpa"
+      },
+      "123": {
+        "a": "egm_dpa",
+        "b": "msfa_only",
+        "d_id": 0.009954698193761047,
+        "d_ood": 0.07324324265397675,
+        "id_tie": false,
+        "ood_tie": false,
+        "reversed": false,
+        "winner_id": "egm_dpa",
+        "winner_ood": "egm_dpa"
+      },
+      "2024": {
+        "a": "egm_dpa",
+        "b": "msfa_only",
+        "d_id": 0.001261774918735803,
+        "d_ood": 0.022416184279964946,
+        "id_tie": false,
+        "ood_tie": false,
+        "reversed": false,
+        "winner_id": "egm_dpa",
+        "winner_ood": "egm_dpa"
+      }
+    },
+    "flagship_ref_dir": [
+      -1,
+      1
+    ],
+    "flagship_dir_per_seed": {
+      "42": [
+        -1,
+        1
+      ],
+      "123": [
+        1,
+        1
+      ],
+      "2024": [
+        1,
+        1
+      ]
+    },
+    "flagship_same_dir_as_ref": {
+      "42": true,
+      "123": false,
+      "2024": false
+    },
+    "main_criterion_spec": "§4.2 ①②（逐种子两侧符号相反 且 两路 |Δ|>1e-6） + §4.5③（反转方向与种子 42 的 (-1, 1) 一致）",
+    "main_criterion_pass": false,
+    "countable_pairs": [
+      [
+        "egm_dpa",
+        "msfa_only"
+      ],
+      [
+        "dpa_msfa",
+        "egm_dpa"
+      ],
+      [
+        "dpa_msfa",
+        "msfa_only"
+      ]
+    ],
+    "excluded_pairs": [
+      [
+        "egm_dpa_msfa",
+        "egm_msfa"
+      ]
+    ],
+    "excluded_pairs_read": {
+      "egm_dpa_msfa|egm_msfa": [
+        true,
+        false,
+        true
+      ]
+    },
+    "excluded_reason": "第 8 格 egm_dpa_msfa 的种子 42 权重为 batch 4，其余 4 格为 batch 8 ⇒ 跨协议混杂，不计入副判据（规格 §6.3）",
+    "consistent_reversal_pairs": [],
+    "secondary_n": 0,
+    "secondary_min_required": 2,
+    "secondary_criterion_pass": false,
+    "fail_mode_by_seed": {
+      "42": "反转成立",
+      "123": "ID 侧翻转（域外排序不变，域内已无法分开两者）",
+      "2024": "ID 侧翻转（域外排序不变，域内已无法分开两者）"
+    },
+    "verdict": "H4 被推翻（走分支 C：只留 L1 恒等式 + L3 协议）"
+  },
+  "boundaries": [
+    "n=3 种子，只报同向计数，不做显著性检验",
+    "5 格 n=5，ρ 仅弱陈述",
+    "ID eps=1e-8 vs OOD eps=1e-6，跨集合相减须声明",
+    "单元非独立，任何区间仅描述性",
+    "反转对 #4（egm_dpa_msfa, egm_msfa）跨协议混杂，仅参考，不计入副判据"
+  ]
+}

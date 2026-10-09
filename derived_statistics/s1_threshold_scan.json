@@ -1,0 +1,2369 @@
+{
+  "generated_at": "2026-09-20T12:50:45",
+  "script": "02_code/analysis/p4_s1_threshold_scan.py",
+  "spec": "00_docs/B2阈值扫描规格冻结_2026-09-20.md",
+  "elapsed_sec": 1.5,
+  "protocol": {
+    "archs": [
+      "AttentionUNet",
+      "CaraNet",
+      "M2SNet",
+      "MultiResUNet",
+      "PSPNet",
+      "PolypPVT",
+      "PraNet",
+      "ResUNet",
+      "SANet",
+      "SegNet",
+      "TransUNet",
+      "UACANet",
+      "UNet",
+      "EGAUNet"
+    ],
+    "n_archs": 14,
+    "route": "A (_ood_idtrain: 同一个模型评 ID 与 OOD)",
+    "id_source": "processed_data/test (242)",
+    "ood_source": "data_zeroshot/etis (196) direction=idtrain_to_etis",
+    "tau": [
+      0.01,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      0.99
+    ],
+    "tau_anchor": 0.5,
+    "eps": {
+      "id": 1e-08,
+      "ood": 1e-06
+    },
+    "detection_criterion": "det_honest = 1[|P_tau ∩ G| >= 1]  (+ det_frozen for B6)",
+    "reuse": [
+      "p31_cross_eval.build_model/load_weights",
+      "p31a_ood_idtrain.build_jobs",
+      "p3_7_stress_test.load_id_test",
+      "CrossDataset",
+      "autocast",
+      "decompose.factorize"
+    ]
+  },
+  "verdict": {
+    "G2_anchor": "PASS",
+    "G4_dual_path": "PASS",
+    "C4_identity": "PASS",
+    "C1_b2_supported": true,
+    "C2_gap_robust": true,
+    "C3_ranking_stable": true
+  },
+  "gates": {
+    "G2": {
+      "status": "PASS",
+      "anchor_file": "E:/paper2_ablation_reliability/03_results/stats/p31a_units_n14.csv",
+      "anchor_id_file": "E:/paper2_ablation_reliability/03_results/stats/id_units_n14.csv",
+      "tau": 0.5,
+      "revision": "判据修订 M1/M2 (00_docs/B2阈值扫描_判据修订_2026-09-20.md)",
+      "n_checks": 112,
+      "n_t1": 42,
+      "n_t1b": 68,
+      "n_t2": 2,
+      "n_strict_fail": 0,
+      "n_loose_fail": 0,
+      "max_abs_diff_t1": 1.1102230246251565e-16,
+      "max_abs_diff_t1b": 9.916835019829762e-09,
+      "max_abs_diff_t2": 3.52689327804967e-05,
+      "strict_failures": [],
+      "loose_failures": [],
+      "t2_rows": [
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8638302927963105,
+          "ref": 0.86379502386353,
+          "abs_diff": 3.52689327804967e-05,
+          "tol": 0.0001,
+          "tier": "T2",
+          "note": "REGISTERED_DIFF",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8638302927963105,
+          "ref": 0.86379502386353,
+          "abs_diff": 3.52689327804967e-05,
+          "tol": 0.0001,
+          "tier": "T2",
+          "note": "REGISTERED_DIFF",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "ID"
+        }
+      ],
+      "rows": [
+        {
+          "quantity": "detection",
+          "ours": 0.987603305785124,
+          "ref": 0.987603305785124,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.987603305785124,
+          "ref": 0.987603305785124,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8394898226404438,
+          "ref": 0.8394898226404438,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8394898226404438,
+          "ref": 0.8394898226404438,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8394898226404438,
+          "ref": 0.8394898226404438,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.673469387755102,
+          "ref": 0.673469387755102,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.6994831003870685,
+          "ref": 0.6994830993423944,
+          "abs_diff": 1.0446741249836577e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.4710804558426705,
+          "ref": 0.4710804551391146,
+          "abs_diff": 7.035558802215292e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "AttentionUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9834710743801653,
+          "ref": 0.9834710743801652,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9834710743801653,
+          "ref": 0.9834710743801652,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8316442656364066,
+          "ref": 0.8316442656364066,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8316442656364066,
+          "ref": 0.8316442656364066,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8316442656364066,
+          "ref": 0.8316442656364066,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.75,
+          "ref": 0.75,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.681113038761211,
+          "ref": 0.6811130388401692,
+          "abs_diff": 7.895817333292143e-11,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.5108347793250185,
+          "ref": 0.5108347793842372,
+          "abs_diff": 5.921862999969107e-11,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "CaraNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9917355371900827,
+          "ref": 0.9917355371900828,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9917355371900827,
+          "ref": 0.9917355371900828,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.885307275708867,
+          "ref": 0.885307265792032,
+          "abs_diff": 9.916835019829762e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.885307275708867,
+          "ref": 0.885307265792032,
+          "abs_diff": 9.916835019829762e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.885307275708867,
+          "ref": 0.885307265792032,
+          "abs_diff": 9.916835019829762e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.8571428571428571,
+          "ref": 0.8571428571428571,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.7499678421137018,
+          "ref": 0.749967842397122,
+          "abs_diff": 2.8342017621696414e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.642829579133235,
+          "ref": 0.6428295793761665,
+          "abs_diff": 2.429314527319093e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "EGAUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9752066115702479,
+          "ref": 0.975206611570248,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9752066115702479,
+          "ref": 0.975206611570248,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8603479380379638,
+          "ref": 0.8603479380379638,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8603479380379638,
+          "ref": 0.8603479380379638,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8603479380379638,
+          "ref": 0.8603479380379638,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.7448979591836735,
+          "ref": 0.7448979591836735,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.7566669818441295,
+          "ref": 0.7566669805562252,
+          "abs_diff": 1.2879043387314937e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.5636396909641791,
+          "ref": 0.5636396900048217,
+          "abs_diff": 9.593573713218007e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "M2SNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8424785194947292,
+          "ref": 0.8424785194947292,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8424785194947292,
+          "ref": 0.8424785194947292,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8424785194947292,
+          "ref": 0.8424785194947292,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.6428571428571429,
+          "ref": 0.6428571428571429,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.6955013165834015,
+          "ref": 0.6955013187853472,
+          "abs_diff": 2.201945625834867e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.44710798970565957,
+          "ref": 0.4471079911211961,
+          "abs_diff": 1.4155365213319726e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "MultiResUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8646062004418408,
+          "ref": 0.8646062004418408,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8646062004418408,
+          "ref": 0.8646062004418408,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8646062004418408,
+          "ref": 0.8646062004418408,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.7704081632653061,
+          "ref": 0.7704081632653061,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.6863651446516761,
+          "ref": 0.686365144079804,
+          "abs_diff": 5.718721052261344e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.5287813107457354,
+          "ref": 0.5287813103051605,
+          "abs_diff": 4.4057490988791415e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PSPNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8638302927963105,
+          "ref": 0.8638302927963105,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8638302927963105,
+          "ref": 0.86379502386353,
+          "abs_diff": 3.52689327804967e-05,
+          "tol": 0.0001,
+          "tier": "T2",
+          "note": "REGISTERED_DIFF",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8638302927963105,
+          "ref": 0.86379502386353,
+          "abs_diff": 3.52689327804967e-05,
+          "tol": 0.0001,
+          "tier": "T2",
+          "note": "REGISTERED_DIFF",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.6479591836734694,
+          "ref": 0.6479591836734694,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.7680996650068731,
+          "ref": 0.768099663588475,
+          "abs_diff": 1.4183980656667927e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.49769723238105995,
+          "ref": 0.4976972314619958,
+          "abs_diff": 9.190641581113823e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PolypPVT",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9710743801652892,
+          "ref": 0.9710743801652892,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9710743801652892,
+          "ref": 0.9710743801652892,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8445122607932337,
+          "ref": 0.8445122607932337,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8445122607932337,
+          "ref": 0.8445122607932337,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8445122607932337,
+          "ref": 0.8445122607932337,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.7806122448979592,
+          "ref": 0.7806122448979592,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.6939279527492827,
+          "ref": 0.6939279529835962,
+          "abs_diff": 2.3431356854786145e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.5416886572255479,
+          "ref": 0.541688657408456,
+          "abs_diff": 1.8290802206166745e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "PraNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9834710743801653,
+          "ref": 0.9834710743801652,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9834710743801653,
+          "ref": 0.9834710743801652,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.791859694621517,
+          "ref": 0.791859694621517,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.791859694621517,
+          "ref": 0.791859694621517,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.791859694621517,
+          "ref": 0.791859694621517,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.6377551020408163,
+          "ref": 0.6377551020408163,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.6495390573017285,
+          "ref": 0.6495390572492034,
+          "abs_diff": 5.2525095384226006e-11,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.41424684818936464,
+          "ref": 0.4142468481558664,
+          "abs_diff": 3.349825972165377e-11,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "ResUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.848829747077322,
+          "ref": 0.848829747077322,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.848829747077322,
+          "ref": 0.848829747077322,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.848829747077322,
+          "ref": 0.848829747077322,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.7397959183673469,
+          "ref": 0.7397959183673469,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.7562690592681431,
+          "ref": 0.7562690588131804,
+          "abs_diff": 4.549627341532414e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.5594847634590163,
+          "ref": 0.5594847631224368,
+          "abs_diff": 3.365795420151585e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "SANet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9834710743801653,
+          "ref": 0.9834710743801652,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9834710743801653,
+          "ref": 0.9834710743801652,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8506006612701679,
+          "ref": 0.8506006612701679,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8506006612701679,
+          "ref": 0.8506006612701679,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8506006612701679,
+          "ref": 0.8506006612701679,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.6326530612244898,
+          "ref": 0.6326530612244898,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.73836587555576,
+          "ref": 0.7383658722223293,
+          "abs_diff": 3.3334307536492247e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.46712943196448387,
+          "ref": 0.4671294298555786,
+          "abs_diff": 2.1089052726352975e-09,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "SegNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9917355371900827,
+          "ref": 0.9917355371900828,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9917355371900827,
+          "ref": 0.9917355371900828,
+          "abs_diff": 1.1102230246251565e-16,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8390788241710456,
+          "ref": 0.8390788241710456,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8390788241710456,
+          "ref": 0.8390788241710456,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8390788241710456,
+          "ref": 0.8390788241710456,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.7857142857142857,
+          "ref": 0.7857142857142857,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.7208089606564105,
+          "ref": 0.7208089603323473,
+          "abs_diff": 3.2406322070244187e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.5663498978885451,
+          "ref": 0.566349897633924,
+          "abs_diff": 2.5462110198049004e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "TransUNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9710743801652892,
+          "ref": 0.9710743801652892,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9710743801652892,
+          "ref": 0.9710743801652892,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8332554599640427,
+          "ref": 0.8332554599640427,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8332554599640427,
+          "ref": 0.8332554599640427,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8332554599640427,
+          "ref": 0.8332554599640427,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.6989795918367347,
+          "ref": 0.6989795918367347,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.7257783887869035,
+          "ref": 0.7257783892810902,
+          "abs_diff": 4.941866915686433e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.5073042823306033,
+          "ref": 0.5073042826760299,
+          "abs_diff": 3.45426576231489e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "UACANet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection_vs_id_units",
+          "ours": 0.9793388429752066,
+          "ref": 0.9793388429752066,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.8238183108298338,
+          "ref": 0.8238183108298338,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_del",
+          "ours": 0.8238183108298338,
+          "ref": 0.8238183108298338,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "mean_dice_vs_id_dice_2ndsrc",
+          "ours": 0.8238183108298338,
+          "ref": 0.8238183108298338,
+          "abs_diff": 0.0,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "MATCH",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "ID"
+        },
+        {
+          "quantity": "detection",
+          "ours": 0.6632653061224489,
+          "ref": 0.6632653061224489,
+          "abs_diff": 0.0,
+          "tol": 1e-09,
+          "tier": "T1",
+          "note": "",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "delineation",
+          "ours": 0.708645215370172,
+          "ref": 0.7086452155606822,
+          "abs_diff": 1.9051016320048575e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "OOD"
+        },
+        {
+          "quantity": "mean_dice",
+          "ours": 0.4700197861493055,
+          "ref": 0.4700197862756643,
+          "abs_diff": 1.263588123023851e-10,
+          "tol": 1e-07,
+          "tier": "T1b",
+          "note": "",
+          "status": "PASS",
+          "arch": "UNet",
+          "domain": "OOD"
+        }
+      ]
+    },
+    "G4": {
+      "status": "PASS",
+      "tol": 1e-12,
+      "max_abs_diff": 0.0,
+      "n_cells": 28,
+      "rows": [
+        {
+          "arch": "AttentionUNet",
+          "domain": "ID",
+          "path_a_detection": 0.987603305785124,
+          "path_b_detection": 0.987603305785124,
+          "path_a_delineation": 0.8500273517948106,
+          "path_b_delineation": 0.8500273517948106,
+          "path_a_mean_dice": 0.8394898226404438,
+          "path_b_mean_dice": 0.8394898226404438,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "AttentionUNet",
+          "domain": "OOD",
+          "path_a_detection": 0.673469387755102,
+          "path_b_detection": 0.673469387755102,
+          "path_a_delineation": 0.6994831003870685,
+          "path_b_delineation": 0.6994831003870685,
+          "path_a_mean_dice": 0.4710804558426705,
+          "path_b_mean_dice": 0.4710804558426705,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "CaraNet",
+          "domain": "ID",
+          "path_a_detection": 0.9834710743801653,
+          "path_b_detection": 0.9834710743801653,
+          "path_a_delineation": 0.8456214801848813,
+          "path_b_delineation": 0.8456214801848813,
+          "path_a_mean_dice": 0.8316442656364066,
+          "path_b_mean_dice": 0.8316442656364066,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "CaraNet",
+          "domain": "OOD",
+          "path_a_detection": 0.75,
+          "path_b_detection": 0.75,
+          "path_a_delineation": 0.681113038761211,
+          "path_b_delineation": 0.681113038761211,
+          "path_a_mean_dice": 0.5108347793250185,
+          "path_b_mean_dice": 0.5108347793250185,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "EGAUNet",
+          "domain": "ID",
+          "path_a_detection": 0.9917355371900827,
+          "path_b_detection": 0.9917355371900827,
+          "path_a_delineation": 0.8926848363397433,
+          "path_b_delineation": 0.8926848363397433,
+          "path_a_mean_dice": 0.885307275708867,
+          "path_b_mean_dice": 0.885307275708867,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "EGAUNet",
+          "domain": "OOD",
+          "path_a_detection": 0.8571428571428571,
+          "path_b_detection": 0.8571428571428571,
+          "path_a_delineation": 0.7499678421137018,
+          "path_b_delineation": 0.7499678421137018,
+          "path_a_mean_dice": 0.642829579133235,
+          "path_b_mean_dice": 0.642829579133235,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "M2SNet",
+          "domain": "ID",
+          "path_a_detection": 0.9752066115702479,
+          "path_b_detection": 0.9752066115702479,
+          "path_a_delineation": 0.8822211906998477,
+          "path_b_delineation": 0.8822211906998477,
+          "path_a_mean_dice": 0.8603479380379638,
+          "path_b_mean_dice": 0.8603479380379638,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "M2SNet",
+          "domain": "OOD",
+          "path_a_detection": 0.7448979591836735,
+          "path_b_detection": 0.7448979591836735,
+          "path_a_delineation": 0.7566669818441295,
+          "path_b_delineation": 0.7566669818441295,
+          "path_a_mean_dice": 0.5636396909641791,
+          "path_b_mean_dice": 0.5636396909641791,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "MultiResUNet",
+          "domain": "ID",
+          "path_a_detection": 0.9793388429752066,
+          "path_b_detection": 0.9793388429752066,
+          "path_a_delineation": 0.860252327922782,
+          "path_b_delineation": 0.860252327922782,
+          "path_a_mean_dice": 0.8424785194947292,
+          "path_b_mean_dice": 0.8424785194947292,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "MultiResUNet",
+          "domain": "OOD",
+          "path_a_detection": 0.6428571428571429,
+          "path_b_detection": 0.6428571428571429,
+          "path_a_delineation": 0.6955013165834015,
+          "path_b_delineation": 0.6955013165834015,
+          "path_a_mean_dice": 0.44710798970565957,
+          "path_b_mean_dice": 0.44710798970565957,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "PSPNet",
+          "domain": "ID",
+          "path_a_detection": 0.9793388429752066,
+          "path_b_detection": 0.9793388429752066,
+          "path_a_delineation": 0.8828468375819193,
+          "path_b_delineation": 0.8828468375819193,
+          "path_a_mean_dice": 0.8646062004418408,
+          "path_b_mean_dice": 0.8646062004418408,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "PSPNet",
+          "domain": "OOD",
+          "path_a_detection": 0.7704081632653061,
+          "path_b_detection": 0.7704081632653061,
+          "path_a_delineation": 0.6863651446516761,
+          "path_b_delineation": 0.6863651446516761,
+          "path_a_mean_dice": 0.5287813107457354,
+          "path_b_mean_dice": 0.5287813107457354,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "PolypPVT",
+          "domain": "ID",
+          "path_a_detection": 0.9793388429752066,
+          "path_b_detection": 0.9793388429752066,
+          "path_a_delineation": 0.8820545605767293,
+          "path_b_delineation": 0.8820545605767293,
+          "path_a_mean_dice": 0.8638302927963105,
+          "path_b_mean_dice": 0.8638302927963105,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "PolypPVT",
+          "domain": "OOD",
+          "path_a_detection": 0.6479591836734694,
+          "path_b_detection": 0.6479591836734694,
+          "path_a_delineation": 0.7680996650068731,
+          "path_b_delineation": 0.7680996650068731,
+          "path_a_mean_dice": 0.49769723238105995,
+          "path_b_mean_dice": 0.49769723238105995,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "PraNet",
+          "domain": "ID",
+          "path_a_detection": 0.9710743801652892,
+          "path_b_detection": 0.9710743801652892,
+          "path_a_delineation": 0.869667945157197,
+          "path_b_delineation": 0.869667945157197,
+          "path_a_mean_dice": 0.8445122607932337,
+          "path_b_mean_dice": 0.8445122607932337,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "PraNet",
+          "domain": "OOD",
+          "path_a_detection": 0.7806122448979592,
+          "path_b_detection": 0.7806122448979592,
+          "path_a_delineation": 0.6939279527492827,
+          "path_b_delineation": 0.6939279527492827,
+          "path_a_mean_dice": 0.5416886572255479,
+          "path_b_mean_dice": 0.5416886572255479,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "ResUNet",
+          "domain": "ID",
+          "path_a_detection": 0.9834710743801653,
+          "path_b_detection": 0.9834710743801653,
+          "path_a_delineation": 0.805168260917613,
+          "path_b_delineation": 0.805168260917613,
+          "path_a_mean_dice": 0.791859694621517,
+          "path_b_mean_dice": 0.791859694621517,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "ResUNet",
+          "domain": "OOD",
+          "path_a_detection": 0.6377551020408163,
+          "path_b_detection": 0.6377551020408163,
+          "path_a_delineation": 0.6495390573017285,
+          "path_b_delineation": 0.6495390573017285,
+          "path_a_mean_dice": 0.41424684818936464,
+          "path_b_mean_dice": 0.41424684818936464,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "SANet",
+          "domain": "ID",
+          "path_a_detection": 0.9793388429752066,
+          "path_b_detection": 0.9793388429752066,
+          "path_a_delineation": 0.8667375476485558,
+          "path_b_delineation": 0.8667375476485558,
+          "path_a_mean_dice": 0.848829747077322,
+          "path_b_mean_dice": 0.848829747077322,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "SANet",
+          "domain": "OOD",
+          "path_a_detection": 0.7397959183673469,
+          "path_b_detection": 0.7397959183673469,
+          "path_a_delineation": 0.7562690592681431,
+          "path_b_delineation": 0.7562690592681431,
+          "path_a_mean_dice": 0.5594847634590163,
+          "path_b_mean_dice": 0.5594847634590163,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "SegNet",
+          "domain": "ID",
+          "path_a_detection": 0.9834710743801653,
+          "path_b_detection": 0.9834710743801653,
+          "path_a_delineation": 0.8648964707032114,
+          "path_b_delineation": 0.8648964707032114,
+          "path_a_mean_dice": 0.8506006612701679,
+          "path_b_mean_dice": 0.8506006612701679,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "SegNet",
+          "domain": "OOD",
+          "path_a_detection": 0.6326530612244898,
+          "path_b_detection": 0.6326530612244898,
+          "path_a_delineation": 0.73836587555576,
+          "path_b_delineation": 0.73836587555576,
+          "path_a_mean_dice": 0.46712943196448387,
+          "path_b_mean_dice": 0.46712943196448387,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "TransUNet",
+          "domain": "ID",
+          "path_a_detection": 0.9917355371900827,
+          "path_b_detection": 0.9917355371900827,
+          "path_a_delineation": 0.8460711477057742,
+          "path_b_delineation": 0.8460711477057742,
+          "path_a_mean_dice": 0.8390788241710456,
+          "path_b_mean_dice": 0.8390788241710456,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "TransUNet",
+          "domain": "OOD",
+          "path_a_detection": 0.7857142857142857,
+          "path_b_detection": 0.7857142857142857,
+          "path_a_delineation": 0.7208089606564105,
+          "path_b_delineation": 0.7208089606564105,
+          "path_a_mean_dice": 0.5663498978885451,
+          "path_b_mean_dice": 0.5663498978885451,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "UACANet",
+          "domain": "ID",
+          "path_a_detection": 0.9710743801652892,
+          "path_b_detection": 0.9710743801652892,
+          "path_a_delineation": 0.8580758353671283,
+          "path_b_delineation": 0.8580758353671283,
+          "path_a_mean_dice": 0.8332554599640427,
+          "path_b_mean_dice": 0.8332554599640427,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "UACANet",
+          "domain": "OOD",
+          "path_a_detection": 0.6989795918367347,
+          "path_b_detection": 0.6989795918367347,
+          "path_a_delineation": 0.7257783887869035,
+          "path_b_delineation": 0.7257783887869035,
+          "path_a_mean_dice": 0.5073042823306033,
+          "path_b_mean_dice": 0.5073042823306033,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "UNet",
+          "domain": "ID",
+          "path_a_detection": 0.9793388429752066,
+          "path_b_detection": 0.9793388429752066,
+          "path_a_delineation": 0.8411984439695774,
+          "path_b_delineation": 0.8411984439695774,
+          "path_a_mean_dice": 0.8238183108298338,
+          "path_b_mean_dice": 0.8238183108298338,
+          "max_abs_diff": 0.0
+        },
+        {
+          "arch": "UNet",
+          "domain": "OOD",
+          "path_a_detection": 0.6632653061224489,
+          "path_b_detection": 0.6632653061224489,
+          "path_a_delineation": 0.708645215370172,
+          "path_b_delineation": 0.708645215370172,
+          "path_a_mean_dice": 0.4700197861493055,
+          "path_b_mean_dice": 0.4700197861493055,
+          "max_abs_diff": 0.0
+        }
+      ]
+    },
+    "C4": {
+      "tol": 1e-06,
+      "n_cells": 588,
+      "max_abs_residual": 6.5497918200208e-10,
+      "worst_cell": {
+        "arch": "ResUNet",
+        "domain": "OOD",
+        "tau": 0.99
+      },
+      "pass": true
+    }
+  },
+  "conclusions": {
+    "C1": {
+      "ID": {
+        "s_detection": 0.007083825265643551,
+        "s_delineation": 0.006365032607566379,
+        "ratio": 1.1129283544003707,
+        "detection_range": [
+          0.9778630460448642,
+          0.9849468713105077
+        ],
+        "delineation_range": [
+          0.854977557827298,
+          0.8613425904348644
+        ],
+        "support_b2": true
+      },
+      "OOD": {
+        "s_detection": 0.04919825072886297,
+        "s_delineation": 0.022886082798634244,
+        "ratio": 2.1497016838459984,
+        "detection_range": [
+          0.6942419825072886,
+          0.7434402332361516
+        ],
+        "delineation_range": [
+          0.6994551989184421,
+          0.7223412817170763
+        ],
+        "support_b2": true
+      },
+      "support_b2_all": true
+    },
+    "C2": {
+      "min_gap_observed": 0.24150663807435607,
+      "criterion": 0.05,
+      "all_above": true,
+      "all_ci_exclude_zero": true,
+      "rows": [
+        {
+          "tau": 0.3,
+          "gap": 0.24150663807435607,
+          "ci95": [
+            0.20886396766498813,
+            0.2723959713755632
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.35,
+          "gap": 0.24863865262752097,
+          "ci95": [
+            0.21407142254776768,
+            0.2818036497361636
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.4,
+          "gap": 0.2540177818470954,
+          "ci95": [
+            0.21972297183336142,
+            0.2874585873310363
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.45,
+          "gap": 0.25955352625111433,
+          "ci95": [
+            0.2252448618172181,
+            0.2925601763727923
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.5,
+          "gap": 0.2650019275715009,
+          "ci95": [
+            0.22984392694504013,
+            0.29839190841625907
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.55,
+          "gap": 0.26994735320338287,
+          "ci95": [
+            0.23470155771871912,
+            0.3036652470905718
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.6,
+          "gap": 0.27373021227381156,
+          "ci95": [
+            0.23917811664217048,
+            0.3067368623954895
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.65,
+          "gap": 0.28042852323928397,
+          "ci95": [
+            0.24606948594077535,
+            0.3127428288316507
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        },
+        {
+          "tau": 0.7,
+          "gap": 0.28362106353757555,
+          "ci95": [
+            0.24990316965038675,
+            0.31539670325036745
+          ],
+          "ci95_excludes_zero": true,
+          "above_min_gap": true
+        }
+      ]
+    },
+    "C3": {
+      "ID": {
+        "min_rho_in_band": 0.9912087912087912,
+        "criterion": 0.9,
+        "all_pass_in_band": true,
+        "tau_below_criterion": [
+          0.99
+        ],
+        "rows": [
+          {
+            "tau": 0.01,
+            "spearman_vs_anchor": 0.9120879120879121,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.05,
+            "spearman_vs_anchor": 0.9472527472527472,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.1,
+            "spearman_vs_anchor": 0.9736263736263736,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.15,
+            "spearman_vs_anchor": 0.9736263736263736,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.2,
+            "spearman_vs_anchor": 0.9824175824175824,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.25,
+            "spearman_vs_anchor": 0.9824175824175824,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.3,
+            "spearman_vs_anchor": 0.9956043956043955,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.35,
+            "spearman_vs_anchor": 0.9956043956043955,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.4,
+            "spearman_vs_anchor": 0.9956043956043955,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.45,
+            "spearman_vs_anchor": 0.9956043956043955,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.5,
+            "spearman_vs_anchor": 1.0,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.55,
+            "spearman_vs_anchor": 1.0,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.6,
+            "spearman_vs_anchor": 1.0,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.65,
+            "spearman_vs_anchor": 0.9912087912087912,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.7,
+            "spearman_vs_anchor": 0.9912087912087912,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.75,
+            "spearman_vs_anchor": 0.9824175824175824,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.8,
+            "spearman_vs_anchor": 0.9780219780219781,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.85,
+            "spearman_vs_anchor": 0.956043956043956,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.9,
+            "spearman_vs_anchor": 0.9692307692307693,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.95,
+            "spearman_vs_anchor": 0.956043956043956,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.99,
+            "spearman_vs_anchor": 0.8813186813186813,
+            "in_band": false,
+            "passes": false
+          }
+        ]
+      },
+      "OOD": {
+        "min_rho_in_band": 0.9824175824175824,
+        "criterion": 0.9,
+        "all_pass_in_band": true,
+        "tau_below_criterion": [
+          0.01,
+          0.05,
+          0.99
+        ],
+        "rows": [
+          {
+            "tau": 0.01,
+            "spearman_vs_anchor": 0.2527472527472528,
+            "in_band": false,
+            "passes": false
+          },
+          {
+            "tau": 0.05,
+            "spearman_vs_anchor": 0.7802197802197802,
+            "in_band": false,
+            "passes": false
+          },
+          {
+            "tau": 0.1,
+            "spearman_vs_anchor": 0.9384615384615385,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.15,
+            "spearman_vs_anchor": 0.9736263736263736,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.2,
+            "spearman_vs_anchor": 0.9736263736263736,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.25,
+            "spearman_vs_anchor": 0.9868131868131869,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.3,
+            "spearman_vs_anchor": 0.9868131868131869,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.35,
+            "spearman_vs_anchor": 0.9868131868131869,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.4,
+            "spearman_vs_anchor": 0.9912087912087912,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.45,
+            "spearman_vs_anchor": 0.9956043956043955,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.5,
+            "spearman_vs_anchor": 1.0,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.55,
+            "spearman_vs_anchor": 0.9956043956043955,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.6,
+            "spearman_vs_anchor": 0.9956043956043955,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.65,
+            "spearman_vs_anchor": 0.9868131868131869,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.7,
+            "spearman_vs_anchor": 0.9824175824175824,
+            "in_band": true,
+            "passes": true
+          },
+          {
+            "tau": 0.75,
+            "spearman_vs_anchor": 0.9824175824175824,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.8,
+            "spearman_vs_anchor": 0.9824175824175824,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.85,
+            "spearman_vs_anchor": 0.9824175824175824,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.9,
+            "spearman_vs_anchor": 0.9780219780219781,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.95,
+            "spearman_vs_anchor": 0.9736263736263736,
+            "in_band": false,
+            "passes": true
+          },
+          {
+            "tau": 0.99,
+            "spearman_vs_anchor": 0.8197802197802198,
+            "in_band": false,
+            "passes": false
+          }
+        ]
+      }
+    }
+  },
+  "cells": [
+    {
+      "arch": "AttentionUNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "AttentionUNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "CaraNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "CaraNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "M2SNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "M2SNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "MultiResUNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "MultiResUNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "PSPNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "PSPNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "PolypPVT",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "PolypPVT",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "PraNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "PraNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "ResUNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "ResUNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "SANet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "SANet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "SegNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "SegNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "TransUNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "TransUNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "UACANet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "UACANet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "UNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "UNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    },
+    {
+      "arch": "EGAUNet",
+      "domain": "ID",
+      "status": "RESUMED",
+      "n_samples": 242
+    },
+    {
+      "arch": "EGAUNet",
+      "domain": "OOD",
+      "status": "RESUMED",
+      "n_samples": 196
+    }
+  ]
+}

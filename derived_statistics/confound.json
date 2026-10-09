@@ -1,0 +1,1712 @@
+{
+  "segment": "P2-4",
+  "mode": "confound_control_triple",
+  "generated_at": "2026-09-14T01:05:19",
+  "script": "02_code/analysis/confound_control.py",
+  "user_order": "做 P2-4：混淆控制三件套——分层对比、参数回归、容量匹配方案。",
+  "user_expectation": "egm_dpa(39.50M) 域外应仍高于 dpa_msfa(41.43M)",
+  "hypothesis": {
+    "id": "H5",
+    "statement": "EGM 的域外检出优势不被参数量解释",
+    "test": "同模块数分层 + 容量匹配对照",
+    "reject_criterion": "容量匹配后优势消失",
+    "consequence": "改为“容量驱动”结论（分支 B）"
+  },
+  "calibers": {
+    "ablation": "7 个消融配置（同架构内 2³ 析因，n=7）",
+    "arch": "13 baseline + EGAUNet（跨架构，n=14）",
+    "no_pooling": "两套协议**不合并**回归（消融 vs 架构）",
+    "param_source": "D 盘各 results.json 的 parameters_M（只读，单一真源）；EGAUNet 无 results.json ⇒ 取 arch_params_registry.json（由 egaunet_params.py 双路复核，48.4060 M）",
+    "param_sources_detail": {
+      "baseline": "D:/medical_segmentation/experiments/baseline/*/results.json::parameters_M",
+      "EGAUNet": "E:/paper2_ablation_reliability/03_results/stats/arch_params_registry.json（cross_check=MATCH）"
+    },
+    "ood_source": "decomp_ablation_etis.csv（P3-1b）/ p31a_units_n14.csv（P3-1A）",
+    "criterion": "OOD 侧两判据严格等价（no-eps）⇒ 检出率只需单列，仍标判据",
+    "frozen_before_run": {
+      "param_bins": [
+        [
+          30.0,
+          35.0
+        ],
+        [
+          35.0,
+          42.0
+        ],
+        [
+          42.0,
+          48.0
+        ]
+      ],
+      "match_tol_pct": 5.0,
+      "alpha": 0.05,
+      "boot_b": 10000,
+      "seed": 20260914
+    }
+  },
+  "tables": {
+    "ablation": [
+      {
+        "config": "baseline",
+        "egm": 0,
+        "dpa": 0,
+        "msfa": 0,
+        "n_modules": 0,
+        "param_M": 31.037633,
+        "id_dice": 0.819680721,
+        "ood_dice": 0.4531518857,
+        "ood_det": 0.6326530612,
+        "ood_delin": 0.7162723348,
+        "n_undetected": 72,
+        "n": 196
+      },
+      {
+        "config": "dpa_only",
+        "egm": 0,
+        "dpa": 1,
+        "msfa": 0,
+        "n_modules": 1,
+        "param_M": 32.513533,
+        "id_dice": 0.8665313753,
+        "ood_dice": 0.5024596265,
+        "ood_det": 0.7448979592,
+        "ood_delin": 0.6745348409,
+        "n_undetected": 50,
+        "n": 196
+      },
+      {
+        "config": "egm_only",
+        "egm": 1,
+        "dpa": 0,
+        "msfa": 0,
+        "n_modules": 1,
+        "param_M": 38.022018,
+        "id_dice": 0.8667129291,
+        "ood_dice": 0.5341996598,
+        "ood_det": 0.6785714286,
+        "ood_delin": 0.7872416033,
+        "n_undetected": 63,
+        "n": 196
+      },
+      {
+        "config": "msfa_only",
+        "egm": 0,
+        "dpa": 0,
+        "msfa": 1,
+        "n_modules": 1,
+        "param_M": 39.955137,
+        "id_dice": 0.8746076873,
+        "ood_dice": 0.5492383846,
+        "ood_det": 0.693877551,
+        "ood_delin": 0.7915494362,
+        "n_undetected": 60,
+        "n": 196
+      },
+      {
+        "config": "egm_dpa",
+        "egm": 1,
+        "dpa": 1,
+        "msfa": 0,
+        "n_modules": 2,
+        "param_M": 39.497918,
+        "id_dice": 0.8695947116,
+        "ood_dice": 0.6391361785,
+        "ood_det": 0.8418367347,
+        "ood_delin": 0.7592163087,
+        "n_undetected": 31,
+        "n": 196
+      },
+      {
+        "config": "egm_msfa",
+        "egm": 1,
+        "dpa": 0,
+        "msfa": 1,
+        "n_modules": 2,
+        "param_M": 46.939522,
+        "id_dice": 0.8831732819,
+        "ood_dice": 0.6672612953,
+        "ood_det": 0.8520408163,
+        "ood_delin": 0.7831330169,
+        "n_undetected": 29,
+        "n": 196
+      },
+      {
+        "config": "dpa_msfa",
+        "egm": 0,
+        "dpa": 1,
+        "msfa": 1,
+        "n_modules": 2,
+        "param_M": 41.431037,
+        "id_dice": 0.8711658362,
+        "ood_dice": 0.5683978036,
+        "ood_det": 0.7755102041,
+        "ood_delin": 0.7329340095,
+        "n_undetected": 44,
+        "n": 196
+      }
+    ],
+    "arch": [
+      {
+        "arch": "EGAUNet",
+        "family": "EGAUNet",
+        "param_M": 48.405978,
+        "egm": 1,
+        "id_dice": 0.8853072658,
+        "ood_dice": 0.6428295794,
+        "ood_det": 0.8571428571,
+        "ood_delin": 0.7499678424,
+        "ood_n": 196
+      },
+      {
+        "arch": "TransUNet",
+        "family": "baseline",
+        "param_M": 21.679041,
+        "egm": 0,
+        "id_dice": 0.8390788242,
+        "ood_dice": 0.5663498976,
+        "ood_det": 0.7857142857,
+        "ood_delin": 0.7208089603,
+        "ood_n": 196
+      },
+      {
+        "arch": "M2SNet",
+        "family": "baseline",
+        "param_M": 27.759031,
+        "egm": 0,
+        "id_dice": 0.860347938,
+        "ood_dice": 0.56363969,
+        "ood_det": 0.7448979592,
+        "ood_delin": 0.7566669806,
+        "ood_n": 196
+      },
+      {
+        "arch": "SANet",
+        "family": "baseline",
+        "param_M": 18.930824,
+        "egm": 0,
+        "id_dice": 0.8488297471,
+        "ood_dice": 0.5594847631,
+        "ood_det": 0.7397959184,
+        "ood_delin": 0.7562690588,
+        "ood_n": 196
+      },
+      {
+        "arch": "PraNet",
+        "family": "baseline",
+        "param_M": 10.608036,
+        "egm": 0,
+        "id_dice": 0.8445122608,
+        "ood_dice": 0.5416886574,
+        "ood_det": 0.7806122449,
+        "ood_delin": 0.693927953,
+        "ood_n": 196
+      },
+      {
+        "arch": "PSPNet",
+        "family": "baseline",
+        "param_M": 28.277058,
+        "egm": 0,
+        "id_dice": 0.8646062004,
+        "ood_dice": 0.5287813103,
+        "ood_det": 0.7704081633,
+        "ood_delin": 0.6863651441,
+        "ood_n": 196
+      },
+      {
+        "arch": "CaraNet",
+        "family": "baseline",
+        "param_M": 11.106852,
+        "egm": 0,
+        "id_dice": 0.8316442656,
+        "ood_dice": 0.5108347794,
+        "ood_det": 0.75,
+        "ood_delin": 0.6811130388,
+        "ood_n": 196
+      },
+      {
+        "arch": "UACANet",
+        "family": "baseline",
+        "param_M": 14.968524,
+        "egm": 0,
+        "id_dice": 0.83325546,
+        "ood_dice": 0.5073042827,
+        "ood_det": 0.6989795918,
+        "ood_delin": 0.7257783893,
+        "ood_n": 196
+      },
+      {
+        "arch": "PolypPVT",
+        "family": "baseline",
+        "param_M": 5.93128,
+        "egm": 0,
+        "id_dice": 0.8637950239,
+        "ood_dice": 0.4976972315,
+        "ood_det": 0.6479591837,
+        "ood_delin": 0.7680996636,
+        "ood_n": 196
+      },
+      {
+        "arch": "AttentionUNet",
+        "family": "baseline",
+        "param_M": 31.389165,
+        "egm": 0,
+        "id_dice": 0.8394898226,
+        "ood_dice": 0.4710804551,
+        "ood_det": 0.6734693878,
+        "ood_delin": 0.6994830993,
+        "ood_n": 196
+      },
+      {
+        "arch": "UNet",
+        "family": "baseline",
+        "param_M": 31.037633,
+        "egm": 0,
+        "id_dice": 0.8238183108,
+        "ood_dice": 0.4700197863,
+        "ood_det": 0.6632653061,
+        "ood_delin": 0.7086452156,
+        "ood_n": 196
+      },
+      {
+        "arch": "SegNet",
+        "family": "baseline",
+        "param_M": 29.472129,
+        "egm": 0,
+        "id_dice": 0.8506006613,
+        "ood_dice": 0.4671294299,
+        "ood_det": 0.6326530612,
+        "ood_delin": 0.7383658722,
+        "ood_n": 196
+      },
+      {
+        "arch": "MultiResUNet",
+        "family": "baseline",
+        "param_M": 7.238228,
+        "egm": 0,
+        "id_dice": 0.8424785195,
+        "ood_dice": 0.4471079911,
+        "ood_det": 0.6428571429,
+        "ood_delin": 0.6955013188,
+        "ood_n": 196
+      },
+      {
+        "arch": "ResUNet",
+        "family": "baseline",
+        "param_M": 32.436353,
+        "egm": 0,
+        "id_dice": 0.7918596946,
+        "ood_dice": 0.4142468482,
+        "ood_det": 0.637755102,
+        "ood_delin": 0.6495390572,
+        "ood_n": 196
+      }
+    ]
+  },
+  "A_strata": {
+    "A1_by_module_count": [
+      {
+        "n_modules": 0,
+        "n": 1,
+        "configs": [
+          "baseline"
+        ],
+        "param_range": [
+          31.037633,
+          31.037633
+        ],
+        "ood_det_range": [
+          0.6326530612244898,
+          0.6326530612244898
+        ],
+        "ood_dice_range": [
+          0.4531518856807683,
+          0.4531518856807683
+        ],
+        "rows": [
+          {
+            "config": "baseline",
+            "param_M": 31.037633,
+            "ood_det": 0.6326530612244898,
+            "ood_dice": 0.4531518856807683,
+            "egm": 0
+          }
+        ]
+      },
+      {
+        "n_modules": 1,
+        "n": 3,
+        "configs": [
+          "dpa_only",
+          "egm_only",
+          "msfa_only"
+        ],
+        "param_range": [
+          32.513533,
+          39.955137
+        ],
+        "ood_det_range": [
+          0.6785714285714286,
+          0.7448979591836735
+        ],
+        "ood_dice_range": [
+          0.5024596265072006,
+          0.5492383845647864
+        ],
+        "rows": [
+          {
+            "config": "dpa_only",
+            "param_M": 32.513533,
+            "ood_det": 0.7448979591836735,
+            "ood_dice": 0.5024596265072006,
+            "egm": 0
+          },
+          {
+            "config": "egm_only",
+            "param_M": 38.022018,
+            "ood_det": 0.6785714285714286,
+            "ood_dice": 0.534199659829776,
+            "egm": 1
+          },
+          {
+            "config": "msfa_only",
+            "param_M": 39.955137,
+            "ood_det": 0.6938775510204082,
+            "ood_dice": 0.5492383845647864,
+            "egm": 0
+          }
+        ],
+        "egm_vs_noegm": {
+          "n_with_egm": 1,
+          "n_without": 2,
+          "mean_param_with": 38.022018,
+          "mean_param_without": 36.234335,
+          "param_gap_pct": 4.93367133686875,
+          "mean_ood_det_with": 0.6785714285714286,
+          "mean_ood_det_without": 0.7193877551020409,
+          "det_gap_pp": -4.081632653061229,
+          "mean_ood_dice_with": 0.534199659829776,
+          "mean_ood_dice_without": 0.5258490055359935,
+          "dice_gap_pp": 0.8350654293782567,
+          "note": "同层内参数量已被近似冻结；EGM 组参数量**更大**（不利方向）"
+        }
+      },
+      {
+        "n_modules": 2,
+        "n": 3,
+        "configs": [
+          "egm_dpa",
+          "dpa_msfa",
+          "egm_msfa"
+        ],
+        "param_range": [
+          39.497918,
+          46.939522
+        ],
+        "ood_det_range": [
+          0.7755102040816326,
+          0.8520408163265306
+        ],
+        "ood_dice_range": [
+          0.5683978035881079,
+          0.6672612952678554
+        ],
+        "rows": [
+          {
+            "config": "egm_dpa",
+            "param_M": 39.497918,
+            "ood_det": 0.8418367346938775,
+            "ood_dice": 0.639136178497933,
+            "egm": 1
+          },
+          {
+            "config": "dpa_msfa",
+            "param_M": 41.431037,
+            "ood_det": 0.7755102040816326,
+            "ood_dice": 0.5683978035881079,
+            "egm": 0
+          },
+          {
+            "config": "egm_msfa",
+            "param_M": 46.939522,
+            "ood_det": 0.8520408163265306,
+            "ood_dice": 0.6672612952678554,
+            "egm": 1
+          }
+        ],
+        "egm_vs_noegm": {
+          "n_with_egm": 2,
+          "n_without": 1,
+          "mean_param_with": 43.21872,
+          "mean_param_without": 41.431037,
+          "param_gap_pct": 4.314840104050477,
+          "mean_ood_det_with": 0.846938775510204,
+          "mean_ood_det_without": 0.7755102040816326,
+          "det_gap_pp": 7.14285714285714,
+          "mean_ood_dice_with": 0.6531987368828942,
+          "mean_ood_dice_without": 0.5683978035881079,
+          "dice_gap_pp": 8.480093329478633,
+          "note": "同层内参数量已被近似冻结；EGM 组参数量**更大**（不利方向）"
+        }
+      }
+    ],
+    "A2_by_param_bin": [
+      {
+        "bin": [
+          30.0,
+          35.0
+        ],
+        "n": 2,
+        "rows": [
+          {
+            "config": "baseline",
+            "param_M": 31.037633,
+            "n_modules": 0,
+            "egm": 0,
+            "ood_det": 0.6326530612244898,
+            "ood_dice": 0.4531518856807683
+          },
+          {
+            "config": "dpa_only",
+            "param_M": 32.513533,
+            "n_modules": 1,
+            "egm": 0,
+            "ood_det": 0.7448979591836735,
+            "ood_dice": 0.5024596265072006
+          }
+        ]
+      },
+      {
+        "bin": [
+          35.0,
+          42.0
+        ],
+        "n": 4,
+        "rows": [
+          {
+            "config": "egm_only",
+            "param_M": 38.022018,
+            "n_modules": 1,
+            "egm": 1,
+            "ood_det": 0.6785714285714286,
+            "ood_dice": 0.534199659829776
+          },
+          {
+            "config": "egm_dpa",
+            "param_M": 39.497918,
+            "n_modules": 2,
+            "egm": 1,
+            "ood_det": 0.8418367346938775,
+            "ood_dice": 0.639136178497933
+          },
+          {
+            "config": "msfa_only",
+            "param_M": 39.955137,
+            "n_modules": 1,
+            "egm": 0,
+            "ood_det": 0.6938775510204082,
+            "ood_dice": 0.5492383845647864
+          },
+          {
+            "config": "dpa_msfa",
+            "param_M": 41.431037,
+            "n_modules": 2,
+            "egm": 0,
+            "ood_det": 0.7755102040816326,
+            "ood_dice": 0.5683978035881079
+          }
+        ],
+        "egm_vs_noegm": {
+          "n_with_egm": 2,
+          "n_without": 2,
+          "mean_param_with": 38.759968,
+          "mean_param_without": 40.693087000000006,
+          "mean_ood_det_with": 0.7602040816326531,
+          "mean_ood_det_without": 0.7346938775510203,
+          "det_gap_pp": 2.5510204081632737,
+          "mean_ood_dice_with": 0.5866679191638545,
+          "mean_ood_dice_without": 0.5588180940764471,
+          "dice_gap_pp": 2.784982508740741,
+          "param_span_M": 3.4090190000000007,
+          "param_span_pct_of_mean": 8.581215662506622
+        }
+      },
+      {
+        "bin": [
+          42.0,
+          48.0
+        ],
+        "n": 1,
+        "rows": [
+          {
+            "config": "egm_msfa",
+            "param_M": 46.939522,
+            "n_modules": 2,
+            "egm": 1,
+            "ood_det": 0.8520408163265306,
+            "ood_dice": 0.6672612952678554
+          }
+        ]
+      }
+    ],
+    "A3_natural_capacity_pairs": {
+      "tol_pct": 5.0,
+      "n_pairs": 4,
+      "pairs": [
+        {
+          "with_egm": "egm_dpa",
+          "without_egm": "msfa_only",
+          "param_with_M": 39.497918,
+          "param_without_M": 39.955137,
+          "param_gap_pct": 1.1575774702859074,
+          "within_strict_tol": true,
+          "param_advantage_of_control": true,
+          "ood_det_with": 0.8418367346938775,
+          "ood_det_without": 0.6938775510204082,
+          "det_gap_pp": 14.795918367346939,
+          "ood_dice_with": 0.639136178497933,
+          "ood_dice_without": 0.5492383845647864,
+          "dice_gap_pp": 8.989779393314667
+        },
+        {
+          "with_egm": "egm_dpa",
+          "without_egm": "dpa_msfa",
+          "param_with_M": 39.497918,
+          "param_without_M": 41.431037,
+          "param_gap_pct": 4.89423012119273,
+          "within_strict_tol": true,
+          "param_advantage_of_control": true,
+          "ood_det_with": 0.8418367346938775,
+          "ood_det_without": 0.7755102040816326,
+          "det_gap_pp": 6.632653061224492,
+          "ood_dice_with": 0.639136178497933,
+          "ood_dice_without": 0.5683978035881079,
+          "dice_gap_pp": 7.073837490982515
+        },
+        {
+          "with_egm": "egm_only",
+          "without_egm": "msfa_only",
+          "param_with_M": 38.022018,
+          "param_without_M": 39.955137,
+          "param_gap_pct": 5.084209365215695,
+          "within_strict_tol": false,
+          "param_advantage_of_control": true,
+          "ood_det_with": 0.6785714285714286,
+          "ood_det_without": 0.6938775510204082,
+          "det_gap_pp": -1.5306122448979553,
+          "ood_dice_with": 0.534199659829776,
+          "ood_dice_without": 0.5492383845647864,
+          "dice_gap_pp": -1.5038724735010334
+        },
+        {
+          "with_egm": "egm_only",
+          "without_egm": "dpa_msfa",
+          "param_with_M": 38.022018,
+          "param_without_M": 41.431037,
+          "param_gap_pct": 8.965907595961898,
+          "within_strict_tol": false,
+          "param_advantage_of_control": true,
+          "ood_det_with": 0.6785714285714286,
+          "ood_det_without": 0.7755102040816326,
+          "det_gap_pp": -9.693877551020403,
+          "ood_dice_with": 0.534199659829776,
+          "ood_dice_without": 0.5683978035881079,
+          "dice_gap_pp": -3.4198143758331856
+        }
+      ]
+    },
+    "A4_within_bin_monotonicity": [
+      {
+        "bin": [
+          35.0,
+          42.0
+        ],
+        "n": 4,
+        "rho_param_vs_ooddet": 0.39999999999999997,
+        "rho_param_vs_ooddice": 0.39999999999999997,
+        "order_by_param": [
+          "egm_only",
+          "egm_dpa",
+          "msfa_only",
+          "dpa_msfa"
+        ],
+        "order_by_ooddet": [
+          "egm_only",
+          "msfa_only",
+          "dpa_msfa",
+          "egm_dpa"
+        ],
+        "monotone_det": false
+      }
+    ]
+  },
+  "B_regression": {
+    "B1_ablation_spearman": {
+      "id_dice": {
+        "rho": 0.9642857142857145,
+        "n": 7,
+        "p_t": 0.00045414916919416973,
+        "boot_ci": {
+          "lo": 0.69811320754717,
+          "hi": 1.0,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.0016
+        }
+      },
+      "ood_dice": {
+        "rho": 0.8928571428571429,
+        "n": 7,
+        "p_t": 0.006807187408935395,
+        "boot_ci": {
+          "lo": 0.40000000000000013,
+          "hi": 1.0,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.0122
+        }
+      },
+      "ood_det": {
+        "rho": 0.7500000000000002,
+        "n": 7,
+        "p_t": 0.05218140045705776,
+        "boot_ci": {
+          "lo": -0.058823529411764705,
+          "hi": 1.0,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.0334
+        }
+      },
+      "ood_delin": {
+        "rho": 0.5,
+        "n": 7,
+        "p_t": 0.25316999510032273,
+        "boot_ci": {
+          "lo": -0.5555555555555555,
+          "hi": 0.9607843137254901,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.1098
+        }
+      },
+      "_cross_check_vs_v4": {
+        "v4_id_rho": 0.964,
+        "v4_ood_dice_rho": 0.893,
+        "ours_id_rho": 0.9642857142857145,
+        "ours_ood_dice_rho": 0.8928571428571429,
+        "agree_id": true,
+        "agree_ood": true
+      }
+    },
+    "B2_arch_spearman": {
+      "id_dice": {
+        "rho": -0.03736263736263736,
+        "n": 14,
+        "p_t": 0.899093096973967,
+        "boot_ci": {
+          "lo": -0.6809167632387767,
+          "hi": 0.6044956588355465,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.5256
+        }
+      },
+      "ood_dice": {
+        "rho": -0.015384615384615385,
+        "n": 14,
+        "p_t": 0.9583697893719862,
+        "boot_ci": {
+          "lo": -0.66073317690105,
+          "hi": 0.6205415087874879,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.5003
+        }
+      },
+      "ood_det": {
+        "rho": 0.01098901098901099,
+        "n": 14,
+        "p_t": 0.970258390096969,
+        "boot_ci": {
+          "lo": -0.6169411287756714,
+          "hi": 0.6351451394446836,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.4749
+        }
+      },
+      "ood_delin": {
+        "rho": -0.1032967032967033,
+        "n": 14,
+        "p_t": 0.725282211088945,
+        "boot_ci": {
+          "lo": -0.6787468885104153,
+          "hi": 0.5169800459511221,
+          "n_valid": 10000,
+          "b": 10000,
+          "frac_negative": 0.6297
+        }
+      },
+      "_baseline13_only": {
+        "id_dice": {
+          "rho": -0.2967032967032967,
+          "n": 13,
+          "p_t": 0.3249215884859752
+        },
+        "ood_dice": {
+          "rho": -0.2692307692307692,
+          "n": 13,
+          "p_t": 0.37373304228189164
+        },
+        "ood_det": {
+          "rho": -0.23626373626373626,
+          "n": 13,
+          "p_t": 0.4370835438311814
+        }
+      }
+    },
+    "B3_confound_source": {
+      "n_with_egm": 3,
+      "n_without": 4,
+      "mean_param_with_M": 41.486486,
+      "mean_param_without_M": 36.234335,
+      "gap_M": 5.252150999999998,
+      "gap_pct": 14.494956234190571,
+      "conclusion": "含 EGM 的配置参数量**系统性更大** ⇒ 未控制时 ρ(param, OOD) 会把模块效应吸收进参数量效应。这是混淆的**机制**，必须显式报出。"
+    },
+    "B4_partial_spearman": {
+      "calibration": "一阶偏相关（rank 空间），控制变量 = log10(参数量)",
+      "ood_det": {
+        "partial": 0.34188172937891387,
+        "raw": 0.43301270189221935,
+        "rho_egm_param": 0.2886751345948129,
+        "rho_param_det": 0.7500000000000002,
+        "n": 7
+      },
+      "ood_dice": {
+        "partial": 0.7412535547811563,
+        "raw": 0.5773502691896258,
+        "rho_egm_param": 0.2886751345948129,
+        "rho_param_dice": 0.8928571428571429,
+        "n": 7
+      },
+      "caveat": "n=7 ⇒ 仅描述性；偏相关对 n 极敏感，不构成因果结论。"
+    },
+    "B5_ols": {
+      "ablation": {
+        "ood_det_param_only": {
+          "ok": true,
+          "n": 7,
+          "k": 1,
+          "names": [
+            "const",
+            "log_param"
+          ],
+          "coef": [
+            -0.7295933810070845,
+            0.9327560432438977
+          ],
+          "se": [
+            0.6863310767612003,
+            0.4336720084783406
+          ],
+          "p": [
+            0.33638904944213655,
+            0.08415635333574559
+          ],
+          "r2": 0.48057789098646975,
+          "r2_adj": 0.3766934691837637,
+          "backend": "statsmodels"
+        },
+        "ood_det_param_plus_egm": {
+          "ok": true,
+          "n": 7,
+          "k": 2,
+          "names": [
+            "const",
+            "log_param",
+            "egm"
+          ],
+          "coef": [
+            -0.5187726212048478,
+            0.7909604639556052,
+            0.031357809438834455
+          ],
+          "se": [
+            0.8597271726798154,
+            0.5521517556283925,
+            0.0637808343626439
+          ],
+          "p": [
+            0.5787785037737743,
+            0.2252745405394856,
+            0.6487252933957277
+          ],
+          "r2": 0.5101777445841529,
+          "r2_adj": 0.2652666168762293,
+          "backend": "statsmodels"
+        },
+        "ood_dice_param_only": {
+          "ok": true,
+          "n": 7,
+          "k": 1,
+          "names": [
+            "const",
+            "log_param"
+          ],
+          "coef": [
+            -1.1378893317138787,
+            1.0729898833598632
+          ],
+          "se": [
+            0.3917024463572409,
+            0.24750501964626648
+          ],
+          "p": [
+            0.03359519806748806,
+            0.007462454342728579
+          ],
+          "r2": 0.7898645229995174,
+          "r2_adj": 0.7478374275994208,
+          "backend": "statsmodels"
+        },
+        "ood_dice_param_plus_egm": {
+          "ok": true,
+          "n": 7,
+          "k": 2,
+          "names": [
+            "const",
+            "log_param",
+            "egm"
+          ],
+          "coef": [
+            -0.8560848345576173,
+            0.8834514718779887,
+            0.04191604151850137
+          ],
+          "se": [
+            0.4189170961526821,
+            0.26904559661928446,
+            0.031078326672064813
+          ],
+          "p": [
+            0.11049485674101278,
+            0.030396275730376534,
+            0.24872602940991043
+          ],
+          "r2": 0.8555534794518468,
+          "r2_adj": 0.7833302191777702,
+          "backend": "statsmodels"
+        },
+        "delta_r2_det": 0.029599853597683135,
+        "delta_r2_dice": 0.06568895645232942
+      },
+      "arch": {
+        "ood_det_param_only": {
+          "ok": true,
+          "n": 14,
+          "k": 1,
+          "names": [
+            "const",
+            "log_param"
+          ],
+          "coef": [
+            0.6316914177356461,
+            0.06550714101570909
+          ],
+          "se": [
+            0.09315762308803459,
+            0.07083146619111268
+          ],
+          "p": [
+            1.9555497780768243e-05,
+            0.37327807571696603
+          ],
+          "r2": 0.06653377862249532,
+          "r2_adj": -0.011255073158963347,
+          "backend": "statsmodels"
+        },
+        "ood_dice_param_only": {
+          "ok": true,
+          "n": 14,
+          "k": 1,
+          "names": [
+            "const",
+            "log_param"
+          ],
+          "coef": [
+            0.45228462096002037,
+            0.04745847785187757
+          ],
+          "se": [
+            0.08040309739199415,
+            0.06113369025313038
+          ],
+          "p": [
+            0.00011157862780353355,
+            0.4525982033034949
+          ],
+          "r2": 0.04781943622022666,
+          "r2_adj": -0.031528944094754374,
+          "backend": "statsmodels"
+        }
+      },
+      "caveat": "n=7 时 df=4；R² 与 p 均不稳定，只作方向性参考。"
+    },
+    "B6_endpoint_sensitivity": {
+      "_criterion": "去掉参数量的最小/最大端点各一个（v4 声称 ρ 由两端点抬起）",
+      "drop_min_param": {
+        "n": 6,
+        "dropped": [
+          "baseline"
+        ],
+        "rho_param_ooddice": 0.8285714285714287,
+        "rho_param_ooddet": 0.6,
+        "p_ooddice": 0.041562682215743364
+      },
+      "drop_max_param": {
+        "n": 6,
+        "dropped": [
+          "egm_msfa"
+        ],
+        "rho_param_ooddice": 0.8285714285714287,
+        "rho_param_ooddet": 0.6,
+        "p_ooddice": 0.041562682215743364
+      },
+      "drop_both_ends": {
+        "n": 5,
+        "dropped": [
+          "baseline",
+          "egm_msfa"
+        ],
+        "rho_param_ooddice": 0.7,
+        "rho_param_ooddet": 0.3,
+        "p_ooddice": 0.1881204043741873
+      },
+      "_redundant_row": {
+        "n": 5,
+        "kept": [
+          "dpa_only",
+          "egm_only",
+          "msfa_only",
+          "egm_dpa",
+          "dpa_msfa"
+        ],
+        "note": "（此剔除组合与 drop_both_ends 等价，见 _note）"
+      },
+      "_note": "域外 Dice 最高者即**参数量最大端点**（egm_msfa），故「再去域外最高」与 `drop_both_ends` 完全等价 —— 此处**不另列**，避免同一项检验被误读为两项独立证据。"
+    },
+    "B7_within_group_param_effect": {
+      "no_egm": {
+        "n": 4,
+        "configs": [
+          "baseline",
+          "dpa_only",
+          "msfa_only",
+          "dpa_msfa"
+        ],
+        "param_range": [
+          31.037633,
+          41.431037
+        ],
+        "ood_dice_range": [
+          0.4531518856807683,
+          0.5683978035881079
+        ],
+        "ood_det_range": [
+          0.6326530612244898,
+          0.7755102040816326
+        ],
+        "rho_param_ooddice": 1.0,
+        "rho_param_ooddet": 0.7999999999999999,
+        "monotone_dice": true,
+        "monotone_det": false
+      },
+      "with_egm": {
+        "n": 3,
+        "configs": [
+          "egm_only",
+          "egm_dpa",
+          "egm_msfa"
+        ],
+        "param_range": [
+          38.022018,
+          46.939522
+        ],
+        "ood_dice_range": [
+          0.534199659829776,
+          0.6672612952678554
+        ],
+        "ood_det_range": [
+          0.6785714285714286,
+          0.8520408163265306
+        ],
+        "rho_param_ooddice": 1.0,
+        "rho_param_ooddet": 1.0,
+        "monotone_dice": true,
+        "monotone_det": true
+      },
+      "_level_shift_at_overlap": {
+        "window": [
+          35.0,
+          42.0
+        ],
+        "n_with_egm": 2,
+        "n_without": 2,
+        "mean_param_with_M": 38.759968,
+        "mean_param_without_M": 40.693087000000006,
+        "gap_param_pct": -4.750485014813465,
+        "mean_ood_dice_with": 0.5866679191638545,
+        "mean_ood_dice_without": 0.5588180940764471,
+        "gap_dice_pp": 2.784982508740741,
+        "mean_ood_det_with": 0.7602040816326531,
+        "mean_ood_det_without": 0.7346938775510203,
+        "gap_det_pp": 2.5510204081632737,
+        "note": "同斜率、不同截距 ⇒ **参数量解释“斜率”、EGM 解释“截距（水平位移）”**。注意本窗内 EGM 组参数量**更小**（对 EGM 不利/保守方向），故正的截距差不会被参数量解释掉。"
+      }
+    },
+    "B8_egm_alone_counterexamples": {
+      "n_pairs": 4,
+      "n_positive": 2,
+      "n_negative": 2,
+      "positive": [
+        {
+          "carrier": "egm_dpa",
+          "control": "msfa_only",
+          "gap_pct": 1.1575774702859074,
+          "dice_gap_pp": 8.989779393314667,
+          "det_gap_pp": 14.795918367346939
+        },
+        {
+          "carrier": "egm_dpa",
+          "control": "dpa_msfa",
+          "gap_pct": 4.89423012119273,
+          "dice_gap_pp": 7.073837490982515,
+          "det_gap_pp": 6.632653061224492
+        }
+      ],
+      "negative": [
+        {
+          "carrier": "egm_only",
+          "control": "msfa_only",
+          "gap_pct": 5.084209365215695,
+          "dice_gap_pp": -1.5038724735010334,
+          "det_gap_pp": -1.5306122448979553
+        },
+        {
+          "carrier": "egm_only",
+          "control": "dpa_msfa",
+          "gap_pct": 8.965907595961898,
+          "dice_gap_pp": -3.4198143758331856,
+          "det_gap_pp": -9.693877551020403
+        }
+      ],
+      "carriers_with_positive": [
+        "egm_dpa"
+      ],
+      "carriers_with_negative": [
+        "egm_only"
+      ],
+      "conclusion": "容量匹配对**不是一致为正**：`egm_dpa`（EGM×DPA 组合）的两对全为正，而 `egm_only`（仅 EGM）的两对全为负 ⇒ **EGM 的域外优势不是“EGM 单独”的效应，而是 EGM 与 DPA 的交互效应**。H5 的措辞必须精确到组合配置，不得写成“加了 EGM 就好”。",
+      "n_caveat": "每对 n=1（单点比较，无重复种子）⇒ 只能作观测证据，不可作显著性结论。"
+    }
+  },
+  "C_capacity": {
+    "anchor_check": {
+      "base_filters": 64,
+      "constructed_M": 31.037633,
+      "ablation_baseline_M": 31.037633,
+      "abs_diff_M": 0.0,
+      "tol_M": 0.001,
+      "status": "MATCH",
+      "note": "构造 AblationUNet(64, 无模块) 应与 experiments/ablation/baseline 参数量一致"
+    },
+    "capacity_matched_spec": {
+      "basis": "以 `AblationUNet(base_filters=b, 无模块)` 为对照组；对每个模块配置，取参数量最接近的 b",
+      "scan_range": [
+        60,
+        104
+      ],
+      "anchor_M": 31.037633,
+      "rows": [
+        {
+          "target_config": "baseline",
+          "target_param_M": 31.037633,
+          "modules": {
+            "EGM": 0,
+            "DPA": 0,
+            "MSFA": 0
+          },
+          "target_ood_det": 0.6326530612244898,
+          "target_ood_dice": 0.4531518856807683,
+          "matched_base_filters": 64,
+          "matched_param_M": 31.037633,
+          "param_gap_M": 0.0,
+          "param_gap_pct": 0.0,
+          "width_scale_vs_64": 1.0,
+          "matched_ood_det": null,
+          "matched_ood_dice": null
+        },
+        {
+          "target_config": "dpa_only",
+          "target_param_M": 32.513533,
+          "modules": {
+            "EGM": 0,
+            "DPA": 1,
+            "MSFA": 0
+          },
+          "target_ood_det": 0.7448979591836735,
+          "target_ood_dice": 0.5024596265072006,
+          "matched_base_filters": 66,
+          "matched_param_M": 33.007327,
+          "param_gap_M": 0.49379399999999407,
+          "param_gap_pct": 1.5187337531113343,
+          "width_scale_vs_64": 1.03125,
+          "matched_ood_det": null,
+          "matched_ood_dice": null
+        },
+        {
+          "target_config": "egm_only",
+          "target_param_M": 38.022018,
+          "modules": {
+            "EGM": 1,
+            "DPA": 0,
+            "MSFA": 0
+          },
+          "target_ood_det": 0.6785714285714286,
+          "target_ood_dice": 0.534199659829776,
+          "matched_base_filters": 71,
+          "matched_param_M": 38.196652,
+          "param_gap_M": 0.1746339999999975,
+          "param_gap_pct": 0.45929703152525203,
+          "width_scale_vs_64": 1.109375,
+          "matched_ood_det": null,
+          "matched_ood_dice": null
+        },
+        {
+          "target_config": "egm_dpa",
+          "target_param_M": 39.497918,
+          "modules": {
+            "EGM": 1,
+            "DPA": 1,
+            "MSFA": 0
+          },
+          "target_ood_det": 0.8418367346938775,
+          "target_ood_dice": 0.639136178497933,
+          "matched_base_filters": 72,
+          "matched_param_M": 39.279961,
+          "param_gap_M": -0.2179569999999984,
+          "param_gap_pct": -0.5518189591664058,
+          "width_scale_vs_64": 1.125,
+          "matched_ood_det": null,
+          "matched_ood_dice": null
+        },
+        {
+          "target_config": "msfa_only",
+          "target_param_M": 39.955137,
+          "modules": {
+            "EGM": 0,
+            "DPA": 0,
+            "MSFA": 1
+          },
+          "target_ood_det": 0.6938775510204082,
+          "target_ood_dice": 0.5492383845647864,
+          "matched_base_filters": 73,
+          "matched_param_M": 40.378418,
+          "param_gap_M": 0.4232810000000029,
+          "param_gap_pct": 1.0593906861087854,
+          "width_scale_vs_64": 1.140625,
+          "matched_ood_det": null,
+          "matched_ood_dice": null
+        },
+        {
+          "target_config": "dpa_msfa",
+          "target_param_M": 41.431037,
+          "modules": {
+            "EGM": 0,
+            "DPA": 1,
+            "MSFA": 1
+          },
+          "target_ood_det": 0.7755102040816326,
+          "target_ood_dice": 0.5683978035881079,
+          "matched_base_filters": 74,
+          "matched_param_M": 41.492023,
+          "param_gap_M": 0.06098599999999976,
+          "param_gap_pct": 0.14719882584643962,
+          "width_scale_vs_64": 1.15625,
+          "matched_ood_det": null,
+          "matched_ood_dice": null
+        },
+        {
+          "target_config": "egm_msfa",
+          "target_param_M": 46.939522,
+          "modules": {
+            "EGM": 1,
+            "DPA": 0,
+            "MSFA": 1
+          },
+          "target_ood_det": 0.8520408163265306,
+          "target_ood_dice": 0.6672612952678554,
+          "matched_base_filters": 79,
+          "matched_param_M": 47.287268,
+          "param_gap_M": 0.3477460000000008,
+          "param_gap_pct": 0.7408383920057826,
+          "width_scale_vs_64": 1.234375,
+          "matched_ood_det": null,
+          "matched_ood_dice": null
+        }
+      ]
+    },
+    "P3_4_protocol": {
+      "script_to_write": "02_code/analysis/p34_capacity_matched.py",
+      "models": [
+        {
+          "name": "plainUNet_bf64",
+          "base_filters": 64,
+          "params_M": 31.037633,
+          "matches": "baseline"
+        },
+        {
+          "name": "plainUNet_bf66",
+          "base_filters": 66,
+          "params_M": 33.007327,
+          "matches": "dpa_only"
+        },
+        {
+          "name": "plainUNet_bf71",
+          "base_filters": 71,
+          "params_M": 38.196652,
+          "matches": "egm_only"
+        },
+        {
+          "name": "plainUNet_bf72",
+          "base_filters": 72,
+          "params_M": 39.279961,
+          "matches": "egm_dpa"
+        },
+        {
+          "name": "plainUNet_bf73",
+          "base_filters": 73,
+          "params_M": 40.378418,
+          "matches": "msfa_only"
+        },
+        {
+          "name": "plainUNet_bf74",
+          "base_filters": 74,
+          "params_M": 41.492023,
+          "matches": "dpa_msfa"
+        },
+        {
+          "name": "plainUNet_bf79",
+          "base_filters": 79,
+          "params_M": 47.287268,
+          "matches": "egm_msfa"
+        }
+      ],
+      "train_data": "D:/medical_segmentation 分布内训练集（与消融 7 格同划分，seed 42）",
+      "eval_data_id": "processed_data/test（242）",
+      "eval_data_ood": "data_zeroshot/etis（196，第三域）",
+      "epochs": "与消融 7 格同一协议（同 optimizer/lr schedule/epochs/增强）",
+      "amp": true,
+      "batch_size": "8–16（8 G 显存）",
+      "seeds": "建议 1 个种子跑通、3 个种子做终值（与 P3-3 对齐）",
+      "cost_estimate": "~1 h GPU / 6 个模型（纯训练，含评估）",
+      "gates": {
+        "G_train": "必须报最终 ID Dice，与同参数量模块配置的 ID Dice 差 ≤ 1.0 pp，否则说明训练不充分（容量匹配实验的前提是“同样训好了”）",
+        "G_repro": "逐样本 Dice 均值与训练日志一致（tol 1e-9）"
+      },
+      "primary_metric": "ETIS 检出率（实质判据，no-eps）—— 与 P3-1b 的 detection 同口径",
+      "secondary_metric": "ETIS E[Dice] 与 Delineation",
+      "decision": {
+        "branch_A": {
+          "condition": "加宽 plain UNet 的 ETIS 检出率**仍显著低于**同参数量模块配置（差距 ≥ 5 pp）",
+          "verdict": "H5 **支持** —— EGM 优势不能由参数量解释",
+          "action": "按分支 A 写（EGM 有独立贡献）"
+        },
+        "branch_B": {
+          "condition": "加宽 plain UNet 的 ETIS 检出率**追平**同参数量模块配置（差距 < 5 pp 且 CI 跨 0）",
+          "verdict": "H5 **被推翻** —— 优势由容量驱动",
+          "action": "按分支 B 写（“域稳健性主要来自参数量”），更反直觉但同样可发表"
+        },
+        "pre_registered": true,
+        "frozen_before_run": true
+      }
+    },
+    "A3_ready_answer": {
+      "question": "egm_dpa（39.50M）域外是否仍高于 dpa_msfa（41.43M）？",
+      "threshold_source": "总计划 §五 验收点表 P2-4"
+    },
+    "capacity_scan": [
+      {
+        "base_filters": 60,
+        "params_M": 27.280021,
+        "n_params": 27280021,
+        "d": 14.151016
+      },
+      {
+        "base_filters": 61,
+        "params_M": 28.196702,
+        "n_params": 28196702,
+        "d": 13.234335
+      },
+      {
+        "base_filters": 62,
+        "params_M": 29.128531,
+        "n_params": 29128531,
+        "d": 12.302506
+      },
+      {
+        "base_filters": 63,
+        "params_M": 30.075508,
+        "n_params": 30075508,
+        "d": 11.355529
+      },
+      {
+        "base_filters": 64,
+        "params_M": 31.037633,
+        "n_params": 31037633,
+        "d": 10.393404
+      },
+      {
+        "base_filters": 65,
+        "params_M": 32.014906,
+        "n_params": 32014906,
+        "d": 9.416131
+      },
+      {
+        "base_filters": 66,
+        "params_M": 33.007327,
+        "n_params": 33007327,
+        "d": 8.42371
+      },
+      {
+        "base_filters": 67,
+        "params_M": 34.014896,
+        "n_params": 34014896,
+        "d": 7.416141
+      },
+      {
+        "base_filters": 68,
+        "params_M": 35.037613,
+        "n_params": 35037613,
+        "d": 6.393424
+      },
+      {
+        "base_filters": 69,
+        "params_M": 36.075478,
+        "n_params": 36075478,
+        "d": 5.355559
+      },
+      {
+        "base_filters": 70,
+        "params_M": 37.128491,
+        "n_params": 37128491,
+        "d": 4.302546
+      },
+      {
+        "base_filters": 71,
+        "params_M": 38.196652,
+        "n_params": 38196652,
+        "d": 3.234385
+      },
+      {
+        "base_filters": 72,
+        "params_M": 39.279961,
+        "n_params": 39279961,
+        "d": 2.151076
+      },
+      {
+        "base_filters": 73,
+        "params_M": 40.378418,
+        "n_params": 40378418,
+        "d": 1.052619
+      },
+      {
+        "base_filters": 74,
+        "params_M": 41.492023,
+        "n_params": 41492023,
+        "d": 0.060986
+      },
+      {
+        "base_filters": 75,
+        "params_M": 42.620776,
+        "n_params": 42620776,
+        "d": 1.189739
+      },
+      {
+        "base_filters": 76,
+        "params_M": 43.764677,
+        "n_params": 43764677,
+        "d": 2.33364
+      },
+      {
+        "base_filters": 77,
+        "params_M": 44.923726,
+        "n_params": 44923726,
+        "d": 3.492689
+      },
+      {
+        "base_filters": 78,
+        "params_M": 46.097923,
+        "n_params": 46097923,
+        "d": 4.666886
+      },
+      {
+        "base_filters": 79,
+        "params_M": 47.287268,
+        "n_params": 47287268,
+        "d": 5.856231
+      },
+      {
+        "base_filters": 80,
+        "params_M": 48.491761,
+        "n_params": 48491761,
+        "d": 7.060724
+      },
+      {
+        "base_filters": 81,
+        "params_M": 49.711402,
+        "n_params": 49711402,
+        "d": 8.280365
+      },
+      {
+        "base_filters": 82,
+        "params_M": 50.946191,
+        "n_params": 50946191,
+        "d": 9.515154
+      },
+      {
+        "base_filters": 83,
+        "params_M": 52.196128,
+        "n_params": 52196128,
+        "d": 10.765091
+      },
+      {
+        "base_filters": 84,
+        "params_M": 53.461213,
+        "n_params": 53461213,
+        "d": 12.030176
+      },
+      {
+        "base_filters": 85,
+        "params_M": 54.741446,
+        "n_params": 54741446,
+        "d": 13.310409
+      },
+      {
+        "base_filters": 86,
+        "params_M": 56.036827,
+        "n_params": 56036827,
+        "d": 14.60579
+      },
+      {
+        "base_filters": 87,
+        "params_M": 57.347356,
+        "n_params": 57347356,
+        "d": 15.916319
+      },
+      {
+        "base_filters": 88,
+        "params_M": 58.673033,
+        "n_params": 58673033,
+        "d": 17.241996
+      },
+      {
+        "base_filters": 89,
+        "params_M": 60.013858,
+        "n_params": 60013858,
+        "d": 18.582821
+      },
+      {
+        "base_filters": 90,
+        "params_M": 61.369831,
+        "n_params": 61369831,
+        "d": 19.938794
+      },
+      {
+        "base_filters": 91,
+        "params_M": 62.740952,
+        "n_params": 62740952,
+        "d": 21.309915
+      },
+      {
+        "base_filters": 92,
+        "params_M": 64.127221,
+        "n_params": 64127221,
+        "d": 22.696184
+      },
+      {
+        "base_filters": 93,
+        "params_M": 65.528638,
+        "n_params": 65528638,
+        "d": 24.097601
+      },
+      {
+        "base_filters": 94,
+        "params_M": 66.945203,
+        "n_params": 66945203,
+        "d": 25.514166
+      },
+      {
+        "base_filters": 95,
+        "params_M": 68.376916,
+        "n_params": 68376916,
+        "d": 26.945879
+      },
+      {
+        "base_filters": 96,
+        "params_M": 69.823777,
+        "n_params": 69823777,
+        "d": 28.39274
+      },
+      {
+        "base_filters": 97,
+        "params_M": 71.285786,
+        "n_params": 71285786,
+        "d": 29.854749
+      },
+      {
+        "base_filters": 98,
+        "params_M": 72.762943,
+        "n_params": 72762943,
+        "d": 31.331906
+      },
+      {
+        "base_filters": 99,
+        "params_M": 74.255248,
+        "n_params": 74255248,
+        "d": 32.824211
+      },
+      {
+        "base_filters": 100,
+        "params_M": 75.762701,
+        "n_params": 75762701,
+        "d": 34.331664
+      },
+      {
+        "base_filters": 101,
+        "params_M": 77.285302,
+        "n_params": 77285302,
+        "d": 35.854265
+      },
+      {
+        "base_filters": 102,
+        "params_M": 78.823051,
+        "n_params": 78823051,
+        "d": 37.392014
+      },
+      {
+        "base_filters": 103,
+        "params_M": 80.375948,
+        "n_params": 80375948,
+        "d": 38.944911
+      },
+      {
+        "base_filters": 104,
+        "params_M": 81.943993,
+        "n_params": 81943993,
+        "d": 40.512956
+      }
+    ]
+  },
+  "verdict": {
+    "key_pair_egm_dpa_vs_dpa_msfa": {
+      "with_egm": "egm_dpa",
+      "without_egm": "dpa_msfa",
+      "param_with_M": 39.497918,
+      "param_without_M": 41.431037,
+      "param_gap_pct": 4.89423012119273,
+      "within_strict_tol": true,
+      "param_advantage_of_control": true,
+      "ood_det_with": 0.8418367346938775,
+      "ood_det_without": 0.7755102040816326,
+      "det_gap_pp": 6.632653061224492,
+      "ood_dice_with": 0.639136178497933,
+      "ood_dice_without": 0.5683978035881079,
+      "dice_gap_pp": 7.073837490982515
+    },
+    "key_pair_egm_dpa_vs_msfa_only": {
+      "with_egm": "egm_dpa",
+      "without_egm": "msfa_only",
+      "param_with_M": 39.497918,
+      "param_without_M": 39.955137,
+      "param_gap_pct": 1.1575774702859074,
+      "within_strict_tol": true,
+      "param_advantage_of_control": true,
+      "ood_det_with": 0.8418367346938775,
+      "ood_det_without": 0.6938775510204082,
+      "det_gap_pp": 14.795918367346939,
+      "ood_dice_with": 0.639136178497933,
+      "ood_dice_without": 0.5492383845647864,
+      "dice_gap_pp": 8.989779393314667
+    },
+    "expectation_satisfied": true,
+    "headline": "egm_dpa（39.50M）域外 Dice 63.91 / 检出 0.8418，dpa_msfa（41.43M）56.84 / 0.7755 ⇒ **参数量更少但域外更高**",
+    "H5_status": "SUPPORTED_BY_OBSERVATIONAL_EVIDENCE（观测证据支持；因果结论待 P3-4）",
+    "H5_scope": "**仅限 `egm_dpa`（EGM×DPA 组合）**；`egm_only` 的容量匹配对全为负",
+    "counterexamples": [
+      {
+        "carrier": "egm_only",
+        "control": "msfa_only",
+        "gap_pct": 5.084209365215695,
+        "dice_gap_pp": -1.5038724735010334,
+        "det_gap_pp": -1.5306122448979553
+      },
+      {
+        "carrier": "egm_only",
+        "control": "dpa_msfa",
+        "gap_pct": 8.965907595961898,
+        "dice_gap_pp": -3.4198143758331856,
+        "det_gap_pp": -9.693877551020403
+      }
+    ],
+    "claim_do": "控制参数量后 EGM+DPA 组合的域外检出/Dice 仍更高；14 架构上 ρ(参数, 域外)≈0",
+    "claim_dont": "EGM 模块单独有效；参数量导致优势（因果）；证明",
+    "claim_upgrade": {
+      "decided": "2026-09-14 用户授权：能让文章升格就干 → **评估结论：能做，建议做**",
+      "doc": "00_docs/P2-4裁定_论点升级评估_2026-09-14.md",
+      "level": "升为 L3 子论点 + Results 独立子节 + Abstract/Contribution 一句；**不**新增 contribution 主条目",
+      "backbone": "同一变量（参数量）与域外 Dice 的关联，**符号与量级随样本边界翻转**；故单架构消融内的“容量解释成绩”不能外推",
+      "three_boundaries": [
+        {
+          "scope": "单架构 2³ 析因网格",
+          "n": 7,
+          "rho": 0.8928571428571429,
+          "label": "架构内强正"
+        },
+        {
+          "scope": "跨架构（13 baseline + EGAUNet）",
+          "n": 14,
+          "rho": -0.015384615384615385,
+          "label": "跨边界归零"
+        },
+        {
+          "scope": "仅通用分割 baseline（去 EGAUNet）",
+          "n": 13,
+          "rho": -0.2692307692307692,
+          "label": "转负"
+        }
+      ],
+      "qualifiers": [
+        "n=14 且 MDE@80% = 0.72 ⇒ 只能写 did not detect，禁写 no association / 证明无关",
+        "14 架构彼此不独立 ⇒ 任何 CI 仅描述性，不得作推断区间",
+        "不新增实验 ⇒ 不构成新实证支撑，故不得升为主贡献条目"
+      ],
+      "land_in_p5": "Results 子节「The parameter-count confound is sample-boundary dependent.」+ Contribution 一句（并入已有条目）",
+      "consistency": [
+        [
+          "P2-3",
+          "不冲突：其自变量是 ID 勾画，本论点自变量是参数量"
+        ],
+        [
+          "P2-4",
+          "同源于 B 节，数据一致"
+        ],
+        [
+          "铁律",
+          "不评判论文一方法：只谈样本边界对统计量的影响"
+        ]
+      ]
+    }
+  }
+}

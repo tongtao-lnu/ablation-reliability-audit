@@ -1,0 +1,3882 @@
+{
+  "segment": "P2-5",
+  "mode": "rank_reversal_robustness",
+  "generated_at": "2026-09-14T01:12:21",
+  "script": "02_code/analysis/robustness.py",
+  "user_order": "做 P2-5：排名反转的稳健性——留一配置、配置级 bootstrap、与 ρ 的关系。",
+  "user_expectation": "反转幅度 CI 不跨 0（留一法后符号不变；若变号须如实报告）",
+  "criteria_frozen": {
+    "seed": 20260914,
+    "boot_b": 10000,
+    "alpha": 0.05,
+    "near_tie_logq": 0.01,
+    "big_rev": 0.02,
+    "definition": "反转 = 分布内序与域外序不一致的对；定向后 Δ = log S^(t)_j − log S^(t)_i > 0",
+    "primary": "arch14__dice（命题 2 / Fig 1 同源）；config7__dice 为字面「配置」层读数",
+    "no_pooling": "arch14 与 config7 分开报，不合并",
+    "bootstrap": "unit bootstrap（抽单元去重），非样本级"
+  },
+  "data": {
+    "units14": {
+      "path": "E:/paper2_ablation_reliability/03_results/stats/p31a_units_n14.csv",
+      "n": 14
+    },
+    "config7": {
+      "path": "E:/paper2_ablation_reliability/03_results/stats/decomp_ablation_etis.csv + D:/medical_segmentation/experiments/ablation/<cfg>/results.json",
+      "n": 7
+    }
+  },
+  "pairings": {
+    "arch14__dice": {
+      "n_pairs": 91,
+      "n_ties": 0,
+      "n_concordant": 62,
+      "n_discordant": 29,
+      "kendall_tau_a": 0.3626373626373626,
+      "disc_frac": 0.31868131868131866,
+      "rev_mag": {
+        "n": 29,
+        "mean": 0.08369362913290039,
+        "median": 0.0740820895005859,
+        "min_": 0.004796881060828318,
+        "max_": 0.23641192458933225,
+        "frac_big": 0.7931034482758621
+      },
+      "signed_dev": {
+        "n": 91,
+        "mean": -0.07973292630445661,
+        "frac_negative": 0.6813186813186813
+      },
+      "near_tie": {
+        "threshold": 0.01,
+        "n": 20,
+        "mean_delta": 0.010355761947307838,
+        "frac_reversal": 0.55,
+        "max_abs_dlogAlpha": 0.11344837313230342
+      },
+      "max_abs_dlogAlpha": 0.11540295537686593,
+      "rho_spearman": 0.4769230769230769,
+      "pairs_detail": [
+        {
+          "i": "EGAUNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.05363012553729734,
+          "dlogD": -0.08701137698962969,
+          "dlogAlpha": 0.013973934168701012,
+          "delta": -0.126667568358226,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "M2SNet",
+          "tie": false,
+          "dlogQ": 0.028597891194336034,
+          "dlogD": -0.14035735769492233,
+          "dlogAlpha": 0.03749079947020409,
+          "delta": -0.13146444941905427,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.04207614501174817,
+          "dlogD": -0.14723023698268448,
+          "dlogAlpha": 0.05044302709254164,
+          "delta": -0.138863354901891,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.047175523188024905,
+          "dlogD": -0.09352605801082335,
+          "dlogAlpha": -0.030486664494887857,
+          "delta": -0.1711882456937361,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "PSPNet",
+          "tie": false,
+          "dlogQ": 0.023660634070784965,
+          "dlogD": -0.10668414258833457,
+          "dlogAlpha": -0.06495992828432418,
+          "delta": -0.1953047049434437,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.06252999368751114,
+          "dlogD": -0.13353139262452263,
+          "dlogAlpha": -0.033772053039135747,
+          "delta": -0.2298334393511695,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.06059450795724555,
+          "dlogD": -0.20398305357513388,
+          "dlogAlpha": 0.027808898908916607,
+          "delta": -0.23676866262346283,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "PolypPVT",
+          "tie": false,
+          "dlogQ": 0.024599277976449056,
+          "dlogD": -0.2797768929446675,
+          "dlogAlpha": 0.048488444847979366,
+          "delta": -0.2558877260731372,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.05314042441200549,
+          "dlogD": -0.2411620568168881,
+          "dlogAlpha": -0.01654827089515519,
+          "delta": -0.3108507521240488,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.07198476870494457,
+          "dlogD": -0.25642952894767645,
+          "dlogAlpha": 0.015309440671560301,
+          "delta": -0.3131048569810607,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.039992017500368855,
+          "dlogD": -0.30368241379822203,
+          "dlogAlpha": 0.024401153035141405,
+          "delta": -0.3192732782634495,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.049586611982943646,
+          "dlogD": -0.2876820724517808,
+          "dlogAlpha": -0.02581080851283382,
+          "delta": -0.36307949294755826,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.11155055487046485,
+          "dlogD": -0.29565024210095775,
+          "dlogAlpha": -0.03221680456430319,
+          "delta": -0.4394176015357258,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.0250322343429613,
+          "dlogD": 0.053345980705292714,
+          "dlogAlpha": -0.023516865301503098,
+          "delta": 0.004796881060828318,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.01155398052554903,
+          "dlogD": 0.060218859993054666,
+          "dlogAlpha": -0.036469092923840596,
+          "delta": 0.012195786543665042,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.006454602349272406,
+          "dlogD": 0.006514681021193672,
+          "dlogAlpha": 0.044460598663588945,
+          "delta": 0.04452067733551021,
+          "reversal": true
+        },
+        {
+          "i": "PSPNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.029969491466512236,
+          "dlogD": 0.019672765598704713,
+          "dlogAlpha": 0.07893386245302524,
+          "delta": 0.06863713658521771,
+          "reversal": true
+        },
+        {
+          "i": "TransUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.008899868150213774,
+          "dlogD": -0.04652001563489282,
+          "dlogAlpha": -0.047745987207836876,
+          "delta": -0.10316587099294347,
+          "reversal": false
+        },
+        {
+          "i": "TransUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.006964382419948303,
+          "dlogD": -0.1169716765855041,
+          "dlogAlpha": 0.013834964740215644,
+          "delta": -0.11010109426523676,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.02903084756084833,
+          "dlogD": 0.19276551595503794,
+          "dlogAlpha": -0.034514510679278416,
+          "delta": 0.1292201577149112,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.0004897011252917522,
+          "dlogD": 0.15415067982725836,
+          "dlogAlpha": 0.030522205063856188,
+          "delta": 0.1841831837658228,
+          "reversal": true
+        },
+        {
+          "i": "TransUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.01835464316764725,
+          "dlogD": -0.1694181519580468,
+          "dlogAlpha": 0.0013355065028593412,
+          "delta": -0.1864372886228347,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.013638108036928538,
+          "dlogD": 0.2166710368085923,
+          "dlogAlpha": -0.010427218866440201,
+          "delta": 0.19260570990522355,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.004043513554353573,
+          "dlogD": 0.20067069546215105,
+          "dlogAlpha": 0.03978474268153477,
+          "delta": 0.23641192458933225,
+          "reversal": true
+        },
+        {
+          "i": "TransUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.05792042933316746,
+          "dlogD": -0.20863886511132804,
+          "dlogAlpha": -0.04619073873300428,
+          "delta": -0.3127500331774998,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.01347825381741227,
+          "dlogD": -0.006872879287762064,
+          "dlogAlpha": 0.012952227622337557,
+          "delta": -0.007398905482836778,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.018577631993689024,
+          "dlogD": 0.04683129968409899,
+          "dlogAlpha": -0.06797746396509183,
+          "delta": -0.03972379627468187,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "M2SNet",
+          "tie": false,
+          "dlogQ": 0.004937257123550872,
+          "dlogD": -0.033673215106587835,
+          "dlogAlpha": 0.10245072775452822,
+          "delta": 0.06384025552438952,
+          "reversal": true
+        },
+        {
+          "i": "M2SNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.033932102493175055,
+          "dlogD": 0.006825965070399891,
+          "dlogAlpha": -0.07126285250934011,
+          "delta": -0.09836898993211528,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.03199661676290969,
+          "dlogD": -0.06362569588021155,
+          "dlogAlpha": -0.009681900561287295,
+          "delta": -0.10530421320440854,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "M2SNet",
+          "tie": false,
+          "dlogQ": 0.003998613217886999,
+          "dlogD": 0.13941953524974532,
+          "dlogAlpha": -0.010997645377775409,
+          "delta": 0.12442327665408291,
+          "reversal": true
+        },
+        {
+          "i": "M2SNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.024542533217669655,
+          "dlogD": -0.10080469912196564,
+          "dlogAlpha": -0.054039070365359126,
+          "delta": -0.17938630270499442,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.04338687751060855,
+          "dlogD": -0.11607217125275414,
+          "dlogAlpha": -0.02218135879864381,
+          "delta": -0.1816404075620065,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.011394126306032796,
+          "dlogD": -0.16332505610329964,
+          "dlogAlpha": -0.013089646435062904,
+          "delta": -0.18780882884439534,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.02098872078860779,
+          "dlogD": -0.14732471475685843,
+          "dlogAlpha": -0.06330160798303773,
+          "delta": -0.23161504352850396,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.08295266367612891,
+          "dlogD": -0.15529288440603548,
+          "dlogAlpha": -0.06970760403450713,
+          "delta": -0.3079531521166715,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.005099378176276635,
+          "dlogD": 0.053704178971861166,
+          "dlogAlpha": -0.0809296915874297,
+          "delta": -0.03232489079184516,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.018415510940963158,
+          "dlogD": -0.04054609439435002,
+          "dlogAlpha": 0.11540295537686593,
+          "delta": 0.056441350041552756,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.0204538486757629,
+          "dlogD": 0.013698844358161927,
+          "dlogAlpha": -0.08421508013167756,
+          "delta": -0.09097008444927852,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.01851836294549722,
+          "dlogD": -0.056752816592449365,
+          "dlogAlpha": -0.022634128183625285,
+          "delta": -0.09790530772157187,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.017476867035299264,
+          "dlogD": 0.1325466559619831,
+          "dlogAlpha": 0.001954582244562346,
+          "delta": 0.11702437117124617,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.011064279400257348,
+          "dlogD": -0.09393181983420362,
+          "dlogAlpha": -0.06699129798769672,
+          "delta": -0.1719873972221577,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.02990862369319629,
+          "dlogD": -0.10919929196499209,
+          "dlogAlpha": -0.03513358642098134,
+          "delta": -0.17424150207916972,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.0020841275113794434,
+          "dlogD": 0.1564521768155374,
+          "dlogAlpha": 0.02604187405740062,
+          "delta": 0.1804099233615586,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.007510466971195523,
+          "dlogD": -0.14045183546909631,
+          "dlogAlpha": -0.07625383560537534,
+          "delta": -0.22421613804566717,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.06947440985871665,
+          "dlogD": -0.14842000511827333,
+          "dlogAlpha": -0.08265983165684475,
+          "delta": -0.30055424663383473,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.023514889117239954,
+          "dlogD": 0.0131580845775112,
+          "dlogAlpha": 0.03447326378943637,
+          "delta": 0.024116459249707616,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.015354470499486059,
+          "dlogD": -0.04000533461369925,
+          "dlogAlpha": -0.0032853885442480774,
+          "delta": -0.058645193657433384,
+          "reversal": false
+        },
+        {
+          "i": "PraNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.013418984769220668,
+          "dlogD": -0.1104569955643105,
+          "dlogAlpha": 0.058295563403804526,
+          "delta": -0.06558041692972665,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.02257624521157597,
+          "dlogD": 0.18625083493384426,
+          "dlogAlpha": -0.07897510934286718,
+          "delta": 0.0846994803794011,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.005964901223980613,
+          "dlogD": -0.14763599880606468,
+          "dlogAlpha": 0.013938393599732736,
+          "delta": -0.13966250643031256,
+          "reversal": false
+        },
+        {
+          "i": "PraNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.024809245516919518,
+          "dlogD": -0.1629034709368532,
+          "dlogAlpha": 0.045796105166448164,
+          "delta": -0.14191661128732455,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.007183505687656095,
+          "dlogD": 0.2101563557873986,
+          "dlogAlpha": -0.05488781753002918,
+          "delta": 0.14808503256971334,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.002411088794918883,
+          "dlogD": -0.19415601444095737,
+          "dlogAlpha": 0.004675855982054163,
+          "delta": -0.1918912472538221,
+          "reversal": false
+        },
+        {
+          "i": "PraNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.06437503168243995,
+          "dlogD": -0.20212418409013436,
+          "dlogAlpha": -0.001730140069415284,
+          "delta": -0.2682293558419896,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.038869359616726024,
+          "dlogD": -0.026847250036188052,
+          "dlogAlpha": 0.03118787524518833,
+          "delta": -0.03452873440772575,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.03693387388646053,
+          "dlogD": -0.09729891098679933,
+          "dlogAlpha": 0.09276882719324075,
+          "delta": -0.041463957680019106,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "PolypPVT",
+          "tie": false,
+          "dlogQ": 0.0009386439056638946,
+          "dlogD": -0.1730927503563331,
+          "dlogAlpha": 0.11344837313230342,
+          "delta": -0.06058302112969356,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.029479790341220568,
+          "dlogD": -0.13447791422855357,
+          "dlogAlpha": 0.04841165738916914,
+          "delta": -0.115546047180605,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.04832413463415944,
+          "dlogD": -0.14974538635934195,
+          "dlogAlpha": 0.0802693689558843,
+          "delta": -0.1178001520376171,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.016331383429583794,
+          "dlogD": -0.1969982712098875,
+          "dlogAlpha": 0.08936108131946544,
+          "delta": -0.12396857332000585,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.025925977912158785,
+          "dlogD": -0.1809979298634463,
+          "dlogAlpha": 0.039149119771490576,
+          "delta": -0.1677747880041145,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.0878899207996798,
+          "dlogD": -0.1889660995126232,
+          "dlogAlpha": 0.03274312372002097,
+          "delta": -0.24411289659228202,
+          "reversal": false
+        },
+        {
+          "i": "UACANet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.001935485730265576,
+          "dlogD": 0.0704516609506113,
+          "dlogAlpha": -0.061580951948052416,
+          "delta": 0.00693522327229331,
+          "reversal": true
+        },
+        {
+          "i": "PolypPVT",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.037930715711062074,
+          "dlogD": 0.14624550032014497,
+          "dlogAlpha": -0.08226049788711523,
+          "delta": 0.02605428672196767,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.009389569275505457,
+          "dlogD": 0.10763066419236555,
+          "dlogAlpha": -0.017223782143980924,
+          "delta": 0.08101731277287917,
+          "reversal": true
+        },
+        {
+          "i": "CaraNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.009454775017433355,
+          "dlogD": -0.1228981363231539,
+          "dlogAlpha": 0.04908149371069605,
+          "delta": -0.08327141762989121,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.022537976187142206,
+          "dlogD": 0.1701510211736993,
+          "dlogAlpha": -0.05817320607427705,
+          "delta": 0.08943983891228004,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.012943381704567405,
+          "dlogD": 0.15415067982725816,
+          "dlogAlpha": -0.007961244526302012,
+          "delta": 0.13324605359638875,
+          "reversal": true
+        },
+        {
+          "i": "CaraNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.04902056118295371,
+          "dlogD": -0.16211884947643523,
+          "dlogAlpha": 0.0015552484748327239,
+          "delta": -0.20958416218455622,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.035995229980796496,
+          "dlogD": 0.07579383936953372,
+          "dlogAlpha": -0.02067954593906278,
+          "delta": 0.01911906344967445,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.007454083545239933,
+          "dlogD": 0.037179003241754244,
+          "dlogAlpha": 0.04435716980407159,
+          "delta": 0.0740820895005859,
+          "reversal": true
+        },
+        {
+          "i": "UACANet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.011390260747699088,
+          "dlogD": -0.05244647537254266,
+          "dlogAlpha": -0.01249945823735621,
+          "delta": -0.07633619435759796,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.02060249045687679,
+          "dlogD": 0.09969936022308817,
+          "dlogAlpha": 0.003407745873775434,
+          "delta": 0.08250461563998682,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.011007895974301898,
+          "dlogD": 0.08369901887664684,
+          "dlogAlpha": 0.053619707421750464,
+          "delta": 0.1263108303240954,
+          "reversal": true
+        },
+        {
+          "i": "UACANet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.050956046913219255,
+          "dlogD": -0.09166718852582392,
+          "dlogAlpha": -0.06002570347321978,
+          "delta": -0.20264893891226296,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.02854114643555665,
+          "dlogD": 0.038614836127779516,
+          "dlogAlpha": -0.06503671574313434,
+          "delta": -0.054963026050911475,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.04738549072849557,
+          "dlogD": 0.023347363996991107,
+          "dlogAlpha": -0.0331790041764191,
+          "delta": -0.05721713090792356,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.015392739523919759,
+          "dlogD": -0.023905520853554366,
+          "dlogAlpha": -0.024087291812838224,
+          "delta": -0.06338555219031235,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.024987334006494756,
+          "dlogD": -0.00790517950711315,
+          "dlogAlpha": -0.07429925336081308,
+          "delta": -0.107191766874421,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.08695127689401579,
+          "dlogD": -0.01587334915629012,
+          "dlogAlpha": -0.08070524941228259,
+          "delta": -0.1835298754625885,
+          "reversal": false
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.018844344292938898,
+          "dlogD": -0.01526747213078842,
+          "dlogAlpha": 0.031857711566715255,
+          "delta": -0.0022541048570120657,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.013148406911636795,
+          "dlogD": 0.06252035698133393,
+          "dlogAlpha": -0.040949423930296276,
+          "delta": 0.008422526139400859,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.0035538124290617123,
+          "dlogD": 0.0465200156348927,
+          "dlogAlpha": 0.009262537617678465,
+          "delta": 0.05222874082350945,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.058410130458459164,
+          "dlogD": -0.05448818528406968,
+          "dlogAlpha": -0.015668533669148277,
+          "delta": -0.12856684941167712,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.03199275120457565,
+          "dlogD": 0.04725288485054551,
+          "dlogAlpha": -0.00909171236358118,
+          "delta": 0.006168421282388682,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.022398156722000864,
+          "dlogD": 0.031252543504104315,
+          "dlogAlpha": 0.04112024918439411,
+          "delta": 0.04997463596649756,
+          "reversal": true
+        },
+        {
+          "i": "UNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.039565786165520325,
+          "dlogD": -0.03922071315328127,
+          "dlogAlpha": -0.04752624523586339,
+          "delta": -0.12631274455466499,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.00959459448257489,
+          "dlogD": 0.01600034134644112,
+          "dlogAlpha": -0.050211961547974984,
+          "delta": -0.04380621468410875,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.07155853737009595,
+          "dlogD": 0.008032171697264253,
+          "dlogAlpha": -0.056617957599444615,
+          "delta": -0.1201443232722763,
+          "reversal": false
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.06196394288752107,
+          "dlogD": -0.007968169649176958,
+          "dlogAlpha": -0.006405996051469513,
+          "delta": -0.07633810858816754,
+          "reversal": false
+        }
+      ]
+    },
+    "arch14__align": {
+      "n_pairs": 91,
+      "n_ties": 0,
+      "n_concordant": 56,
+      "n_discordant": 35,
+      "kendall_tau_a": 0.23076923076923078,
+      "disc_frac": 0.38461538461538464,
+      "rev_mag": {
+        "n": 35,
+        "mean": 0.08804558311703663,
+        "median": 0.06252035698133393,
+        "min_": 0.006514681021193672,
+        "max_": 0.2166710368085923,
+        "frac_big": 0.8
+      },
+      "signed_dev": {
+        "n": 91,
+        "mean": -0.04409251709281313,
+        "frac_negative": 0.6153846153846154
+      },
+      "near_tie": {
+        "threshold": 0.01,
+        "n": 20,
+        "mean_delta": 0.011172517288931018,
+        "frac_reversal": 0.6,
+        "max_abs_dlogAlpha": NaN
+      },
+      "max_abs_dlogAlpha": NaN,
+      "rho_spearman": 0.3010989010989011,
+      "pairs_detail": [
+        {
+          "i": "EGAUNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.05363012553729734,
+          "dlogD": -0.08701137698962969,
+          "dlogAlpha": NaN,
+          "delta": -0.08701137698962969,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "M2SNet",
+          "tie": false,
+          "dlogQ": 0.028597891194336034,
+          "dlogD": -0.14035735769492233,
+          "dlogAlpha": NaN,
+          "delta": -0.14035735769492233,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.04207614501174817,
+          "dlogD": -0.14723023698268448,
+          "dlogAlpha": NaN,
+          "delta": -0.14723023698268448,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.047175523188024905,
+          "dlogD": -0.09352605801082335,
+          "dlogAlpha": NaN,
+          "delta": -0.09352605801082335,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "PSPNet",
+          "tie": false,
+          "dlogQ": 0.023660634070784965,
+          "dlogD": -0.10668414258833457,
+          "dlogAlpha": NaN,
+          "delta": -0.10668414258833457,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.06252999368751114,
+          "dlogD": -0.13353139262452263,
+          "dlogAlpha": NaN,
+          "delta": -0.13353139262452263,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.06059450795724555,
+          "dlogD": -0.20398305357513388,
+          "dlogAlpha": NaN,
+          "delta": -0.20398305357513388,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "PolypPVT",
+          "tie": false,
+          "dlogQ": 0.024599277976449056,
+          "dlogD": -0.2797768929446675,
+          "dlogAlpha": NaN,
+          "delta": -0.2797768929446675,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.05314042441200549,
+          "dlogD": -0.2411620568168881,
+          "dlogAlpha": NaN,
+          "delta": -0.2411620568168881,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.07198476870494457,
+          "dlogD": -0.25642952894767645,
+          "dlogAlpha": NaN,
+          "delta": -0.25642952894767645,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.039992017500368855,
+          "dlogD": -0.30368241379822203,
+          "dlogAlpha": NaN,
+          "delta": -0.30368241379822203,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.049586611982943646,
+          "dlogD": -0.2876820724517808,
+          "dlogAlpha": NaN,
+          "delta": -0.2876820724517808,
+          "reversal": false
+        },
+        {
+          "i": "EGAUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.11155055487046485,
+          "dlogD": -0.29565024210095775,
+          "dlogAlpha": NaN,
+          "delta": -0.29565024210095775,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.0250322343429613,
+          "dlogD": 0.053345980705292714,
+          "dlogAlpha": NaN,
+          "delta": 0.053345980705292714,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.01155398052554903,
+          "dlogD": 0.060218859993054666,
+          "dlogAlpha": NaN,
+          "delta": 0.060218859993054666,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.006454602349272406,
+          "dlogD": 0.006514681021193672,
+          "dlogAlpha": NaN,
+          "delta": 0.006514681021193672,
+          "reversal": true
+        },
+        {
+          "i": "PSPNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.029969491466512236,
+          "dlogD": 0.019672765598704713,
+          "dlogAlpha": NaN,
+          "delta": 0.019672765598704713,
+          "reversal": true
+        },
+        {
+          "i": "TransUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.008899868150213774,
+          "dlogD": -0.04652001563489282,
+          "dlogAlpha": NaN,
+          "delta": -0.04652001563489282,
+          "reversal": false
+        },
+        {
+          "i": "TransUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.006964382419948303,
+          "dlogD": -0.1169716765855041,
+          "dlogAlpha": NaN,
+          "delta": -0.1169716765855041,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.02903084756084833,
+          "dlogD": 0.19276551595503794,
+          "dlogAlpha": NaN,
+          "delta": 0.19276551595503794,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.0004897011252917522,
+          "dlogD": 0.15415067982725836,
+          "dlogAlpha": NaN,
+          "delta": 0.15415067982725836,
+          "reversal": true
+        },
+        {
+          "i": "TransUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.01835464316764725,
+          "dlogD": -0.1694181519580468,
+          "dlogAlpha": NaN,
+          "delta": -0.1694181519580468,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.013638108036928538,
+          "dlogD": 0.2166710368085923,
+          "dlogAlpha": NaN,
+          "delta": 0.2166710368085923,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "TransUNet",
+          "tie": false,
+          "dlogQ": 0.004043513554353573,
+          "dlogD": 0.20067069546215105,
+          "dlogAlpha": NaN,
+          "delta": 0.20067069546215105,
+          "reversal": true
+        },
+        {
+          "i": "TransUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.05792042933316746,
+          "dlogD": -0.20863886511132804,
+          "dlogAlpha": NaN,
+          "delta": -0.20863886511132804,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.01347825381741227,
+          "dlogD": -0.006872879287762064,
+          "dlogAlpha": NaN,
+          "delta": -0.006872879287762064,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.018577631993689024,
+          "dlogD": 0.04683129968409899,
+          "dlogAlpha": NaN,
+          "delta": 0.04683129968409899,
+          "reversal": true
+        },
+        {
+          "i": "PSPNet",
+          "j": "M2SNet",
+          "tie": false,
+          "dlogQ": 0.004937257123550872,
+          "dlogD": -0.033673215106587835,
+          "dlogAlpha": NaN,
+          "delta": -0.033673215106587835,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.033932102493175055,
+          "dlogD": 0.006825965070399891,
+          "dlogAlpha": NaN,
+          "delta": 0.006825965070399891,
+          "reversal": true
+        },
+        {
+          "i": "M2SNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.03199661676290969,
+          "dlogD": -0.06362569588021155,
+          "dlogAlpha": NaN,
+          "delta": -0.06362569588021155,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "M2SNet",
+          "tie": false,
+          "dlogQ": 0.003998613217886999,
+          "dlogD": 0.13941953524974532,
+          "dlogAlpha": NaN,
+          "delta": 0.13941953524974532,
+          "reversal": true
+        },
+        {
+          "i": "M2SNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.024542533217669655,
+          "dlogD": -0.10080469912196564,
+          "dlogAlpha": NaN,
+          "delta": -0.10080469912196564,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.04338687751060855,
+          "dlogD": -0.11607217125275414,
+          "dlogAlpha": NaN,
+          "delta": -0.11607217125275414,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.011394126306032796,
+          "dlogD": -0.16332505610329964,
+          "dlogAlpha": NaN,
+          "delta": -0.16332505610329964,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.02098872078860779,
+          "dlogD": -0.14732471475685843,
+          "dlogAlpha": NaN,
+          "delta": -0.14732471475685843,
+          "reversal": false
+        },
+        {
+          "i": "M2SNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.08295266367612891,
+          "dlogD": -0.15529288440603548,
+          "dlogAlpha": NaN,
+          "delta": -0.15529288440603548,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.005099378176276635,
+          "dlogD": 0.053704178971861166,
+          "dlogAlpha": NaN,
+          "delta": 0.053704178971861166,
+          "reversal": true
+        },
+        {
+          "i": "PSPNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.018415510940963158,
+          "dlogD": -0.04054609439435002,
+          "dlogAlpha": NaN,
+          "delta": -0.04054609439435002,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.0204538486757629,
+          "dlogD": 0.013698844358161927,
+          "dlogAlpha": NaN,
+          "delta": 0.013698844358161927,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.01851836294549722,
+          "dlogD": -0.056752816592449365,
+          "dlogAlpha": NaN,
+          "delta": -0.056752816592449365,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.017476867035299264,
+          "dlogD": 0.1325466559619831,
+          "dlogAlpha": NaN,
+          "delta": 0.1325466559619831,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.011064279400257348,
+          "dlogD": -0.09393181983420362,
+          "dlogAlpha": NaN,
+          "delta": -0.09393181983420362,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.02990862369319629,
+          "dlogD": -0.10919929196499209,
+          "dlogAlpha": NaN,
+          "delta": -0.10919929196499209,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "SANet",
+          "tie": false,
+          "dlogQ": 0.0020841275113794434,
+          "dlogD": 0.1564521768155374,
+          "dlogAlpha": NaN,
+          "delta": 0.1564521768155374,
+          "reversal": true
+        },
+        {
+          "i": "SANet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.007510466971195523,
+          "dlogD": -0.14045183546909631,
+          "dlogAlpha": NaN,
+          "delta": -0.14045183546909631,
+          "reversal": false
+        },
+        {
+          "i": "SANet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.06947440985871665,
+          "dlogD": -0.14842000511827333,
+          "dlogAlpha": NaN,
+          "delta": -0.14842000511827333,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.023514889117239954,
+          "dlogD": 0.0131580845775112,
+          "dlogAlpha": NaN,
+          "delta": 0.0131580845775112,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.015354470499486059,
+          "dlogD": -0.04000533461369925,
+          "dlogAlpha": NaN,
+          "delta": -0.04000533461369925,
+          "reversal": false
+        },
+        {
+          "i": "PraNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.013418984769220668,
+          "dlogD": -0.1104569955643105,
+          "dlogAlpha": NaN,
+          "delta": -0.1104569955643105,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.02257624521157597,
+          "dlogD": 0.18625083493384426,
+          "dlogAlpha": NaN,
+          "delta": 0.18625083493384426,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.005964901223980613,
+          "dlogD": -0.14763599880606468,
+          "dlogAlpha": NaN,
+          "delta": -0.14763599880606468,
+          "reversal": false
+        },
+        {
+          "i": "PraNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.024809245516919518,
+          "dlogD": -0.1629034709368532,
+          "dlogAlpha": NaN,
+          "delta": -0.1629034709368532,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "PraNet",
+          "tie": false,
+          "dlogQ": 0.007183505687656095,
+          "dlogD": 0.2101563557873986,
+          "dlogAlpha": NaN,
+          "delta": 0.2101563557873986,
+          "reversal": true
+        },
+        {
+          "i": "PraNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.002411088794918883,
+          "dlogD": -0.19415601444095737,
+          "dlogAlpha": NaN,
+          "delta": -0.19415601444095737,
+          "reversal": false
+        },
+        {
+          "i": "PraNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.06437503168243995,
+          "dlogD": -0.20212418409013436,
+          "dlogAlpha": NaN,
+          "delta": -0.20212418409013436,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.038869359616726024,
+          "dlogD": -0.026847250036188052,
+          "dlogAlpha": NaN,
+          "delta": -0.026847250036188052,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.03693387388646053,
+          "dlogD": -0.09729891098679933,
+          "dlogAlpha": NaN,
+          "delta": -0.09729891098679933,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "PolypPVT",
+          "tie": false,
+          "dlogQ": 0.0009386439056638946,
+          "dlogD": -0.1730927503563331,
+          "dlogAlpha": NaN,
+          "delta": -0.1730927503563331,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.029479790341220568,
+          "dlogD": -0.13447791422855357,
+          "dlogAlpha": NaN,
+          "delta": -0.13447791422855357,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.04832413463415944,
+          "dlogD": -0.14974538635934195,
+          "dlogAlpha": NaN,
+          "delta": -0.14974538635934195,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.016331383429583794,
+          "dlogD": -0.1969982712098875,
+          "dlogAlpha": NaN,
+          "delta": -0.1969982712098875,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.025925977912158785,
+          "dlogD": -0.1809979298634463,
+          "dlogAlpha": NaN,
+          "delta": -0.1809979298634463,
+          "reversal": false
+        },
+        {
+          "i": "PSPNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.0878899207996798,
+          "dlogD": -0.1889660995126232,
+          "dlogAlpha": NaN,
+          "delta": -0.1889660995126232,
+          "reversal": false
+        },
+        {
+          "i": "UACANet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.001935485730265576,
+          "dlogD": 0.0704516609506113,
+          "dlogAlpha": NaN,
+          "delta": 0.0704516609506113,
+          "reversal": true
+        },
+        {
+          "i": "PolypPVT",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.037930715711062074,
+          "dlogD": 0.14624550032014497,
+          "dlogAlpha": NaN,
+          "delta": 0.14624550032014497,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.009389569275505457,
+          "dlogD": 0.10763066419236555,
+          "dlogAlpha": NaN,
+          "delta": 0.10763066419236555,
+          "reversal": true
+        },
+        {
+          "i": "CaraNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.009454775017433355,
+          "dlogD": -0.1228981363231539,
+          "dlogAlpha": NaN,
+          "delta": -0.1228981363231539,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.022537976187142206,
+          "dlogD": 0.1701510211736993,
+          "dlogAlpha": NaN,
+          "delta": 0.1701510211736993,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "CaraNet",
+          "tie": false,
+          "dlogQ": 0.012943381704567405,
+          "dlogD": 0.15415067982725816,
+          "dlogAlpha": NaN,
+          "delta": 0.15415067982725816,
+          "reversal": true
+        },
+        {
+          "i": "CaraNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.04902056118295371,
+          "dlogD": -0.16211884947643523,
+          "dlogAlpha": NaN,
+          "delta": -0.16211884947643523,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.035995229980796496,
+          "dlogD": 0.07579383936953372,
+          "dlogAlpha": NaN,
+          "delta": 0.07579383936953372,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.007454083545239933,
+          "dlogD": 0.037179003241754244,
+          "dlogAlpha": NaN,
+          "delta": 0.037179003241754244,
+          "reversal": true
+        },
+        {
+          "i": "UACANet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.011390260747699088,
+          "dlogD": -0.05244647537254266,
+          "dlogAlpha": NaN,
+          "delta": -0.05244647537254266,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.02060249045687679,
+          "dlogD": 0.09969936022308817,
+          "dlogAlpha": NaN,
+          "delta": 0.09969936022308817,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "UACANet",
+          "tie": false,
+          "dlogQ": 0.011007895974301898,
+          "dlogD": 0.08369901887664684,
+          "dlogAlpha": NaN,
+          "delta": 0.08369901887664684,
+          "reversal": true
+        },
+        {
+          "i": "UACANet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.050956046913219255,
+          "dlogD": -0.09166718852582392,
+          "dlogAlpha": NaN,
+          "delta": -0.09166718852582392,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.02854114643555665,
+          "dlogD": 0.038614836127779516,
+          "dlogAlpha": NaN,
+          "delta": 0.038614836127779516,
+          "reversal": true
+        },
+        {
+          "i": "PolypPVT",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.04738549072849557,
+          "dlogD": 0.023347363996991107,
+          "dlogAlpha": NaN,
+          "delta": 0.023347363996991107,
+          "reversal": true
+        },
+        {
+          "i": "PolypPVT",
+          "j": "SegNet",
+          "tie": false,
+          "dlogQ": 0.015392739523919759,
+          "dlogD": -0.023905520853554366,
+          "dlogAlpha": NaN,
+          "delta": -0.023905520853554366,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.024987334006494756,
+          "dlogD": -0.00790517950711315,
+          "dlogAlpha": NaN,
+          "delta": -0.00790517950711315,
+          "reversal": false
+        },
+        {
+          "i": "PolypPVT",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.08695127689401579,
+          "dlogD": -0.01587334915629012,
+          "dlogAlpha": NaN,
+          "delta": -0.01587334915629012,
+          "reversal": false
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.018844344292938898,
+          "dlogD": -0.01526747213078842,
+          "dlogAlpha": NaN,
+          "delta": -0.01526747213078842,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.013148406911636795,
+          "dlogD": 0.06252035698133393,
+          "dlogAlpha": NaN,
+          "delta": 0.06252035698133393,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "AttentionUNet",
+          "tie": false,
+          "dlogQ": 0.0035538124290617123,
+          "dlogD": 0.0465200156348927,
+          "dlogAlpha": NaN,
+          "delta": 0.0465200156348927,
+          "reversal": true
+        },
+        {
+          "i": "AttentionUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.058410130458459164,
+          "dlogD": -0.05448818528406968,
+          "dlogAlpha": NaN,
+          "delta": -0.05448818528406968,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.03199275120457565,
+          "dlogD": 0.04725288485054551,
+          "dlogAlpha": NaN,
+          "delta": 0.04725288485054551,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "UNet",
+          "tie": false,
+          "dlogQ": 0.022398156722000864,
+          "dlogD": 0.031252543504104315,
+          "dlogAlpha": NaN,
+          "delta": 0.031252543504104315,
+          "reversal": true
+        },
+        {
+          "i": "UNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.039565786165520325,
+          "dlogD": -0.03922071315328127,
+          "dlogAlpha": NaN,
+          "delta": -0.03922071315328127,
+          "reversal": false
+        },
+        {
+          "i": "SegNet",
+          "j": "MultiResUNet",
+          "tie": false,
+          "dlogQ": 0.00959459448257489,
+          "dlogD": 0.01600034134644112,
+          "dlogAlpha": NaN,
+          "delta": 0.01600034134644112,
+          "reversal": true
+        },
+        {
+          "i": "SegNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.07155853737009595,
+          "dlogD": 0.008032171697264253,
+          "dlogAlpha": NaN,
+          "delta": 0.008032171697264253,
+          "reversal": true
+        },
+        {
+          "i": "MultiResUNet",
+          "j": "ResUNet",
+          "tie": false,
+          "dlogQ": 0.06196394288752107,
+          "dlogD": -0.007968169649176958,
+          "dlogAlpha": NaN,
+          "delta": -0.007968169649176958,
+          "reversal": false
+        }
+      ]
+    },
+    "config7__dice": {
+      "n_pairs": 21,
+      "n_ties": 0,
+      "n_concordant": 18,
+      "n_discordant": 3,
+      "kendall_tau_a": 0.7142857142857143,
+      "disc_frac": 0.14285714285714285,
+      "rev_mag": {
+        "n": 3,
+        "mean": 0.10105665355513944,
+        "median": 0.11729601154836808,
+        "min_": 0.03428896878434108,
+        "max_": 0.15158498033270915,
+        "frac_big": 1.0
+      },
+      "signed_dev": {
+        "n": 21,
+        "mean": -0.13342376067519052,
+        "frac_negative": 0.8571428571428571
+      },
+      "near_tie": {
+        "threshold": 0.01,
+        "n": 11,
+        "mean_delta": -0.06134745239847488,
+        "frac_reversal": 0.2727272727272727,
+        "max_abs_dlogAlpha": 0.15430237005298422
+      },
+      "max_abs_dlogAlpha": 0.15430237005298422,
+      "rho_spearman": 0.8571428571428573,
+      "pairs_detail": [
+        {
+          "i": "dpa_only",
+          "j": "baseline",
+          "tie": false,
+          "dlogQ": 0.05558341796129659,
+          "dlogD": -0.16332505610329964,
+          "dlogAlpha": 0.11562054038345138,
+          "delta": -0.10328793368114486,
+          "reversal": false
+        },
+        {
+          "i": "egm_only",
+          "j": "baseline",
+          "tie": false,
+          "dlogQ": 0.055792913840082274,
+          "dlogD": -0.07006756261671683,
+          "dlogAlpha": -0.038681829669532895,
+          "delta": -0.164542306126332,
+          "reversal": false
+        },
+        {
+          "i": "msfa_only",
+          "j": "baseline",
+          "tie": false,
+          "dlogQ": 0.06486052867540149,
+          "dlogD": -0.09237332013101504,
+          "dlogAlpha": -0.03507135665871475,
+          "delta": -0.19230520546513127,
+          "reversal": false
+        },
+        {
+          "i": "egm_dpa",
+          "j": "baseline",
+          "tie": false,
+          "dlogQ": 0.05911235450934949,
+          "dlogD": -0.28566390829554367,
+          "dlogAlpha": 0.0008860770070528504,
+          "delta": -0.3438901857978403,
+          "reversal": false
+        },
+        {
+          "i": "egm_msfa",
+          "j": "baseline",
+          "tie": false,
+          "dlogQ": 0.07460652372622059,
+          "dlogD": -0.29771224681171815,
+          "dlogAlpha": -0.014635587928190502,
+          "delta": -0.38695435846612924,
+          "reversal": false
+        },
+        {
+          "i": "dpa_msfa",
+          "j": "baseline",
+          "tie": false,
+          "dlogQ": 0.06091745643567086,
+          "dlogD": -0.20359895524123942,
+          "dlogAlpha": 0.03792223742743799,
+          "delta": -0.22659417424947229,
+          "reversal": false
+        },
+        {
+          "i": "egm_only",
+          "j": "dpa_only",
+          "tie": false,
+          "dlogQ": 0.0002094958787856806,
+          "dlogD": 0.09325749348658272,
+          "dlogAlpha": -0.15430237005298422,
+          "delta": -0.061254372445187194,
+          "reversal": false
+        },
+        {
+          "i": "msfa_only",
+          "j": "dpa_only",
+          "tie": false,
+          "dlogQ": 0.009277110714104928,
+          "dlogD": 0.0709517359722846,
+          "dlogAlpha": -0.15069189704216612,
+          "delta": -0.08901727178398643,
+          "reversal": false
+        },
+        {
+          "i": "egm_dpa",
+          "j": "dpa_only",
+          "tie": false,
+          "dlogQ": 0.0035289365480531314,
+          "dlogD": -0.12233885219224414,
+          "dlogAlpha": -0.11473446337639816,
+          "delta": -0.24060225211669542,
+          "reversal": false
+        },
+        {
+          "i": "egm_msfa",
+          "j": "dpa_only",
+          "tie": false,
+          "dlogQ": 0.019023105764924147,
+          "dlogD": -0.13438719070841865,
+          "dlogAlpha": -0.1302561283116417,
+          "delta": -0.2836664247849845,
+          "reversal": false
+        },
+        {
+          "i": "dpa_msfa",
+          "j": "dpa_only",
+          "tie": false,
+          "dlogQ": 0.005334038474374401,
+          "dlogD": -0.04027389913793985,
+          "dlogAlpha": -0.0776983029560132,
+          "delta": -0.12330624056832744,
+          "reversal": false
+        },
+        {
+          "i": "msfa_only",
+          "j": "egm_only",
+          "tie": false,
+          "dlogQ": 0.009067614835319206,
+          "dlogD": -0.022305757514298162,
+          "dlogAlpha": 0.0036104730108182017,
+          "delta": -0.027762899338799166,
+          "reversal": false
+        },
+        {
+          "i": "egm_dpa",
+          "j": "egm_only",
+          "tie": false,
+          "dlogQ": 0.0033194406692673216,
+          "dlogD": -0.21559634567882674,
+          "dlogAlpha": 0.03956790667658578,
+          "delta": -0.17934787967150828,
+          "reversal": false
+        },
+        {
+          "i": "egm_msfa",
+          "j": "egm_only",
+          "tie": false,
+          "dlogQ": 0.018813609886138397,
+          "dlogD": -0.22764468419500128,
+          "dlogAlpha": 0.024046241741342515,
+          "delta": -0.22241205233979716,
+          "reversal": false
+        },
+        {
+          "i": "dpa_msfa",
+          "j": "egm_only",
+          "tie": false,
+          "dlogQ": 0.005124542595588622,
+          "dlogD": -0.1335313926245225,
+          "dlogAlpha": 0.07660406709697093,
+          "delta": -0.06205186812314017,
+          "reversal": false
+        },
+        {
+          "i": "msfa_only",
+          "j": "egm_dpa",
+          "tie": false,
+          "dlogQ": 0.005748174166051874,
+          "dlogD": 0.19329058816452852,
+          "dlogAlpha": -0.035957433665767494,
+          "delta": 0.15158498033270915,
+          "reversal": true
+        },
+        {
+          "i": "egm_msfa",
+          "j": "msfa_only",
+          "tie": false,
+          "dlogQ": 0.00974599505081939,
+          "dlogD": -0.2053389266807031,
+          "dlogAlpha": 0.02043576873052453,
+          "delta": -0.19464915300099797,
+          "reversal": false
+        },
+        {
+          "i": "msfa_only",
+          "j": "dpa_msfa",
+          "tie": false,
+          "dlogQ": 0.003943072239730529,
+          "dlogD": 0.1112256351102244,
+          "dlogAlpha": -0.07299359408615279,
+          "delta": 0.03428896878434108,
+          "reversal": true
+        },
+        {
+          "i": "egm_msfa",
+          "j": "egm_dpa",
+          "tie": false,
+          "dlogQ": 0.015494169216871068,
+          "dlogD": -0.01204833851617448,
+          "dlogAlpha": -0.015521664935243366,
+          "delta": -0.043064172668288915,
+          "reversal": false
+        },
+        {
+          "i": "dpa_msfa",
+          "j": "egm_dpa",
+          "tie": false,
+          "dlogQ": 0.0018051019263213444,
+          "dlogD": 0.08206495305430421,
+          "dlogAlpha": 0.03703616042038521,
+          "delta": 0.11729601154836808,
+          "reversal": true
+        },
+        {
+          "i": "egm_msfa",
+          "j": "dpa_msfa",
+          "tie": false,
+          "dlogQ": 0.013689067290549748,
+          "dlogD": -0.09411329157047876,
+          "dlogAlpha": -0.05255782535562853,
+          "delta": -0.16036018421665704,
+          "reversal": false
+        }
+      ]
+    }
+  },
+  "leave_one_out": {
+    "arch14__dice": {
+      "base": {
+        "n_pairs": 91,
+        "n_ties": 0,
+        "n_concordant": 62,
+        "n_discordant": 29,
+        "kendall_tau_a": 0.3626373626373626,
+        "disc_frac": 0.31868131868131866,
+        "rev_mag": {
+          "n": 29,
+          "mean": 0.08369362913290039,
+          "median": 0.0740820895005859,
+          "min_": 0.004796881060828318,
+          "max_": 0.23641192458933225,
+          "frac_big": 0.7931034482758621
+        },
+        "signed_dev": {
+          "n": 91,
+          "mean": -0.07973292630445661,
+          "frac_negative": 0.6813186813186813
+        },
+        "near_tie": {
+          "threshold": 0.01,
+          "n": 20,
+          "mean_delta": 0.010355761947307838,
+          "frac_reversal": 0.55,
+          "max_abs_dlogAlpha": 0.11344837313230342
+        },
+        "max_abs_dlogAlpha": 0.11540295537686593
+      },
+      "folds": [
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 49,
+          "n_discordant": 29,
+          "kendall_tau_a": 0.2564102564102564,
+          "disc_frac": 0.3717948717948718,
+          "rev_mag": {
+            "n": 29,
+            "mean": 0.08369362913290039,
+            "median": 0.0740820895005859,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.7931034482758621
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.05158964308319982,
+            "frac_negative": 0.6282051282051282
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 20,
+            "mean_delta": 0.010355761947307838,
+            "frac_reversal": 0.55,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "EGAUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 57,
+          "n_discordant": 21,
+          "kendall_tau_a": 0.46153846153846156,
+          "disc_frac": 0.2692307692307692,
+          "rev_mag": {
+            "n": 21,
+            "mean": 0.07402589463588571,
+            "median": 0.0740820895005859,
+            "min_": 0.006168421282388682,
+            "max_": 0.1804099233615586,
+            "frac_big": 0.8095238095238095
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.09345058840755541,
+            "frac_negative": 0.7307692307692307
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": -0.0029822387657552165,
+            "frac_reversal": 0.5333333333333333,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "TransUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 52,
+          "n_discordant": 26,
+          "kendall_tau_a": 0.3333333333333333,
+          "disc_frac": 0.3333333333333333,
+          "rev_mag": {
+            "n": 26,
+            "mean": 0.08592518583133886,
+            "median": 0.07754970113673254,
+            "min_": 0.006168421282388682,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.8076923076923077
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.07664221304968183,
+            "frac_negative": 0.6666666666666666
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 18,
+            "mean_delta": 0.0010473170426491248,
+            "frac_reversal": 0.5,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "M2SNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 53,
+          "n_discordant": 25,
+          "kendall_tau_a": 0.358974358974359,
+          "disc_frac": 0.32051282051282054,
+          "rev_mag": {
+            "n": 25,
+            "mean": 0.08244175254944354,
+            "median": 0.0740820895005859,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.8
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.08183725509609384,
+            "frac_negative": 0.6794871794871795
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 17,
+            "mean_delta": 0.01666154967188885,
+            "frac_reversal": 0.5882352941176471,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11344837313230342,
+          "dropped": "SANet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 53,
+          "n_discordant": 25,
+          "kendall_tau_a": 0.358974358974359,
+          "disc_frac": 0.32051282051282054,
+          "rev_mag": {
+            "n": 25,
+            "mean": 0.08502774381279116,
+            "median": 0.0740820895005859,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.76
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.0826660984497309,
+            "frac_negative": 0.6794871794871795
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": 0.025225878234460868,
+            "frac_reversal": 0.6,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "PraNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 53,
+          "n_discordant": 25,
+          "kendall_tau_a": 0.358974358974359,
+          "disc_frac": 0.32051282051282054,
+          "rev_mag": {
+            "n": 25,
+            "mean": 0.08856320173812973,
+            "median": 0.08250461563998682,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.76
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.08163652076680655,
+            "frac_negative": 0.6794871794871795
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 18,
+            "mean_delta": 0.011325444697303379,
+            "frac_reversal": 0.5555555555555556,
+            "max_abs_dlogAlpha": 0.0809296915874297
+          },
+          "max_abs_dlogAlpha": 0.08421508013167756,
+          "dropped": "PSPNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 54,
+          "n_discordant": 24,
+          "kendall_tau_a": 0.38461538461538464,
+          "disc_frac": 0.3076923076923077,
+          "rev_mag": {
+            "n": 24,
+            "mean": 0.08710093873242926,
+            "median": 0.07135961304290181,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.7916666666666666
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.08569257841508007,
+            "frac_negative": 0.6923076923076923
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 16,
+            "mean_delta": 0.019099999470238677,
+            "frac_reversal": 0.5625,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "CaraNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 54,
+          "n_discordant": 24,
+          "kendall_tau_a": 0.38461538461538464,
+          "disc_frac": 0.3076923076923077,
+          "rev_mag": {
+            "n": 24,
+            "mean": 0.08825680927781147,
+            "median": 0.07482722467904844,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.8333333333333334
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.08498127346407564,
+            "frac_negative": 0.6923076923076923
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 17,
+            "mean_delta": 0.013894060025794954,
+            "frac_reversal": 0.5294117647058824,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "UACANet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 55,
+          "n_discordant": 23,
+          "kendall_tau_a": 0.41025641025641024,
+          "disc_frac": 0.2948717948717949,
+          "rev_mag": {
+            "n": 23,
+            "mean": 0.08376411342447077,
+            "median": 0.06863713658521771,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.782608695652174
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.0894035747577929,
+            "frac_negative": 0.7051282051282052
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 18,
+            "mean_delta": 0.007959721301209302,
+            "frac_reversal": 0.5555555555555556,
+            "max_abs_dlogAlpha": 0.10245072775452822
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "PolypPVT"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 54,
+          "n_discordant": 24,
+          "kendall_tau_a": 0.38461538461538464,
+          "disc_frac": 0.3076923076923077,
+          "rev_mag": {
+            "n": 24,
+            "mean": 0.08446589132716305,
+            "median": 0.07557087611260227,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.7916666666666666
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.08400529693238498,
+            "frac_negative": 0.6923076923076923
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": -0.0029822387657552,
+            "frac_reversal": 0.4666666666666667,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "AttentionUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 51,
+          "n_discordant": 27,
+          "kendall_tau_a": 0.3076923076923077,
+          "disc_frac": 0.34615384615384615,
+          "rev_mag": {
+            "n": 27,
+            "mean": 0.08781378472611945,
+            "median": 0.08101731277287917,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.8148148148148148
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.07501675564201708,
+            "frac_negative": 0.6538461538461539
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 19,
+            "mean_delta": 0.015283508240844632,
+            "frac_reversal": 0.5789473684210527,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "UNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 56,
+          "n_discordant": 22,
+          "kendall_tau_a": 0.4358974358974359,
+          "disc_frac": 0.28205128205128205,
+          "rev_mag": {
+            "n": 22,
+            "mean": 0.07815814441107088,
+            "median": 0.06623869605480362,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.8181818181818182
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.09108904603771222,
+            "frac_negative": 0.717948717948718
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 17,
+            "mean_delta": -0.004563147194176846,
+            "frac_reversal": 0.5294117647058824,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "SegNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 54,
+          "n_discordant": 24,
+          "kendall_tau_a": 0.38461538461538464,
+          "disc_frac": 0.3076923076923077,
+          "rev_mag": {
+            "n": 24,
+            "mean": 0.07620596081476198,
+            "median": 0.07135961304290181,
+            "min_": 0.004796881060828318,
+            "max_": 0.19260570990522355,
+            "frac_big": 0.75
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.0826660984497309,
+            "frac_negative": 0.6923076923076923
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": 0.025225878234460868,
+            "frac_reversal": 0.6,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "MultiResUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 49,
+          "n_discordant": 29,
+          "kendall_tau_a": 0.2564102564102564,
+          "disc_frac": 0.3717948717948718,
+          "rev_mag": {
+            "n": 29,
+            "mean": 0.08369362913290039,
+            "median": 0.0740820895005859,
+            "min_": 0.004796881060828318,
+            "max_": 0.23641192458933225,
+            "frac_big": 0.7931034482758621
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.05558402571053017,
+            "frac_negative": 0.6282051282051282
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 20,
+            "mean_delta": 0.010355761947307838,
+            "frac_reversal": 0.55,
+            "max_abs_dlogAlpha": 0.11344837313230342
+          },
+          "max_abs_dlogAlpha": 0.11540295537686593,
+          "dropped": "ResUNet"
+        }
+      ],
+      "checks": {
+        "kendall_tau_a": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "mean_rev_mag": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "near_tie_mean_delta": {
+          "base_sign": 1,
+          "n_flips": 3,
+          "flipped_by": [
+            "TransUNet",
+            "AttentionUNet",
+            "SegNet"
+          ],
+          "stable": false
+        },
+        "signed_dev": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        }
+      },
+      "primary_checks": {
+        "kendall_tau_a": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "mean_rev_mag": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "signed_dev": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        }
+      },
+      "auxiliary_checks": {
+        "near_tie_mean_delta": {
+          "base_sign": 1,
+          "n_flips": 3,
+          "flipped_by": [
+            "TransUNet",
+            "AttentionUNet",
+            "SegNet"
+          ],
+          "stable": false
+        }
+      },
+      "primary_sign_stable": true,
+      "auxiliary_sign_stable": false,
+      "all_sign_stable": false
+    },
+    "arch14__align": {
+      "base": {
+        "n_pairs": 91,
+        "n_ties": 0,
+        "n_concordant": 56,
+        "n_discordant": 35,
+        "kendall_tau_a": 0.23076923076923078,
+        "disc_frac": 0.38461538461538464,
+        "rev_mag": {
+          "n": 35,
+          "mean": 0.08804558311703663,
+          "median": 0.06252035698133393,
+          "min_": 0.006514681021193672,
+          "max_": 0.2166710368085923,
+          "frac_big": 0.8
+        },
+        "signed_dev": {
+          "n": 91,
+          "mean": -0.04409251709281313,
+          "frac_negative": 0.6153846153846154
+        },
+        "near_tie": {
+          "threshold": 0.01,
+          "n": 20,
+          "mean_delta": 0.011172517288931018,
+          "frac_reversal": 0.6,
+          "max_abs_dlogAlpha": NaN
+        },
+        "max_abs_dlogAlpha": NaN
+      },
+      "folds": [
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 43,
+          "n_discordant": 35,
+          "kendall_tau_a": 0.10256410256410256,
+          "disc_frac": 0.44871794871794873,
+          "rev_mag": {
+            "n": 35,
+            "mean": 0.08804558311703663,
+            "median": 0.06252035698133393,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.8
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.018406567050253224,
+            "frac_negative": 0.5512820512820513
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 20,
+            "mean_delta": 0.011172517288931018,
+            "frac_reversal": 0.6,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "EGAUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 51,
+          "n_discordant": 27,
+          "kendall_tau_a": 0.3076923076923077,
+          "disc_frac": 0.34615384615384615,
+          "rev_mag": {
+            "n": 27,
+            "mean": 0.08065130347129618,
+            "median": 0.06252035698133393,
+            "min_": 0.006825965070399891,
+            "max_": 0.2101563557873986,
+            "frac_big": 0.8148148148148148
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.054972681853049744,
+            "frac_negative": 0.6538461538461539
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": 0.0017070654458942846,
+            "frac_reversal": 0.6,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "TransUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 47,
+          "n_discordant": 31,
+          "kendall_tau_a": 0.20512820512820512,
+          "disc_frac": 0.3974358974358974,
+          "rev_mag": {
+            "n": 31,
+            "mean": 0.09145718156086274,
+            "median": 0.0704516609506113,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.8064516129032258
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.0427114508018607,
+            "frac_negative": 0.6025641025641025
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 18,
+            "mean_delta": 0.006539112535303492,
+            "frac_reversal": 0.6111111111111112,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "M2SNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 48,
+          "n_discordant": 30,
+          "kendall_tau_a": 0.23076923076923078,
+          "disc_frac": 0.38461538461538464,
+          "rev_mag": {
+            "n": 30,
+            "mean": 0.08883248976652278,
+            "median": 0.06648600896597262,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.8
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.04725172810131772,
+            "frac_negative": 0.6153846153846154
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 17,
+            "mean_delta": 0.009043872085901065,
+            "frac_reversal": 0.5882352941176471,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "SANet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 49,
+          "n_discordant": 29,
+          "kendall_tau_a": 0.2564102564102564,
+          "disc_frac": 0.3717948717948718,
+          "rev_mag": {
+            "n": 29,
+            "mean": 0.08844758531449565,
+            "median": 0.0704516609506113,
+            "min_": 0.006825965070399891,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.8275862068965517
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.04587469787127,
+            "frac_negative": 0.6282051282051282
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": 0.019657809549679266,
+            "frac_reversal": 0.6,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "PraNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 45,
+          "n_discordant": 33,
+          "kendall_tau_a": 0.15384615384615385,
+          "disc_frac": 0.4230769230769231,
+          "rev_mag": {
+            "n": 33,
+            "mean": 0.09238680481575957,
+            "median": 0.0704516609506113,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.8484848484848485
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.03481951206384315,
+            "frac_negative": 0.5769230769230769
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 18,
+            "mean_delta": 0.02390090618008563,
+            "frac_reversal": 0.6666666666666666,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "PSPNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 50,
+          "n_discordant": 28,
+          "kendall_tau_a": 0.28205128205128205,
+          "disc_frac": 0.358974358974359,
+          "rev_mag": {
+            "n": 28,
+            "mean": 0.08615860975727288,
+            "median": 0.056961519482457916,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.8214285714285714
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.0532006719567916,
+            "frac_negative": 0.6410256410256411
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 16,
+            "mean_delta": 0.013424135787105643,
+            "frac_reversal": 0.625,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "CaraNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 48,
+          "n_discordant": 30,
+          "kendall_tau_a": 0.23076923076923078,
+          "disc_frac": 0.38461538461538464,
+          "rev_mag": {
+            "n": 30,
+            "mean": 0.09049241754782159,
+            "median": 0.056961519482457916,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.7666666666666667
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.04597486057724171,
+            "frac_negative": 0.6153846153846154
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 17,
+            "mean_delta": 0.013693609304221118,
+            "frac_reversal": 0.5882352941176471,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "UACANet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 51,
+          "n_discordant": 27,
+          "kendall_tau_a": 0.3076923076923077,
+          "disc_frac": 0.34615384615384615,
+          "rev_mag": {
+            "n": 27,
+            "mean": 0.07950412322893413,
+            "median": 0.053704178971861166,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.7407407407407407
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.0570108903146551,
+            "frac_negative": 0.6538461538461539
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 18,
+            "mean_delta": 0.014284642271400456,
+            "frac_reversal": 0.6111111111111112,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "PolypPVT"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 49,
+          "n_discordant": 29,
+          "kendall_tau_a": 0.2564102564102564,
+          "disc_frac": 0.3717948717948718,
+          "rev_mag": {
+            "n": 29,
+            "mean": 0.09086137424451371,
+            "median": 0.0704516609506113,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.7586206896551724
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.047067518784985204,
+            "frac_negative": 0.6282051282051282
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": 0.0017070654458942796,
+            "frac_reversal": 0.5333333333333333,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "AttentionUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 46,
+          "n_discordant": 32,
+          "kendall_tau_a": 0.1794871794871795,
+          "disc_frac": 0.41025641025641024,
+          "rev_mag": {
+            "n": 32,
+            "mean": 0.09311695677327003,
+            "median": 0.07312275016007251,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.78125
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.03744450063331032,
+            "frac_negative": 0.5897435897435898
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 19,
+            "mean_delta": 0.01822886747904075,
+            "frac_reversal": 0.631578947368421,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "UNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 52,
+          "n_discordant": 26,
+          "kendall_tau_a": 0.3333333333333333,
+          "disc_frac": 0.3333333333333333,
+          "rev_mag": {
+            "n": 26,
+            "mean": 0.08056383474663005,
+            "median": 0.056961519482457916,
+            "min_": 0.006514681021193672,
+            "max_": 0.20067069546215105,
+            "frac_big": 0.8076923076923077
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.05527491665596068,
+            "frac_negative": 0.6666666666666666
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 17,
+            "mean_delta": -0.009362266362985691,
+            "frac_reversal": 0.5294117647058824,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "SegNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 49,
+          "n_discordant": 29,
+          "kendall_tau_a": 0.2564102564102564,
+          "disc_frac": 0.3717948717948718,
+          "rev_mag": {
+            "n": 29,
+            "mean": 0.08790696946361337,
+            "median": 0.06252035698133393,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.7931034482758621
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.045874697871269986,
+            "frac_negative": 0.6282051282051282
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 15,
+            "mean_delta": 0.019657809549679283,
+            "frac_reversal": 0.6,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "MultiResUNet"
+        },
+        {
+          "n_pairs": 78,
+          "n_ties": 0,
+          "n_concordant": 44,
+          "n_discordant": 34,
+          "kendall_tau_a": 0.1282051282051282,
+          "disc_frac": 0.4358974358974359,
+          "rev_mag": {
+            "n": 34,
+            "mean": 0.09039891874702992,
+            "median": 0.06648600896597262,
+            "min_": 0.006514681021193672,
+            "max_": 0.2166710368085923,
+            "frac_big": 0.8235294117647058
+          },
+          "signed_dev": {
+            "n": 78,
+            "mean": -0.031410544763574744,
+            "frac_negative": 0.5641025641025641
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 20,
+            "mean_delta": 0.011172517288931018,
+            "frac_reversal": 0.6,
+            "max_abs_dlogAlpha": NaN
+          },
+          "max_abs_dlogAlpha": NaN,
+          "dropped": "ResUNet"
+        }
+      ],
+      "checks": {
+        "kendall_tau_a": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "mean_rev_mag": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "near_tie_mean_delta": {
+          "base_sign": 1,
+          "n_flips": 1,
+          "flipped_by": [
+            "SegNet"
+          ],
+          "stable": false
+        },
+        "signed_dev": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        }
+      },
+      "primary_checks": {
+        "kendall_tau_a": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "mean_rev_mag": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "signed_dev": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        }
+      },
+      "auxiliary_checks": {
+        "near_tie_mean_delta": {
+          "base_sign": 1,
+          "n_flips": 1,
+          "flipped_by": [
+            "SegNet"
+          ],
+          "stable": false
+        }
+      },
+      "primary_sign_stable": true,
+      "auxiliary_sign_stable": false,
+      "all_sign_stable": false
+    },
+    "config7__dice": {
+      "base": {
+        "n_pairs": 21,
+        "n_ties": 0,
+        "n_concordant": 18,
+        "n_discordant": 3,
+        "kendall_tau_a": 0.7142857142857143,
+        "disc_frac": 0.14285714285714285,
+        "rev_mag": {
+          "n": 3,
+          "mean": 0.10105665355513944,
+          "median": 0.11729601154836808,
+          "min_": 0.03428896878434108,
+          "max_": 0.15158498033270915,
+          "frac_big": 1.0
+        },
+        "signed_dev": {
+          "n": 21,
+          "mean": -0.13342376067519052,
+          "frac_negative": 0.8571428571428571
+        },
+        "near_tie": {
+          "threshold": 0.01,
+          "n": 11,
+          "mean_delta": -0.06134745239847488,
+          "frac_reversal": 0.2727272727272727,
+          "max_abs_dlogAlpha": 0.15430237005298422
+        },
+        "max_abs_dlogAlpha": 0.15430237005298422
+      },
+      "folds": [
+        {
+          "n_pairs": 15,
+          "n_ties": 0,
+          "n_concordant": 12,
+          "n_discordant": 3,
+          "kendall_tau_a": 0.6,
+          "disc_frac": 0.2,
+          "rev_mag": {
+            "n": 3,
+            "mean": 0.10105665355513944,
+            "median": 0.11729601154836808,
+            "min_": 0.03428896878434108,
+            "max_": 0.15158498033270915,
+            "frac_big": 1.0
+          },
+          "signed_dev": {
+            "n": 15,
+            "mean": -0.09228832069286343,
+            "frac_negative": 0.8
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 11,
+            "mean_delta": -0.06134745239847488,
+            "frac_reversal": 0.2727272727272727,
+            "max_abs_dlogAlpha": 0.15430237005298422
+          },
+          "max_abs_dlogAlpha": 0.15430237005298422,
+          "dropped": "baseline"
+        },
+        {
+          "n_pairs": 15,
+          "n_ties": 0,
+          "n_concordant": 12,
+          "n_discordant": 3,
+          "kendall_tau_a": 0.6,
+          "disc_frac": 0.2,
+          "rev_mag": {
+            "n": 3,
+            "mean": 0.10105665355513944,
+            "median": 0.11729601154836808,
+            "min_": 0.03428896878434108,
+            "max_": 0.15158498033270915,
+            "frac_big": 1.0
+          },
+          "signed_dev": {
+            "n": 15,
+            "mean": -0.1267176319199117,
+            "frac_negative": 0.8
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 7,
+            "mean_delta": -0.022948834209861043,
+            "frac_reversal": 0.42857142857142855,
+            "max_abs_dlogAlpha": 0.07660406709697093
+          },
+          "max_abs_dlogAlpha": 0.07660406709697093,
+          "dropped": "dpa_only"
+        },
+        {
+          "n_pairs": 15,
+          "n_ties": 0,
+          "n_concordant": 12,
+          "n_discordant": 3,
+          "kendall_tau_a": 0.6,
+          "disc_frac": 0.2,
+          "rev_mag": {
+            "n": 3,
+            "mean": 0.10105665355513944,
+            "median": 0.11729601154836808,
+            "min_": 0.03428896878434108,
+            "max_": 0.15158498033270915,
+            "frac_big": 1.0
+          },
+          "signed_dev": {
+            "n": 15,
+            "mean": -0.13896850640894914,
+            "frac_negative": 0.8
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 7,
+            "mean_delta": -0.049200708114941274,
+            "frac_reversal": 0.42857142857142855,
+            "max_abs_dlogAlpha": 0.15069189704216612
+          },
+          "max_abs_dlogAlpha": 0.15069189704216612,
+          "dropped": "egm_only"
+        },
+        {
+          "n_pairs": 15,
+          "n_ties": 0,
+          "n_concordant": 14,
+          "n_discordant": 1,
+          "kendall_tau_a": 0.8666666666666667,
+          "disc_frac": 0.06666666666666667,
+          "rev_mag": {
+            "n": 1,
+            "mean": 0.11729601154836808,
+            "median": 0.11729601154836808,
+            "min_": 0.11729601154836808,
+            "max_": 0.11729601154836808,
+            "frac_big": 1.0
+          },
+          "signed_dev": {
+            "n": 15,
+            "mean": -0.1656025595804758,
+            "frac_negative": 0.9333333333333333
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 6,
+            "mean_delta": -0.0915444335627484,
+            "frac_reversal": 0.16666666666666666,
+            "max_abs_dlogAlpha": 0.15430237005298422
+          },
+          "max_abs_dlogAlpha": 0.15430237005298422,
+          "dropped": "msfa_only"
+        },
+        {
+          "n_pairs": 15,
+          "n_ties": 0,
+          "n_concordant": 14,
+          "n_discordant": 1,
+          "kendall_tau_a": 0.8666666666666667,
+          "disc_frac": 0.06666666666666667,
+          "rev_mag": {
+            "n": 1,
+            "mean": 0.03428896878434108,
+            "median": 0.03428896878434108,
+            "min_": 0.03428896878434108,
+            "max_": 0.03428896878434108,
+            "frac_big": 1.0
+          },
+          "signed_dev": {
+            "n": 15,
+            "mean": -0.15092503172038305,
+            "frac_negative": 0.9333333333333333
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 7,
+            "mean_delta": -0.0748218337822996,
+            "frac_reversal": 0.14285714285714285,
+            "max_abs_dlogAlpha": 0.15430237005298422
+          },
+          "max_abs_dlogAlpha": 0.15430237005298422,
+          "dropped": "egm_dpa"
+        },
+        {
+          "n_pairs": 15,
+          "n_ties": 0,
+          "n_concordant": 12,
+          "n_discordant": 3,
+          "kendall_tau_a": 0.6,
+          "disc_frac": 0.2,
+          "rev_mag": {
+            "n": 3,
+            "mean": 0.10105665355513944,
+            "median": 0.11729601154836808,
+            "min_": 0.03428896878434108,
+            "max_": 0.15158498033270915,
+            "frac_big": 1.0
+          },
+          "signed_dev": {
+            "n": 15,
+            "mean": -0.1007195085801431,
+            "frac_negative": 0.8
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 10,
+            "mean_delta": -0.048017282338222576,
+            "frac_reversal": 0.3,
+            "max_abs_dlogAlpha": 0.15430237005298422
+          },
+          "max_abs_dlogAlpha": 0.15430237005298422,
+          "dropped": "egm_msfa"
+        },
+        {
+          "n_pairs": 15,
+          "n_ties": 0,
+          "n_concordant": 14,
+          "n_discordant": 1,
+          "kendall_tau_a": 0.8666666666666667,
+          "disc_frac": 0.06666666666666667,
+          "rev_mag": {
+            "n": 1,
+            "mean": 0.15158498033270915,
+            "median": 0.15158498033270915,
+            "min_": 0.15158498033270915,
+            "max_": 0.15158498033270915,
+            "frac_big": 1.0
+          },
+          "signed_dev": {
+            "n": 15,
+            "mean": -0.1587447658236076,
+            "frac_negative": 0.9333333333333333
+          },
+          "near_tie": {
+            "threshold": 0.01,
+            "n": 7,
+            "mean_delta": -0.09157840686063788,
+            "frac_reversal": 0.14285714285714285,
+            "max_abs_dlogAlpha": 0.15430237005298422
+          },
+          "max_abs_dlogAlpha": 0.15430237005298422,
+          "dropped": "dpa_msfa"
+        }
+      ],
+      "checks": {
+        "kendall_tau_a": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "mean_rev_mag": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "near_tie_mean_delta": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "signed_dev": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        }
+      },
+      "primary_checks": {
+        "kendall_tau_a": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "mean_rev_mag": {
+          "base_sign": 1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        },
+        "signed_dev": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        }
+      },
+      "auxiliary_checks": {
+        "near_tie_mean_delta": {
+          "base_sign": -1,
+          "n_flips": 0,
+          "flipped_by": [],
+          "stable": true
+        }
+      },
+      "primary_sign_stable": true,
+      "auxiliary_sign_stable": true,
+      "all_sign_stable": true
+    }
+  },
+  "bootstrap": {
+    "arch14__dice": {
+      "b": 10000,
+      "seed": 20260914,
+      "n_units": 14,
+      "n_draw_invalid": 0,
+      "method": "cluster bootstrap: 有放回抽 n 个单元索引 → 去重 → 重算全部成对统计量",
+      "ci": {
+        "kendall_tau_a": {
+          "n_valid": 10000,
+          "lo": 0.0,
+          "median": 0.37777777777777777,
+          "hi": 0.6666666666666666,
+          "frac_le_0": 0.0305,
+          "frac_ge_0": 0.9805
+        },
+        "mean_rev_mag": {
+          "n_valid": 9999,
+          "lo": 0.05401154184858612,
+          "median": 0.08325945476310262,
+          "hi": 0.10795353529996915,
+          "frac_le_0": 0.0,
+          "frac_ge_0": 1.0
+        },
+        "near_tie_mean_delta": {
+          "n_valid": 9998,
+          "lo": -0.06341475523299164,
+          "median": 0.0113679200381859,
+          "hi": 0.07647861256871401,
+          "frac_le_0": 0.34736947389477896,
+          "frac_ge_0": 0.6526305261052211
+        },
+        "signed_dev": {
+          "n_valid": 10000,
+          "lo": -0.1379334978529552,
+          "median": -0.0809683339265769,
+          "hi": -0.00911874851834872,
+          "frac_le_0": 0.9859,
+          "frac_ge_0": 0.0141
+        },
+        "n_discordant": {
+          "n_valid": 10000,
+          "lo": 4.0,
+          "median": 12.0,
+          "hi": 21.0,
+          "frac_le_0": 0.0001,
+          "frac_ge_0": 1.0
+        },
+        "disc_frac": {
+          "n_valid": 10000,
+          "lo": 0.16666666666666666,
+          "median": 0.3111111111111111,
+          "hi": 0.5,
+          "frac_le_0": 0.0001,
+          "frac_ge_0": 1.0
+        }
+      }
+    },
+    "arch14__align": {
+      "b": 10000,
+      "seed": 20260914,
+      "n_units": 14,
+      "n_draw_invalid": 0,
+      "method": "cluster bootstrap: 有放回抽 n 个单元索引 → 去重 → 重算全部成对统计量",
+      "ci": {
+        "kendall_tau_a": {
+          "n_valid": 10000,
+          "lo": -0.16666666666666666,
+          "median": 0.2222222222222222,
+          "hi": 0.6,
+          "frac_le_0": 0.1339,
+          "frac_ge_0": 0.9036
+        },
+        "mean_rev_mag": {
+          "n_valid": 9999,
+          "lo": 0.049662645314349524,
+          "median": 0.0871656532330475,
+          "hi": 0.10994098703523524,
+          "frac_le_0": 0.0,
+          "frac_ge_0": 1.0
+        },
+        "near_tie_mean_delta": {
+          "n_valid": 9998,
+          "lo": -0.05974994461313457,
+          "median": 0.01204521289737301,
+          "hi": 0.074879208543372,
+          "frac_le_0": 0.3515703140628126,
+          "frac_ge_0": 0.6484296859371874
+        },
+        "signed_dev": {
+          "n_valid": 10000,
+          "lo": -0.0948781432132235,
+          "median": -0.04613973589731801,
+          "hi": 0.017045618160518205,
+          "frac_le_0": 0.9262,
+          "frac_ge_0": 0.0738
+        },
+        "n_discordant": {
+          "n_valid": 10000,
+          "lo": 5.0,
+          "median": 14.0,
+          "hi": 25.0,
+          "frac_le_0": 0.0001,
+          "frac_ge_0": 1.0
+        },
+        "disc_frac": {
+          "n_valid": 10000,
+          "lo": 0.2,
+          "median": 0.3888888888888889,
+          "hi": 0.5833333333333334,
+          "frac_le_0": 0.0001,
+          "frac_ge_0": 1.0
+        }
+      }
+    },
+    "config7__dice": {
+      "b": 10000,
+      "seed": 20260914,
+      "n_units": 7,
+      "n_draw_invalid": 33,
+      "method": "cluster bootstrap: 有放回抽 n 个单元索引 → 去重 → 重算全部成对统计量",
+      "ci": {
+        "kendall_tau_a": {
+          "n_valid": 9967,
+          "lo": 0.0,
+          "median": 0.8,
+          "hi": 1.0,
+          "frac_le_0": 0.04504866057991372,
+          "frac_ge_0": 0.997993378147888
+        },
+        "mean_rev_mag": {
+          "n_valid": 7553,
+          "lo": 0.03428896878434108,
+          "median": 0.10105665355513944,
+          "hi": 0.15158498033270915,
+          "frac_le_0": 0.0,
+          "frac_ge_0": 1.0
+        },
+        "near_tie_mean_delta": {
+          "n_valid": 9877,
+          "lo": -0.17934787967150828,
+          "median": -0.06254373791964907,
+          "hi": 0.10105665355513944,
+          "frac_le_0": 0.903108231244305,
+          "frac_ge_0": 0.09689176875569505
+        },
+        "signed_dev": {
+          "n_valid": 9967,
+          "lo": -0.22336849251164934,
+          "median": -0.13611838426176873,
+          "hi": -0.01850859955919942,
+          "frac_le_0": 0.9863549714056387,
+          "frac_ge_0": 0.013645028594361393
+        },
+        "n_discordant": {
+          "n_valid": 9967,
+          "lo": 0.0,
+          "median": 1.0,
+          "hi": 3.0,
+          "frac_le_0": 0.24219925754991473,
+          "frac_ge_0": 1.0
+        },
+        "disc_frac": {
+          "n_valid": 9967,
+          "lo": 0.0,
+          "median": 0.1,
+          "hi": 0.5,
+          "frac_le_0": 0.24219925754991473,
+          "frac_ge_0": 1.0
+        }
+      }
+    }
+  },
+  "pair_bootstrap": {
+    "arch14__dice": {
+      "rev_mag": {
+        "n": 29,
+        "b": 10000,
+        "seed": 20260914,
+        "point": 0.08369362913290039,
+        "lo": 0.06172107810818351,
+        "median": 0.08358495858869683,
+        "hi": 0.10676739294109663,
+        "frac_le_0": 0.0,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      },
+      "signed_dev": {
+        "n": 91,
+        "b": 10000,
+        "seed": 20260914,
+        "point": -0.07973292630445661,
+        "lo": -0.10745151224729184,
+        "median": -0.07975142419002366,
+        "hi": -0.050968655672879504,
+        "frac_le_0": 1.0,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      },
+      "near_tie_mean_delta": {
+        "n": 20,
+        "b": 10000,
+        "seed": 20260914,
+        "point": 0.010355761947307838,
+        "lo": -0.04609844927693749,
+        "median": 0.010373348912366347,
+        "hi": 0.06597070589450645,
+        "frac_le_0": 0.3579,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      }
+    },
+    "arch14__align": {
+      "rev_mag": {
+        "n": 35,
+        "b": 10000,
+        "seed": 20260914,
+        "point": 0.08804558311703663,
+        "lo": 0.06659693924282073,
+        "median": 0.08797401250412422,
+        "hi": 0.11017991445090955,
+        "frac_le_0": 0.0,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      },
+      "signed_dev": {
+        "n": 91,
+        "b": 10000,
+        "seed": 20260914,
+        "point": -0.04409251709281313,
+        "lo": -0.06952340967281347,
+        "median": -0.0439537047229094,
+        "hi": -0.01792200384746417,
+        "frac_le_0": 0.9992,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      },
+      "near_tie_mean_delta": {
+        "n": 20,
+        "b": 10000,
+        "seed": 20260914,
+        "point": 0.011172517288931018,
+        "lo": -0.04408271949893678,
+        "median": 0.011043915713200474,
+        "hi": 0.06621683732693631,
+        "frac_le_0": 0.3471,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      }
+    },
+    "config7__dice": {
+      "rev_mag": {
+        "n": 3,
+        "b": 10000,
+        "seed": 20260914,
+        "point": 0.10105665355513944,
+        "lo": 0.03428896878434108,
+        "median": 0.10105665355513944,
+        "hi": 0.15158498033270915,
+        "frac_le_0": 0.0,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      },
+      "signed_dev": {
+        "n": 21,
+        "b": 10000,
+        "seed": 20260914,
+        "point": -0.13342376067519052,
+        "lo": -0.18907466853525123,
+        "median": -0.1337387524230883,
+        "hi": -0.07555804184230475,
+        "frac_le_0": 1.0,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      },
+      "near_tie_mean_delta": {
+        "n": 11,
+        "b": 10000,
+        "seed": 20260914,
+        "point": -0.06134745239847488,
+        "lo": -0.1292792106222564,
+        "median": -0.06208573065315197,
+        "hi": 0.010031816744867129,
+        "frac_le_0": 0.9536,
+        "conditional_on": "冻结的对集合（条件区间；不含「哪些对反转」的不确定性）"
+      }
+    }
+  },
+  "lemma1": {
+    "arch14__dice": {
+      "applicable": true,
+      "n": 91,
+      "max_abs_residual": 2.7755575615628914e-17,
+      "identity": "delta = dlogD - dlogQ + dlogAlpha（Lemma 1，逐对精确）"
+    },
+    "arch14__align": {
+      "applicable": false,
+      "note": "目标侧为**检出**（非 Dice）⇒ Δ ≡ ΔlogD，三项分解不适用，本条 N/A（不拿重言式冒充核验）"
+    },
+    "config7__dice": {
+      "applicable": true,
+      "n": 21,
+      "max_abs_residual": 2.7755575615628914e-17,
+      "identity": "delta = dlogD - dlogQ + dlogAlpha（Lemma 1，逐对精确）"
+    }
+  },
+  "rho_relation": {
+    "arch14_dice": {
+      "rho": 0.4769230769230769,
+      "tau_a": 0.3626373626373626
+    },
+    "arch14_align": {
+      "rho": 0.3010989010989011,
+      "tau_a": 0.23076923076923078
+    },
+    "config7_dice": {
+      "rho": 0.8571428571428573,
+      "tau_a": 0.7142857142857143
+    },
+    "note": "ρ 与 τ_a 同向：ρ 弱 ⇒ 排名反转在原理上不可避免（±号统计量只能给方向，给不出幅度）；Lemma 1 的幅度分解才是可写入正文的量。",
+    "decomposition_note": "反转幅度 = ΔlogD − ΔlogQ + Δlogα（Lemma 1）；ρ 只看秩、看不到 ΔlogD 的量级 ⇒ 不能替代幅度分析。"
+  },
+  "consistency_with_p2_3": {
+    "available": true,
+    "source": "E:/paper2_ablation_reliability/03_results/stats/alignment.json",
+    "json_n_discordant": 35,
+    "ours_n_discordant": 35,
+    "json_n_concordant": 56,
+    "ours_n_concordant": 56,
+    "json_tau_a": 0.23076923076923078,
+    "ours_tau_a": 0.23076923076923078,
+    "match": true
+  },
+  "verdict": {
+    "arch14__dice": {
+      "ci_mean_rev_mag_excludes_0": true,
+      "ci_signed_dev_excludes_0": true,
+      "ci_near_tie_mean_delta_excludes_0": false,
+      "pair_ci_mean_rev_mag_excludes_0": true,
+      "pair_ci_signed_dev_excludes_0": true,
+      "pair_ci_near_tie_mean_delta_excludes_0": false,
+      "loo_sign_stable": true,
+      "loo_aux_sign_stable": false,
+      "loo_detail": {
+        "kendall_tau_a": true,
+        "mean_rev_mag": true,
+        "near_tie_mean_delta": false,
+        "signed_dev": true
+      },
+      "loo_flipped_by": {
+        "near_tie_mean_delta": [
+          "TransUNet",
+          "AttentionUNet",
+          "SegNet"
+        ]
+      },
+      "acceptance_satisfied": true
+    },
+    "arch14__align": {
+      "ci_mean_rev_mag_excludes_0": true,
+      "ci_signed_dev_excludes_0": false,
+      "ci_near_tie_mean_delta_excludes_0": false,
+      "pair_ci_mean_rev_mag_excludes_0": true,
+      "pair_ci_signed_dev_excludes_0": true,
+      "pair_ci_near_tie_mean_delta_excludes_0": false,
+      "loo_sign_stable": true,
+      "loo_aux_sign_stable": false,
+      "loo_detail": {
+        "kendall_tau_a": true,
+        "mean_rev_mag": true,
+        "near_tie_mean_delta": false,
+        "signed_dev": true
+      },
+      "loo_flipped_by": {
+        "near_tie_mean_delta": [
+          "SegNet"
+        ]
+      },
+      "acceptance_satisfied": true
+    },
+    "config7__dice": {
+      "ci_mean_rev_mag_excludes_0": true,
+      "ci_signed_dev_excludes_0": true,
+      "ci_near_tie_mean_delta_excludes_0": false,
+      "pair_ci_mean_rev_mag_excludes_0": true,
+      "pair_ci_signed_dev_excludes_0": true,
+      "pair_ci_near_tie_mean_delta_excludes_0": false,
+      "loo_sign_stable": true,
+      "loo_aux_sign_stable": true,
+      "loo_detail": {
+        "kendall_tau_a": true,
+        "mean_rev_mag": true,
+        "near_tie_mean_delta": true,
+        "signed_dev": true
+      },
+      "loo_flipped_by": {},
+      "acceptance_satisfied": true
+    }
+  }
+}

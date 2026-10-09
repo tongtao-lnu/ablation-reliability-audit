@@ -1,0 +1,195 @@
+{
+  "n_aligned_samples": 242,
+  "in_distribution": {
+    "baseline": {
+      "modules": {
+        "EGM": 0,
+        "DPA": 0,
+        "MSFA": 0
+      },
+      "n": 242,
+      "dice_mean": 81.96866151741544,
+      "dice_std": 21.325678467304243,
+      "dice_median": 91.52818963582453,
+      "dice_ci95": [
+        79.1374044057138,
+        84.57489180907116
+      ],
+      "failure_rate_dice_lt_50": 0.0743801652892562,
+      "failure_n": 18,
+      "hd95_median": null
+    },
+    "egm_only": {
+      "modules": {
+        "EGM": 1,
+        "DPA": 0,
+        "MSFA": 0
+      },
+      "n": 242,
+      "dice_mean": 86.67173532301784,
+      "dice_std": 17.579721849254643,
+      "dice_median": 93.57985509365653,
+      "dice_ci95": [
+        84.24747406455133,
+        88.80818098963344
+      ],
+      "failure_rate_dice_lt_50": 0.0371900826446281,
+      "failure_n": 9,
+      "hd95_median": null
+    },
+    "dpa_only": {
+      "modules": {
+        "EGM": 0,
+        "DPA": 1,
+        "MSFA": 0
+      },
+      "n": 242,
+      "dice_mean": 86.65306454563166,
+      "dice_std": 17.42332641099313,
+      "dice_median": 94.07353795653403,
+      "dice_ci95": [
+        84.2857020720283,
+        88.76573598881829
+      ],
+      "failure_rate_dice_lt_50": 0.045454545454545456,
+      "failure_n": 11,
+      "hd95_median": null
+    },
+    "msfa_only": {
+      "modules": {
+        "EGM": 0,
+        "DPA": 0,
+        "MSFA": 1
+      },
+      "n": 242,
+      "dice_mean": 87.46053836113602,
+      "dice_std": 18.556055735935093,
+      "dice_median": 94.61555025866178,
+      "dice_ci95": [
+        84.96081561410456,
+        89.69872204658725
+      ],
+      "failure_rate_dice_lt_50": 0.045454545454545456,
+      "failure_n": 11,
+      "hd95_median": null
+    },
+    "egm_dpa": {
+      "modules": {
+        "EGM": 1,
+        "DPA": 1,
+        "MSFA": 0
+      },
+      "n": 242,
+      "dice_mean": 86.9577505658327,
+      "dice_std": 19.073876844565877,
+      "dice_median": 94.56990386688597,
+      "dice_ci95": [
+        84.34700406971695,
+        89.25331449361306
+      ],
+      "failure_rate_dice_lt_50": 0.05371900826446281,
+      "failure_n": 13,
+      "hd95_median": null
+    },
+    "egm_msfa": {
+      "modules": {
+        "EGM": 1,
+        "DPA": 0,
+        "MSFA": 1
+      },
+      "n": 242,
+      "dice_mean": 88.31716511922622,
+      "dice_std": 17.539881324327425,
+      "dice_median": 94.97532337279414,
+      "dice_ci95": [
+        85.9086720800756,
+        90.41565378636514
+      ],
+      "failure_rate_dice_lt_50": 0.045454545454545456,
+      "failure_n": 11,
+      "hd95_median": null
+    },
+    "dpa_msfa": {
+      "modules": {
+        "EGM": 0,
+        "DPA": 1,
+        "MSFA": 1
+      },
+      "n": 242,
+      "dice_mean": 87.11697915797652,
+      "dice_std": 18.764052031084148,
+      "dice_median": 94.61237234056355,
+      "dice_ci95": [
+        84.59873229780337,
+        89.3560089640857
+      ],
+      "failure_rate_dice_lt_50": 0.05371900826446281,
+      "failure_n": 13,
+      "hd95_median": null
+    }
+  },
+  "pairwise_single_modules": {
+    "egm_only_vs_dpa_only": {
+      "median_delta_pts": 0.10720620012620308,
+      "mean_delta_pts": 0.018670777386187165,
+      "p_wilcoxon": 0.6600647067978005,
+      "p_holm": 0.6600647067978005
+    },
+    "egm_only_vs_msfa_only": {
+      "median_delta_pts": -0.13923658187528498,
+      "mean_delta_pts": -0.7888030381182021,
+      "p_wilcoxon": 0.02120330839643637,
+      "p_holm": 0.05311567765789298
+    },
+    "dpa_only_vs_msfa_only": {
+      "median_delta_pts": -0.25986461281825024,
+      "mean_delta_pts": -0.8074738155043892,
+      "p_wilcoxon": 0.017705225885964328,
+      "p_holm": 0.05311567765789298
+    }
+  },
+  "friedman_all_configs": {
+    "chi2": 125.11212949959393,
+    "p": 1.3728964232011504e-24,
+    "k_configs": 7,
+    "n": 242,
+    "kendalls_w": 0.08616537844324651
+  },
+  "friedman_single_modules": {
+    "chi2": 9.883817427386077,
+    "p": 0.007140955316918496,
+    "k_configs": 3,
+    "n": 242,
+    "kendalls_w": 0.020421110387161316,
+    "dice_means": {
+      "egm_only": 86.67173532301784,
+      "dpa_only": 86.65306454563165,
+      "msfa_only": 87.46053836113605
+    },
+    "dice_spread_pts": 0.8074738155043892
+  },
+  "main_effects_in_dist": {
+    "EGM": {
+      "n_on": 3,
+      "n_off": 4,
+      "mean_on": 87.31555033602558,
+      "mean_off": 85.7998108955399,
+      "effect_pts": 1.5157394404856745
+    },
+    "DPA": {
+      "n_on": 3,
+      "n_off": 4,
+      "mean_on": 86.9092647564803,
+      "mean_off": 86.10452508019888,
+      "effect_pts": 0.8047396762814145
+    },
+    "MSFA": {
+      "n_on": 3,
+      "n_off": 4,
+      "mean_on": 87.63156087944624,
+      "mean_off": 85.56280298797441,
+      "effect_pts": 2.068757891471833
+    }
+  },
+  "note": "全部来自 experiments/ablation/*/sample_metrics.csv，242 例分布内测试集，逐样本可配对"
+}

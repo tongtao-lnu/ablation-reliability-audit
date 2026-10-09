@@ -1,0 +1,1214 @@
+{
+ "segment": "P3-6B",
+ "generated_at": "2026-09-14T01:48:13",
+ "script": "02_code/analysis/p3_6_fragmentation_caliber.py",
+ "frozen": {
+  "eps": 1e-08,
+  "area_targets": [
+   0.1,
+   0.3,
+   0.5
+  ],
+  "placements": [
+   "target",
+   "random"
+  ],
+  "axis_ratio": 1.6,
+  "boot_B": 2000,
+  "seed": 42,
+  "boot_condition": [
+   0.3,
+   "target"
+  ]
+ },
+ "limitation": "Occlusion is applied at EVALUATION time only (the scoring region changes; the model input is the original image). This isolates the metric's sensitivity to the scoring region, not occlusion robustness.",
+ "gate_F_reproduces_stored_dice": {
+  "n_checked": 4518,
+  "n_bad": 0,
+  "worst": 2.9788473465686138e-08,
+  "by_set": {
+   "ID": {
+    "tol": 1e-09,
+    "n_checked": 3146,
+    "n_bad": 0,
+    "worst": 1.1102230246251565e-16
+   },
+   "OOD": {
+    "tol": 1e-06,
+    "n_checked": 1372,
+    "n_bad": 0,
+    "worst": 2.9788473465686138e-08
+   }
+  },
+  "tol_by_set": {
+   "ID": 1e-09,
+   "OOD": 1e-06
+  },
+  "agg": {
+   "reference": "ablation_etis_summary.json",
+   "tol": 1e-06,
+   "n_cfg": 7,
+   "n_bad": 0,
+   "worst": 1.4210854715202004e-14,
+   "per_cfg": [
+    {
+     "config": "baseline",
+     "computed": 45.315188568076834,
+     "reference": 45.315188568076834,
+     "abs_delta": 0.0
+    },
+    {
+     "config": "egm_only",
+     "computed": 53.4199659829776,
+     "reference": 53.4199659829776,
+     "abs_delta": 0.0
+    },
+    {
+     "config": "dpa_only",
+     "computed": 50.24596265072005,
+     "reference": 50.24596265072005,
+     "abs_delta": 0.0
+    },
+    {
+     "config": "msfa_only",
+     "computed": 54.923838456478634,
+     "reference": 54.923838456478634,
+     "abs_delta": 0.0
+    },
+    {
+     "config": "egm_dpa",
+     "computed": 63.913617849793305,
+     "reference": 63.913617849793305,
+     "abs_delta": 0.0
+    },
+    {
+     "config": "egm_msfa",
+     "computed": 66.72612952678556,
+     "reference": 66.72612952678554,
+     "abs_delta": 1.4210854715202004e-14
+    },
+    {
+     "config": "dpa_msfa",
+     "computed": 56.839780358810785,
+     "reference": 56.839780358810785,
+     "abs_delta": 0.0
+    }
+   ]
+  }
+ },
+ "n_samples": 4518,
+ "per_condition": {
+  "10_target": {
+   "area": 0.1,
+   "placement": "target",
+   "by_unit_set": [
+    {
+     "unit_set": "ID",
+     "mean_F": 0.8411039998288351,
+     "mean_V": 0.7101113405070133,
+     "delta_V_minus_F": -0.1309926593218218,
+     "mean_occ_frac": 0.09999710519687864,
+     "mean_t": 7578.24284806103,
+     "mean_f": 308.29211697393515,
+     "mean_u": 757.6662428480611
+    },
+    {
+     "unit_set": "OOD",
+     "mean_F": 0.5591206907338347,
+     "mean_V": 0.6028873170742944,
+     "delta_V_minus_F": 0.04376662634045969,
+     "mean_occ_frac": 0.09998668323863637,
+     "mean_t": 3183.860058309038,
+     "mean_f": 395.01749271137027,
+     "mean_u": 837.201166180758
+    }
+   ],
+   "rank_agreement": {
+    "ID": {
+     "n_units": 13,
+     "spearman_rho": 0.7527472527472527,
+     "spearman_p": 0.002982233389169848,
+     "kendall_tau": 0.564102564102564,
+     "n_pairs": 78,
+     "n_reversed_pairs": 17,
+     "pct_reversed_pairs": 21.794871794871796
+    },
+    "OOD": {
+     "n_units": 7,
+     "spearman_rho": 0.5,
+     "spearman_p": 0.25316999510032273,
+     "kendall_tau": 0.4285714285714286,
+     "n_pairs": 21,
+     "n_reversed_pairs": 6,
+     "pct_reversed_pairs": 28.57142857142857
+    }
+   },
+   "removal_composition": {
+    "ID": {
+     "t": 0.8766851517928689,
+     "f": 0.03566461603100933,
+     "u": 0.08765023217612197
+    },
+    "OOD": {
+     "t": 0.7209699514430108,
+     "f": 0.08944983049616595,
+     "u": 0.18958021806082334
+    }
+   },
+   "unit_means": [
+    {
+     "unit_set": "ID",
+     "unit": "AttentionUNet",
+     "dice_F": 0.8394898226404438,
+     "V_10_target": 0.6750231204609808
+    },
+    {
+     "unit_set": "ID",
+     "unit": "CaraNet",
+     "dice_F": 0.8316442656364065,
+     "V_10_target": 0.7110888173423197
+    },
+    {
+     "unit_set": "ID",
+     "unit": "M2SNet",
+     "dice_F": 0.8603479380379639,
+     "V_10_target": 0.7569607385759417
+    },
+    {
+     "unit_set": "ID",
+     "unit": "MultiResUNet",
+     "dice_F": 0.8424785194947291,
+     "V_10_target": 0.691800910805168
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PSPNet",
+     "dice_F": 0.8646062004418408,
+     "V_10_target": 0.7476625295071673
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PolypPVT",
+     "dice_F": 0.8638302927963105,
+     "V_10_target": 0.7794137985770773
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PraNet",
+     "dice_F": 0.8445122607932337,
+     "V_10_target": 0.733189578068829
+    },
+    {
+     "unit_set": "ID",
+     "unit": "ResUNet",
+     "dice_F": 0.791859694621517,
+     "V_10_target": 0.5795226829686191
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SANet",
+     "dice_F": 0.8488297470773221,
+     "V_10_target": 0.7182632048002102
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SegNet",
+     "dice_F": 0.8506006612701678,
+     "V_10_target": 0.716157408399569
+    },
+    {
+     "unit_set": "ID",
+     "unit": "TransUNet",
+     "dice_F": 0.8390788241710456,
+     "V_10_target": 0.7050170516750588
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UACANet",
+     "dice_F": 0.8332554599640426,
+     "V_10_target": 0.7228955280503961
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UNet",
+     "dice_F": 0.8238183108298337,
+     "V_10_target": 0.694452057359835
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "baseline",
+     "dice_F": 0.4531518872767689,
+     "V_10_target": 0.6052651654810678
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_msfa",
+     "dice_F": 0.5683978024912566,
+     "V_10_target": 0.6269867816237159
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_only",
+     "dice_F": 0.5024596259803112,
+     "V_10_target": 0.4303906120211585
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_dpa",
+     "dice_F": 0.6391361780191932,
+     "V_10_target": 0.6373079298245965
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_msfa",
+     "dice_F": 0.6672612960354813,
+     "V_10_target": 0.6666913767577536
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_only",
+     "dice_F": 0.5341996585567944,
+     "V_10_target": 0.6708864405079106
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "msfa_only",
+     "dice_F": 0.5492383867770375,
+     "V_10_target": 0.582682913303858
+    }
+   ]
+  },
+  "10_random": {
+   "area": 0.1,
+   "placement": "random",
+   "by_unit_set": [
+    {
+     "unit_set": "ID",
+     "mean_F": 0.8411039998288351,
+     "mean_V": 0.8292564967490538,
+     "delta_V_minus_F": -0.01184750307978133,
+     "mean_occ_frac": 0.09999360341890923,
+     "mean_t": 2358.188493324857,
+     "mean_f": 300.2689129052765,
+     "mean_u": 264.97679593134137
+    },
+    {
+     "unit_set": "OOD",
+     "mean_F": 0.5591206907338347,
+     "mean_V": 0.5627184400484312,
+     "delta_V_minus_F": 0.0035977493145964434,
+     "mean_occ_frac": 0.09999413634255357,
+     "mean_t": 876.8877551020408,
+     "mean_f": 286.2048104956268,
+     "mean_u": 210.37244897959184
+    }
+   ],
+   "rank_agreement": {
+    "ID": {
+     "n_units": 13,
+     "spearman_rho": 0.8956043956043955,
+     "spearman_p": 3.480972994482087e-05,
+     "kendall_tau": 0.769230769230769,
+     "n_pairs": 78,
+     "n_reversed_pairs": 9,
+     "pct_reversed_pairs": 11.538461538461538
+    },
+    "OOD": {
+     "n_units": 7,
+     "spearman_rho": 1.0,
+     "spearman_p": 0.0,
+     "kendall_tau": 1.0,
+     "n_pairs": 21,
+     "n_reversed_pairs": 0,
+     "pct_reversed_pairs": 0.0
+    }
+   },
+   "removal_composition": {
+    "ID": {
+     "t": 0.8066501006184108,
+     "f": 0.10271102140190781,
+     "u": 0.09063887797968147
+    },
+    "OOD": {
+     "t": 0.6384492839607854,
+     "f": 0.20838158049749683,
+     "u": 0.15316913554171793
+    }
+   },
+   "unit_means": [
+    {
+     "unit_set": "ID",
+     "unit": "AttentionUNet",
+     "dice_F": 0.8394898226404438,
+     "V_10_random": 0.8208300689510404
+    },
+    {
+     "unit_set": "ID",
+     "unit": "CaraNet",
+     "dice_F": 0.8316442656364065,
+     "V_10_random": 0.824870992555256
+    },
+    {
+     "unit_set": "ID",
+     "unit": "M2SNet",
+     "dice_F": 0.8603479380379639,
+     "V_10_random": 0.8478018444566032
+    },
+    {
+     "unit_set": "ID",
+     "unit": "MultiResUNet",
+     "dice_F": 0.8424785194947291,
+     "V_10_random": 0.8223346681206184
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PSPNet",
+     "dice_F": 0.8646062004418408,
+     "V_10_random": 0.859283385679003
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PolypPVT",
+     "dice_F": 0.8638302927963105,
+     "V_10_random": 0.859842884695318
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PraNet",
+     "dice_F": 0.8445122607932337,
+     "V_10_random": 0.830905075809203
+    },
+    {
+     "unit_set": "ID",
+     "unit": "ResUNet",
+     "dice_F": 0.791859694621517,
+     "V_10_random": 0.7716222109884188
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SANet",
+     "dice_F": 0.8488297470773221,
+     "V_10_random": 0.8375303396852941
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SegNet",
+     "dice_F": 0.8506006612701678,
+     "V_10_random": 0.8406927896561386
+    },
+    {
+     "unit_set": "ID",
+     "unit": "TransUNet",
+     "dice_F": 0.8390788241710456,
+     "V_10_random": 0.8245349219830667
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UACANet",
+     "dice_F": 0.8332554599640426,
+     "V_10_random": 0.8261049621119165
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UNet",
+     "dice_F": 0.8238183108298337,
+     "V_10_random": 0.8139803130458236
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "baseline",
+     "dice_F": 0.4531518872767689,
+     "V_10_random": 0.46691802111599373
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_msfa",
+     "dice_F": 0.5683978024912566,
+     "V_10_random": 0.5690674966746408
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_only",
+     "dice_F": 0.5024596259803112,
+     "V_10_random": 0.4907222750282204
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_dpa",
+     "dice_F": 0.6391361780191932,
+     "V_10_random": 0.6399368955897455
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_msfa",
+     "dice_F": 0.6672612960354813,
+     "V_10_random": 0.6641654085607747
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_only",
+     "dice_F": 0.5341996585567944,
+     "V_10_random": 0.5405129058573914
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "msfa_only",
+     "dice_F": 0.5492383867770375,
+     "V_10_random": 0.5677060775122521
+    }
+   ]
+  },
+  "30_target": {
+   "area": 0.3,
+   "placement": "target",
+   "by_unit_set": [
+    {
+     "unit_set": "ID",
+     "mean_F": 0.8411039998288351,
+     "mean_V": 0.6797635904258946,
+     "delta_V_minus_F": -0.16134040940294048,
+     "mean_occ_frac": 0.2999716055832081,
+     "mean_t": 12162.747933884297,
+     "mean_f": 1001.2288620470439,
+     "mean_u": 1631.8842975206612
+    },
+    {
+     "unit_set": "OOD",
+     "mean_F": 0.5591206907338347,
+     "mean_V": 0.6448137905230445,
+     "delta_V_minus_F": 0.0856930997892098,
+     "mean_occ_frac": 0.2999522260156645,
+     "mean_t": 4309.318513119533,
+     "mean_f": 1033.0255102040817,
+     "mean_u": 1037.6814868804665
+    }
+   ],
+   "rank_agreement": {
+    "ID": {
+     "n_units": 13,
+     "spearman_rho": 0.7857142857142857,
+     "spearman_p": 0.0014541896038438224,
+     "kendall_tau": 0.6153846153846153,
+     "n_pairs": 78,
+     "n_reversed_pairs": 15,
+     "pct_reversed_pairs": 19.230769230769234
+    },
+    "OOD": {
+     "n_units": 7,
+     "spearman_rho": 0.14285714285714288,
+     "spearman_p": 0.7599453002180929,
+     "kendall_tau": 0.14285714285714288,
+     "n_pairs": 21,
+     "n_reversed_pairs": 9,
+     "pct_reversed_pairs": 42.857142857142854
+    }
+   },
+   "removal_composition": {
+    "ID": {
+     "t": 0.8220371803346407,
+     "f": 0.06766952296477992,
+     "u": 0.11029329670057943
+    },
+    "OOD": {
+     "t": 0.675439072497014,
+     "f": 0.1619155767562186,
+     "u": 0.1626453507467674
+    }
+   },
+   "unit_means": [
+    {
+     "unit_set": "ID",
+     "unit": "AttentionUNet",
+     "dice_F": 0.8394898226404438,
+     "V_30_target": 0.6435769726278507
+    },
+    {
+     "unit_set": "ID",
+     "unit": "CaraNet",
+     "dice_F": 0.8316442656364065,
+     "V_30_target": 0.6832290180824362
+    },
+    {
+     "unit_set": "ID",
+     "unit": "M2SNet",
+     "dice_F": 0.8603479380379639,
+     "V_30_target": 0.7504138152921327
+    },
+    {
+     "unit_set": "ID",
+     "unit": "MultiResUNet",
+     "dice_F": 0.8424785194947291,
+     "V_30_target": 0.6782407870087633
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PSPNet",
+     "dice_F": 0.8646062004418408,
+     "V_30_target": 0.724859884826395
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PolypPVT",
+     "dice_F": 0.8638302927963105,
+     "V_30_target": 0.7505160626090749
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PraNet",
+     "dice_F": 0.8445122607932337,
+     "V_30_target": 0.7294889459490063
+    },
+    {
+     "unit_set": "ID",
+     "unit": "ResUNet",
+     "dice_F": 0.791859694621517,
+     "V_30_target": 0.49786984452533306
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SANet",
+     "dice_F": 0.8488297470773221,
+     "V_30_target": 0.6974041599414469
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SegNet",
+     "dice_F": 0.8506006612701678,
+     "V_30_target": 0.6912884931429005
+    },
+    {
+     "unit_set": "ID",
+     "unit": "TransUNet",
+     "dice_F": 0.8390788241710456,
+     "V_30_target": 0.6575699606327299
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UACANet",
+     "dice_F": 0.8332554599640426,
+     "V_30_target": 0.6993670056663893
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UNet",
+     "dice_F": 0.8238183108298337,
+     "V_30_target": 0.6331017252321707
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "baseline",
+     "dice_F": 0.4531518872767689,
+     "V_30_target": 0.6922695176338914
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_msfa",
+     "dice_F": 0.5683978024912566,
+     "V_30_target": 0.612249558205651
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_only",
+     "dice_F": 0.5024596259803112,
+     "V_30_target": 0.4154572579760732
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_dpa",
+     "dice_F": 0.6391361780191932,
+     "V_30_target": 0.6573513864739383
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_msfa",
+     "dice_F": 0.6672612960354813,
+     "V_30_target": 0.7269302743886197
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_only",
+     "dice_F": 0.5341996585567944,
+     "V_30_target": 0.7613974016740046
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "msfa_only",
+     "dice_F": 0.5492383867770375,
+     "V_30_target": 0.6480411373091333
+    }
+   ]
+  },
+  "30_random": {
+   "area": 0.3,
+   "placement": "random",
+   "by_unit_set": [
+    {
+     "unit_set": "ID",
+     "mean_F": 0.8411039998288351,
+     "mean_V": 0.7895058256860078,
+     "delta_V_minus_F": -0.0515981741428273,
+     "mean_occ_frac": 0.2999382553168329,
+     "mean_t": 6447.708200890019,
+     "mean_f": 898.2075651621107,
+     "mean_u": 880.589319771138
+    },
+    {
+     "unit_set": "OOD",
+     "mean_F": 0.5591206907338347,
+     "mean_V": 0.5715219192486983,
+     "delta_V_minus_F": 0.012401228514863583,
+     "mean_occ_frac": 0.29993456092405973,
+     "mean_t": 1984.2791545189505,
+     "mean_f": 718.7842565597667,
+     "mean_u": 478.3228862973761
+    }
+   ],
+   "rank_agreement": {
+    "ID": {
+     "n_units": 13,
+     "spearman_rho": 0.8791208791208791,
+     "spearman_p": 7.54456235935913e-05,
+     "kendall_tau": 0.7179487179487178,
+     "n_pairs": 78,
+     "n_reversed_pairs": 11,
+     "pct_reversed_pairs": 14.102564102564102
+    },
+    "OOD": {
+     "n_units": 7,
+     "spearman_rho": 0.8571428571428573,
+     "spearman_p": 0.01369732661532562,
+     "kendall_tau": 0.7142857142857143,
+     "n_pairs": 21,
+     "n_reversed_pairs": 3,
+     "pct_reversed_pairs": 14.285714285714285
+    }
+   },
+   "removal_composition": {
+    "ID": {
+     "t": 0.7837724688217055,
+     "f": 0.10918458759722781,
+     "u": 0.10704294358106665
+    },
+    "OOD": {
+     "t": 0.6237152514787409,
+     "f": 0.2259342907060979,
+     "u": 0.15035045781516115
+    }
+   },
+   "unit_means": [
+    {
+     "unit_set": "ID",
+     "unit": "AttentionUNet",
+     "dice_F": 0.8394898226404438,
+     "V_30_random": 0.7670726607276696
+    },
+    {
+     "unit_set": "ID",
+     "unit": "CaraNet",
+     "dice_F": 0.8316442656364065,
+     "V_30_random": 0.7830512802088991
+    },
+    {
+     "unit_set": "ID",
+     "unit": "M2SNet",
+     "dice_F": 0.8603479380379639,
+     "V_30_random": 0.8234042679143637
+    },
+    {
+     "unit_set": "ID",
+     "unit": "MultiResUNet",
+     "dice_F": 0.8424785194947291,
+     "V_30_random": 0.7844380520825802
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PSPNet",
+     "dice_F": 0.8646062004418408,
+     "V_30_random": 0.815042107386093
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PolypPVT",
+     "dice_F": 0.8638302927963105,
+     "V_30_random": 0.8281447352689747
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PraNet",
+     "dice_F": 0.8445122607932337,
+     "V_30_random": 0.8111645251780044
+    },
+    {
+     "unit_set": "ID",
+     "unit": "ResUNet",
+     "dice_F": 0.791859694621517,
+     "V_30_random": 0.7059670984323654
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SANet",
+     "dice_F": 0.8488297470773221,
+     "V_30_random": 0.8126400110715325
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SegNet",
+     "dice_F": 0.8506006612701678,
+     "V_30_random": 0.7963681561361456
+    },
+    {
+     "unit_set": "ID",
+     "unit": "TransUNet",
+     "dice_F": 0.8390788241710456,
+     "V_30_random": 0.7797383824411548
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UACANet",
+     "dice_F": 0.8332554599640426,
+     "V_30_random": 0.78839624713475
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UNet",
+     "dice_F": 0.8238183108298337,
+     "V_30_random": 0.768148209935569
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "baseline",
+     "dice_F": 0.4531518872767689,
+     "V_30_random": 0.5119546318027
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_msfa",
+     "dice_F": 0.5683978024912566,
+     "V_30_random": 0.5688266638174692
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_only",
+     "dice_F": 0.5024596259803112,
+     "V_30_random": 0.47425700930507736
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_dpa",
+     "dice_F": 0.6391361780191932,
+     "V_30_random": 0.6437487118703085
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_msfa",
+     "dice_F": 0.6672612960354813,
+     "V_30_random": 0.6571944623274394
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_only",
+     "dice_F": 0.5341996585567944,
+     "V_30_random": 0.5777199778736545
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "msfa_only",
+     "dice_F": 0.5492383867770375,
+     "V_30_random": 0.5669519777442391
+    }
+   ]
+  },
+  "50_target": {
+   "area": 0.5,
+   "placement": "target",
+   "by_unit_set": [
+    {
+     "unit_set": "ID",
+     "mean_F": 0.8411039998288351,
+     "mean_V": 0.6849242609445992,
+     "delta_V_minus_F": -0.15617973888423586,
+     "mean_occ_frac": 0.4994034971356124,
+     "mean_t": 13309.159567705023,
+     "mean_f": 1448.8887476160203,
+     "mean_u": 2013.4602670057216
+    },
+    {
+     "unit_set": "OOD",
+     "mean_F": 0.5591206907338347,
+     "mean_V": 0.7216579573246499,
+     "delta_V_minus_F": 0.16253726659081513,
+     "mean_occ_frac": 0.4993790452648001,
+     "mean_t": 4453.389941690962,
+     "mean_f": 1392.6413994169095,
+     "mean_u": 1095.1100583090379
+    }
+   ],
+   "rank_agreement": {
+    "ID": {
+     "n_units": 13,
+     "spearman_rho": 0.7472527472527472,
+     "spearman_p": 0.003326741383429984,
+     "kendall_tau": 0.5384615384615383,
+     "n_pairs": 78,
+     "n_reversed_pairs": 18,
+     "pct_reversed_pairs": 23.076923076923077
+    },
+    "OOD": {
+     "n_units": 7,
+     "spearman_rho": 0.4642857142857144,
+     "spearman_p": 0.2939341076002517,
+     "kendall_tau": 0.33333333333333337,
+     "n_pairs": 21,
+     "n_reversed_pairs": 7,
+     "pct_reversed_pairs": 33.33333333333333
+    }
+   },
+   "removal_composition": {
+    "ID": {
+     "t": 0.7935576875731831,
+     "f": 0.0863898879760172,
+     "u": 0.12005242445079962
+    },
+    "OOD": {
+     "t": 0.6415933180766306,
+     "f": 0.20063579161979014,
+     "u": 0.15777089030357927
+    }
+   },
+   "unit_means": [
+    {
+     "unit_set": "ID",
+     "unit": "AttentionUNet",
+     "dice_F": 0.8394898226404438,
+     "V_50_target": 0.6506357117730687
+    },
+    {
+     "unit_set": "ID",
+     "unit": "CaraNet",
+     "dice_F": 0.8316442656364065,
+     "V_50_target": 0.6812175880933578
+    },
+    {
+     "unit_set": "ID",
+     "unit": "M2SNet",
+     "dice_F": 0.8603479380379639,
+     "V_50_target": 0.7524747631008541
+    },
+    {
+     "unit_set": "ID",
+     "unit": "MultiResUNet",
+     "dice_F": 0.8424785194947291,
+     "V_50_target": 0.6500629737065877
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PSPNet",
+     "dice_F": 0.8646062004418408,
+     "V_50_target": 0.7259159721081163
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PolypPVT",
+     "dice_F": 0.8638302927963105,
+     "V_50_target": 0.7445712093572563
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PraNet",
+     "dice_F": 0.8445122607932337,
+     "V_50_target": 0.7506469719774316
+    },
+    {
+     "unit_set": "ID",
+     "unit": "ResUNet",
+     "dice_F": 0.791859694621517,
+     "V_50_target": 0.5318733769202226
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SANet",
+     "dice_F": 0.8488297470773221,
+     "V_50_target": 0.7024931143729986
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SegNet",
+     "dice_F": 0.8506006612701678,
+     "V_50_target": 0.7034222375592093
+    },
+    {
+     "unit_set": "ID",
+     "unit": "TransUNet",
+     "dice_F": 0.8390788241710456,
+     "V_50_target": 0.6577607874755173
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UACANet",
+     "dice_F": 0.8332554599640426,
+     "V_50_target": 0.713631512487476
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UNet",
+     "dice_F": 0.8238183108298337,
+     "V_50_target": 0.6393091733476952
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "baseline",
+     "dice_F": 0.4531518872767689,
+     "V_50_target": 0.7632411782298353
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_msfa",
+     "dice_F": 0.5683978024912566,
+     "V_50_target": 0.6668665809715446
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_only",
+     "dice_F": 0.5024596259803112,
+     "V_50_target": 0.4326282509545657
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_dpa",
+     "dice_F": 0.6391361780191932,
+     "V_50_target": 0.7851076184898824
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_msfa",
+     "dice_F": 0.6672612960354813,
+     "V_50_target": 0.8303746943409681
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_only",
+     "dice_F": 0.5341996585567944,
+     "V_50_target": 0.811941870230516
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "msfa_only",
+     "dice_F": 0.5492383867770375,
+     "V_50_target": 0.7614455080552367
+    }
+   ]
+  },
+  "50_random": {
+   "area": 0.5,
+   "placement": "random",
+   "by_unit_set": [
+    {
+     "unit_set": "ID",
+     "mean_F": 0.8411039998288351,
+     "mean_V": 0.741898721773927,
+     "delta_V_minus_F": -0.09920527805490809,
+     "mean_occ_frac": 0.4993478688912984,
+     "mean_t": 10084.285123966942,
+     "mean_f": 1369.6328671328672,
+     "mean_u": 1555.599173553719
+    },
+    {
+     "unit_set": "OOD",
+     "mean_F": 0.5591206907338347,
+     "mean_V": 0.6366182187490127,
+     "delta_V_minus_F": 0.07749752801517795,
+     "mean_occ_frac": 0.4993372914119159,
+     "mean_t": 3251.8134110787173,
+     "mean_f": 1428.2572886297376,
+     "mean_u": 831.4672011661808
+    }
+   ],
+   "rank_agreement": {
+    "ID": {
+     "n_units": 13,
+     "spearman_rho": 0.901098901098901,
+     "spearman_p": 2.613862202954826e-05,
+     "kendall_tau": 0.769230769230769,
+     "n_pairs": 78,
+     "n_reversed_pairs": 9,
+     "pct_reversed_pairs": 11.538461538461538
+    },
+    "OOD": {
+     "n_units": 7,
+     "spearman_rho": 0.6785714285714287,
+     "spearman_p": 0.0937502539598313,
+     "kendall_tau": 0.5238095238095238,
+     "n_pairs": 21,
+     "n_reversed_pairs": 5,
+     "pct_reversed_pairs": 23.809523809523807
+    }
+   },
+   "removal_composition": {
+    "ID": {
+     "t": 0.7751467634299023,
+     "f": 0.10527930051501981,
+     "u": 0.11957393605507789
+    },
+    "OOD": {
+     "t": 0.5900010976179048,
+     "f": 0.2591395204599945,
+     "u": 0.15085938192210088
+    }
+   },
+   "unit_means": [
+    {
+     "unit_set": "ID",
+     "unit": "AttentionUNet",
+     "dice_F": 0.8394898226404438,
+     "V_50_random": 0.714855746552988
+    },
+    {
+     "unit_set": "ID",
+     "unit": "CaraNet",
+     "dice_F": 0.8316442656364065,
+     "V_50_random": 0.7348175075074225
+    },
+    {
+     "unit_set": "ID",
+     "unit": "M2SNet",
+     "dice_F": 0.8603479380379639,
+     "V_50_random": 0.7790463603138891
+    },
+    {
+     "unit_set": "ID",
+     "unit": "MultiResUNet",
+     "dice_F": 0.8424785194947291,
+     "V_50_random": 0.743752153943538
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PSPNet",
+     "dice_F": 0.8646062004418408,
+     "V_50_random": 0.7780043145653767
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PolypPVT",
+     "dice_F": 0.8638302927963105,
+     "V_50_random": 0.7855604095719789
+    },
+    {
+     "unit_set": "ID",
+     "unit": "PraNet",
+     "dice_F": 0.8445122607932337,
+     "V_50_random": 0.7488669772612372
+    },
+    {
+     "unit_set": "ID",
+     "unit": "ResUNet",
+     "dice_F": 0.791859694621517,
+     "V_50_random": 0.6341939468823857
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SANet",
+     "dice_F": 0.8488297470773221,
+     "V_50_random": 0.7616061419634272
+    },
+    {
+     "unit_set": "ID",
+     "unit": "SegNet",
+     "dice_F": 0.8506006612701678,
+     "V_50_random": 0.7580754269415209
+    },
+    {
+     "unit_set": "ID",
+     "unit": "TransUNet",
+     "dice_F": 0.8390788241710456,
+     "V_50_random": 0.7382731492458767
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UACANet",
+     "dice_F": 0.8332554599640426,
+     "V_50_random": 0.748139650553523
+    },
+    {
+     "unit_set": "ID",
+     "unit": "UNet",
+     "dice_F": 0.8238183108298337,
+     "V_50_random": 0.7194915977578862
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "baseline",
+     "dice_F": 0.4531518872767689,
+     "V_50_random": 0.6158714010038457
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_msfa",
+     "dice_F": 0.5683978024912566,
+     "V_50_random": 0.5916763312826072
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "dpa_only",
+     "dice_F": 0.5024596259803112,
+     "V_50_random": 0.48247655786218613
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_dpa",
+     "dice_F": 0.6391361780191932,
+     "V_50_random": 0.7035826220718202
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_msfa",
+     "dice_F": 0.6672612960354813,
+     "V_50_random": 0.7292131096283426
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "egm_only",
+     "dice_F": 0.5341996585567944,
+     "V_50_random": 0.6938580108650897
+    },
+    {
+     "unit_set": "OOD",
+     "unit": "msfa_only",
+     "dice_F": 0.5492383867770375,
+     "V_50_random": 0.6396494985291966
+    }
+   ]
+  }
+ },
+ "gate_zero_occluder_identity": {
+  "ok": true,
+  "note": "area=0 -> M_occ empty -> V and F are the same computation"
+ },
+ "bootstrap_rank_agreement": {
+  "ID": {
+   "reps": 2000,
+   "n_valid_rho": 2000,
+   "rho_ci": [
+    0.395467032967033,
+    0.9175824175824175
+   ],
+   "tau_ci": [
+    0.282051282051282,
+    0.7948717948717947
+   ],
+   "rho_median": 0.7197802197802198
+  },
+  "OOD": {
+   "reps": 2000,
+   "n_valid_rho": 2000,
+   "rho_ci": [
+    -0.3223214285714286,
+    0.642857142857143
+   ],
+   "tau_ci": [
+    -0.1452380952380951,
+    0.5238095238095238
+   ],
+   "rho_median": 0.1785714285714286
+  }
+ }
+}

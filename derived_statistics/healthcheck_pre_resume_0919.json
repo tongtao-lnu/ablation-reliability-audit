@@ -1,0 +1,129 @@
+{
+ "gpu": {
+  "temp": 59.0,
+  "power": 15.64,
+  "mem_pct": 14.948705422569613,
+  "junk_n": 25,
+  "hogs": [
+   "...GeForce Experience\\NVIDIA Share.exe",
+   "...4__8wekyb3d8bbwe\\EdgeGameAssist.exe",
+   "...rer\\13.9.6118.400\\SogouExplorer.exe",
+   "...crosoft\\Edge\\Application\\msedge.exe",
+   "C:\\Windows\\explorer.exe",
+   "...on\\153.0.4234.32\\msedgewebview2.exe",
+   "...on\\153.0.4234.32\\msedgewebview2.exe",
+   "...on\\153.0.4234.32\\msedgewebview2.exe"
+  ]
+ },
+ "windows_update": {
+  "pending_reboot": [
+   "PendingFileRenameOperations"
+  ],
+  "no_auto_reboot_policy": false
+ },
+ "power": {
+  "ac": 1,
+  "battery": 95,
+  "timeouts": {
+   "睡眠 standby": [
+    0,
+    4294967295
+   ],
+   "休眠 hibernate": [
+    0,
+    4294967295
+   ],
+   "关屏 video": [
+    0,
+    4294967295
+   ],
+   "关硬盘 disk": [
+    0,
+    4294967295
+   ]
+  }
+ },
+ "tdr": {
+  "TdrDelay": 10,
+  "TdrLevel": 3
+ },
+ "disk": {
+  "C:/": {
+   "free_gb": 73.9,
+   "total_gb": 300.0
+  },
+  "D:/": {
+   "free_gb": 195.3,
+   "total_gb": 651.6
+  },
+  "E:/": {
+   "free_gb": 845.3,
+   "total_gb": 953.9
+  }
+ },
+ "mem": {
+  "total_gb": 15.8,
+  "avail_gb": 2.0,
+  "load_pct": 87
+ },
+ "events": {
+  "Microsoft-Windows-Kernel-Power": 1
+ },
+ "findings": [
+  {
+   "level": "OK",
+   "item": "GPU温度",
+   "msg": "59.0°C 正常（<82）"
+  },
+  {
+   "level": "OK",
+   "item": "GPU功耗",
+   "msg": "15.64 W —— 未跑满功耗墙，发热压力小于满载"
+  },
+  {
+   "level": "OK",
+   "item": "显存",
+   "msg": "占用 14.9%"
+  },
+  {
+   "level": "OK",
+   "item": "显存争用",
+   "msg": "显存有富余（14.9%），8 个桌面程序挂 GPU 但影响有限"
+  },
+  {
+   "level": "RISK",
+   "item": "Windows更新",
+   "msg": "存在待重启标记（PendingFileRenameOperations）—— 建议立即「暂停更新 7 天」或设置「有用户登录时不自动重启」，否则可能在非活动时段自动重启打断训练"
+  },
+  {
+   "level": "OK",
+   "item": "供电",
+   "msg": "已插电"
+  },
+  {
+   "level": "OK",
+   "item": "睡眠 standby",
+   "msg": "插电下永不触发"
+  },
+  {
+   "level": "OK",
+   "item": "休眠 hibernate",
+   "msg": "插电下永不触发"
+  },
+  {
+   "level": "OK",
+   "item": "TDR",
+   "msg": "已自定义: {'TdrDelay': 10, 'TdrLevel': 3}"
+  },
+  {
+   "level": "WARN",
+   "item": "内存",
+   "msg": "占用 87% —— 偏高，建议关掉多余程序"
+  },
+  {
+   "level": "WARN",
+   "item": "事件日志",
+   "msg": "发现历史硬伤记录：Microsoft-Windows-Kernel-Power×1（说明硬件/环境曾出问题，非本次任务导致，但要有心理预期）"
+  }
+ ]
+}

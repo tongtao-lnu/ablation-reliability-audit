@@ -1,0 +1,327 @@
+{
+  "segment": "P3-1c+",
+  "mode": "add_hd95_column_in_distribution",
+  "generated_at": "2026-09-14T00:35:17",
+  "script": "02_code/analysis/p3_1c_add_hd95.py",
+  "decision": "用户 2026-09-14 裁定: 补 HD95 列",
+  "caliber": {
+    "impl": "utils/metrics.py::SegmentationMetrics._compute_hd95 (逐字复用)",
+    "gate_sum": 10,
+    "deterministic": true,
+    "determinism_note": "ID 侧实现无 RNG（distance_transform_edt + binary_erosion）⇒ 逐样本可复现；跨域侧 calculate_hd95 无种子抽点 ⇒ 不可复现。两者不可混谈。",
+    "disk_untouched": true,
+    "out_scope": "E 盘 03_results/raw/indist_pred/<架构>/sample_metrics.csv 就地回填"
+  },
+  "gate": {
+    "tol": 1e-09,
+    "n_checked": 10,
+    "n_match": 10,
+    "n_diff": 0,
+    "no_ref_archs": [
+      "MultiResUNet",
+      "PolypPVT",
+      "PraNet"
+    ]
+  },
+  "archs": [
+    {
+      "arch": "UNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\UNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 237,
+      "n_hd95_nan": 5,
+      "hd95_mean": 47.00628718703929,
+      "hd95_median": 16.0,
+      "hd95_min": 2.0,
+      "hd95_max": 244.64433331938497,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\UNet\\sample_metrics.csv",
+        "n_ref_valid": 237,
+        "n_both": 237,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "AttentionUNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\AttentionUNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 240,
+      "n_hd95_nan": 2,
+      "hd95_mean": 46.65995445438434,
+      "hd95_median": 15.06637297521078,
+      "hd95_min": 2.0,
+      "hd95_max": 245.79642731897823,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\AttentionUNet\\sample_metrics.csv",
+        "n_ref_valid": 240,
+        "n_both": 240,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "SegNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\SegNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 239,
+      "n_hd95_nan": 3,
+      "hd95_mean": 39.46177606383167,
+      "hd95_median": 10.198039027185569,
+      "hd95_min": 2.0,
+      "hd95_max": 241.11916140171388,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\SegNet\\sample_metrics.csv",
+        "n_ref_valid": 239,
+        "n_both": 239,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "ResUNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\ResUNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 241,
+      "n_hd95_nan": 1,
+      "hd95_mean": 62.75219569256061,
+      "hd95_median": 45.23272611284145,
+      "hd95_min": 1.4142135623730951,
+      "hd95_max": 244.20544326521076,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\ResUNet\\sample_metrics.csv",
+        "n_ref_valid": 241,
+        "n_both": 241,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "MultiResUNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\MultiResUNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 239,
+      "n_hd95_nan": 3,
+      "hd95_mean": 43.83643003519576,
+      "hd95_median": 13.425634051336866,
+      "hd95_min": 1.4142135623730951,
+      "hd95_max": 326.11705145375197,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "REF_ALL_NAN",
+        "ref": "D:/medical_segmentation/experiments/baseline\\MultiResUNet\\sample_metrics.csv",
+        "n_ref_valid": 0,
+        "n_mine_valid": 239
+      }
+    },
+    {
+      "arch": "PSPNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\PSPNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 241,
+      "n_hd95_nan": 1,
+      "hd95_mean": 33.94237155465328,
+      "hd95_median": 8.0,
+      "hd95_min": 2.23606797749979,
+      "hd95_max": 245.097937545141,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\PSPNet\\sample_metrics.csv",
+        "n_ref_valid": 241,
+        "n_both": 241,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "TransUNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\TransUNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 241,
+      "n_hd95_nan": 1,
+      "hd95_mean": 44.107622179715314,
+      "hd95_median": 15.07301027273185,
+      "hd95_min": 1.4142135623730951,
+      "hd95_max": 245.35891210484505,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\TransUNet\\sample_metrics.csv",
+        "n_ref_valid": 241,
+        "n_both": 241,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "PolypPVT",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\PolypPVT\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 239,
+      "n_hd95_nan": 3,
+      "hd95_mean": 31.458597692927505,
+      "hd95_median": 7.654668419872444,
+      "hd95_min": 2.0,
+      "hd95_max": 245.0283525700134,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "REF_NO_HD95_COL",
+        "ref": "D:/medical_segmentation/experiments/baseline\\PolypPVT\\sample_metrics.csv",
+        "cols": [
+          "Dice",
+          "IoU",
+          "Precision",
+          "Recall",
+          "sample_idx"
+        ]
+      }
+    },
+    {
+      "arch": "SANet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\SANet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 242,
+      "n_hd95_nan": 0,
+      "hd95_mean": 38.543576243574165,
+      "hd95_median": 9.924428900898052,
+      "hd95_min": 2.0,
+      "hd95_max": 246.08148986502215,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\SANet\\sample_metrics.csv",
+        "n_ref_valid": 242,
+        "n_both": 242,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "PraNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\PraNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 240,
+      "n_hd95_nan": 2,
+      "hd95_mean": 34.1464936644311,
+      "hd95_median": 8.236127435639535,
+      "hd95_min": 2.0,
+      "hd95_max": 247.48025647436077,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "REF_ALL_NAN",
+        "ref": "D:/medical_segmentation/experiments/baseline\\PraNet\\sample_metrics.csv",
+        "n_ref_valid": 0,
+        "n_mine_valid": 240
+      }
+    },
+    {
+      "arch": "UACANet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\UACANet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 239,
+      "n_hd95_nan": 3,
+      "hd95_mean": 36.8032823835165,
+      "hd95_median": 10.29244433213194,
+      "hd95_min": 2.0,
+      "hd95_max": 244.10652916846712,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\UACANet\\sample_metrics.csv",
+        "n_ref_valid": 239,
+        "n_both": 239,
+        "nan_mask_match": true,
+        "max_abs_diff": 5.684341886080802e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "CaraNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\CaraNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 241,
+      "n_hd95_nan": 1,
+      "hd95_mean": 38.73453182132639,
+      "hd95_median": 13.19068996319799,
+      "hd95_min": 2.23606797749979,
+      "hd95_max": 246.50713673852127,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\CaraNet\\sample_metrics.csv",
+        "n_ref_valid": 241,
+        "n_both": 241,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    },
+    {
+      "arch": "M2SNet",
+      "status": "OK",
+      "csv": "E:/paper2_ablation_reliability/03_results/raw/indist_pred\\M2SNet\\sample_metrics.csv",
+      "n": 242,
+      "n_hd95_valid": 241,
+      "n_hd95_nan": 1,
+      "hd95_mean": 31.832332663275267,
+      "hd95_median": 8.06225774829855,
+      "hd95_min": 1.4142135623730951,
+      "hd95_max": 244.787663087828,
+      "n_masks_missing": 0,
+      "gate_vs_disk": {
+        "status": "MATCH",
+        "ref": "D:/medical_segmentation/experiments/baseline\\M2SNet\\sample_metrics.csv",
+        "n_ref_valid": 241,
+        "n_both": 241,
+        "nan_mask_match": true,
+        "max_abs_diff": 2.842170943040401e-14,
+        "tol": 1e-09
+      }
+    }
+  ],
+  "egaunet_id_note": {
+    "path": "D:/medical_segmentation/results/test_results/sample_metrics.csv",
+    "exists": true,
+    "cols": [
+      "Dice",
+      "IoU",
+      "Precision",
+      "Recall",
+      "HD95",
+      "sample_idx",
+      "filename"
+    ],
+    "has_hd95": true,
+    "n": 242,
+    "hd95_valid": 241,
+    "hd95_mean": 28.198364435462974
+  }
+}

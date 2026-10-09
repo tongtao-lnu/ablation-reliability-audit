@@ -1,0 +1,34 @@
+{
+ "hero_a": "msfa_only",
+ "hero_b": "egm_dpa",
+ "metric": "mean Dice difference (A - B), paired bootstrap over images",
+ "n_boot": 20000,
+ "seed": 20260916,
+ "cross_domain": {
+  "n": 196,
+  "mean_diff": -0.08989779393314665,
+  "ci95": [
+   -0.12875486085314944,
+   -0.053740007729762396
+  ],
+  "crosses_zero": false,
+  "se": 0.019199045360816167,
+  "p_two_sided_frac": 0.0
+ },
+ "in_domain": {
+  "n": 242,
+  "mean_diff": 0.005027877953033413,
+  "ci95": [
+   -0.007223786899031036,
+   0.01779859537153871
+  ],
+  "crosses_zero": true,
+  "se": 0.006364123887162996,
+  "p_two_sided_frac": 0.4273
+ },
+ "id_mean_dice_check": {
+  "msfa_only": 0.8746053836113604,
+  "egm_dpa": 0.869577505658327
+ },
+ "verdict": "in-domain gap indistinguishable from 0, cross-domain gap well separated"
+}

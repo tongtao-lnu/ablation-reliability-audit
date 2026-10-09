@@ -1,0 +1,92 @@
+{
+ "script": "02_code/analysis/p3_6_gap_derivation.py",
+ "source": "caliber_swap.json",
+ "note": "ID-OOD mean gap under F vs V caliber; derived from the by_unit_set block",
+ "readouts": {
+  "n_sign_flips": 1,
+  "max_compression": 1.1302690449939894,
+  "min_compression": 0.05477364048229627,
+  "mean_compression_target": 0.8753589029862336,
+  "mean_compression_random": 0.3027926983151787
+ },
+ "rows": [
+  {
+   "condition": "10_target",
+   "area": 0.1,
+   "placement": "target",
+   "E_F_ID": 0.8411039998288351,
+   "E_F_OOD": 0.5591206907338347,
+   "E_V_ID": 0.7101113405070133,
+   "E_V_OOD": 0.6028873170742944,
+   "gap_F": 0.28198330909500036,
+   "gap_V": 0.10722402343271886,
+   "compression": 0.619750460490571,
+   "sign_flip": false
+  },
+  {
+   "condition": "30_target",
+   "area": 0.3,
+   "placement": "target",
+   "E_F_ID": 0.8411039998288351,
+   "E_F_OOD": 0.5591206907338347,
+   "E_V_ID": 0.6797635904258946,
+   "E_V_OOD": 0.6448137905230445,
+   "gap_F": 0.28198330909500036,
+   "gap_V": 0.034949799902850076,
+   "compression": 0.8760572034741408,
+   "sign_flip": false
+  },
+  {
+   "condition": "50_target",
+   "area": 0.5,
+   "placement": "target",
+   "E_F_ID": 0.8411039998288351,
+   "E_F_OOD": 0.5591206907338347,
+   "E_V_ID": 0.6849242609445992,
+   "E_V_OOD": 0.7216579573246499,
+   "gap_F": 0.28198330909500036,
+   "gap_V": -0.03673369638005064,
+   "compression": 1.1302690449939894,
+   "sign_flip": true
+  },
+  {
+   "condition": "10_random",
+   "area": 0.1,
+   "placement": "random",
+   "E_F_ID": 0.8411039998288351,
+   "E_F_OOD": 0.5591206907338347,
+   "E_V_ID": 0.8292564967490538,
+   "E_V_OOD": 0.5627184400484312,
+   "gap_F": 0.28198330909500036,
+   "gap_V": 0.2665380567006226,
+   "compression": 0.05477364048229627,
+   "sign_flip": false
+  },
+  {
+   "condition": "30_random",
+   "area": 0.3,
+   "placement": "random",
+   "E_F_ID": 0.8411039998288351,
+   "E_F_OOD": 0.5591206907338347,
+   "E_V_ID": 0.7895058256860078,
+   "E_V_OOD": 0.5715219192486983,
+   "gap_F": 0.28198330909500036,
+   "gap_V": 0.21798390643730947,
+   "compression": 0.22696166969275988,
+   "sign_flip": false
+  },
+  {
+   "condition": "50_random",
+   "area": 0.5,
+   "placement": "random",
+   "E_F_ID": 0.8411039998288351,
+   "E_F_OOD": 0.5591206907338347,
+   "E_V_ID": 0.741898721773927,
+   "E_V_OOD": 0.6366182187490127,
+   "gap_F": 0.28198330909500036,
+   "gap_V": 0.10528050302491432,
+   "compression": 0.62664278477048,
+   "sign_flip": false
+  }
+ ]
+}

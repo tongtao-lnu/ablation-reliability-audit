@@ -1,0 +1,952 @@
+{
+  "generated_at": "2026-09-14T01:37:44",
+  "script": "02_code/analysis/variance_attribution.py",
+  "scope": {
+    "n_architectures": 4,
+    "ood_cells": 16,
+    "id_groups": 20,
+    "note": "n=4 INITIAL value; H2 final judgement produced by P2-2b after P3-1"
+  },
+  "criterion": {
+    "frozen": "|P n G| > 0 (metric > 0)",
+    "substantive": "I >= 1 px (metric > 1e-6)",
+    "eps_id": 1e-08,
+    "eps_ood": 1e-06
+  },
+  "ood_attribution": {
+    "n": 16,
+    "var_log_det": 0.04423448338137579,
+    "var_log_del": 0.039315460550928244,
+    "cov2": 0.0231269121936491,
+    "total": 0.10667685612595312,
+    "share_det": 0.41465867094122305,
+    "share_del": 0.3685472367549768,
+    "share_cov": 0.21679409230380023,
+    "share_det_naive": 0.5294376189793327,
+    "corr_logdet_logdel": 0.2772844354218689,
+    "corr_logdet_logdel_p": 0.29846313980587946,
+    "var_log_dice_direct": 0.10667685612595315,
+    "identity_gap": 2.7755575615628914e-17,
+    "detection_range": [
+      0.5051020408163265,
+      0.979
+    ],
+    "detection_spread": 0.4738979591836735,
+    "delineation_range": [
+      0.41177248675905337,
+      0.7869151941822797
+    ],
+    "logdet_spread": 0.6617711726443006,
+    "logdel_spread": 0.6476495040482517,
+    "spread_ratio": 1.0218044922566587,
+    "cov_negative": false
+  },
+  "id_attribution_frozen": {
+    "n": 20,
+    "var_log_det": 0.0,
+    "var_log_del": 0.0007083088191801988,
+    "cov2": 0.0,
+    "total": 0.0007083088191801988,
+    "share_det": 0.0,
+    "share_del": 1.0,
+    "share_cov": 0.0,
+    "share_det_naive": 0.0,
+    "corr_logdet_logdel": NaN,
+    "corr_logdet_logdel_p": NaN,
+    "var_log_dice_direct": 0.0007083088191801988,
+    "identity_gap": 0.0,
+    "detection_range": [
+      1.0,
+      1.0
+    ],
+    "detection_spread": 0.0,
+    "delineation_range": [
+      0.791859694621517,
+      0.883171651192262
+    ],
+    "logdet_spread": 0.0,
+    "logdel_spread": 0.10913535430756212,
+    "spread_ratio": 0.0,
+    "cov_negative": false
+  },
+  "id_attribution_sub": {
+    "n": 20,
+    "var_log_det": 4.2650096101623214e-05,
+    "var_log_del": 0.000628292719557105,
+    "cov2": 3.736600350309822e-05,
+    "total": 0.0007083088191618264,
+    "share_det": 0.06021398427890957,
+    "share_del": 0.8870321850581953,
+    "share_cov": 0.05275383066289515,
+    "share_det_naive": 0.06356740858719766,
+    "corr_logdet_logdel": 0.11413152856919956,
+    "corr_logdet_logdel_p": 0.6318551511702617,
+    "var_log_dice_direct": 0.0007083088191618263,
+    "identity_gap": -1.0842021724855044e-19,
+    "detection_range": [
+      0.9710743801652892,
+      0.9917355371900827
+    ],
+    "detection_spread": 0.02066115702479343,
+    "delineation_range": [
+      0.805168260917613,
+      0.8905314149521664
+    ],
+    "logdet_spread": 0.021053409197832385,
+    "logdel_spread": 0.1007671046370899,
+    "spread_ratio": 0.2089313697526161,
+    "cov_negative": false
+  },
+  "id_baseline_attribution_frozen": {
+    "n": 13,
+    "var_log_det": 0.0,
+    "var_log_del": 0.0005420061284083462,
+    "cov2": 0.0,
+    "total": 0.0005420061284083462,
+    "share_det": 0.0,
+    "share_del": 1.0,
+    "share_cov": 0.0,
+    "share_det_naive": 0.0,
+    "corr_logdet_logdel": NaN,
+    "corr_logdet_logdel_p": NaN,
+    "var_log_dice_direct": 0.0005420061284083462,
+    "identity_gap": 0.0,
+    "detection_range": [
+      1.0,
+      1.0
+    ],
+    "detection_spread": 0.0,
+    "delineation_range": [
+      0.791859694621517,
+      0.8646062004418408
+    ],
+    "logdet_spread": 0.0,
+    "logdel_spread": 0.0878899207996798,
+    "spread_ratio": 0.0,
+    "cov_negative": false
+  },
+  "id_baseline_attribution_sub": {
+    "n": 13,
+    "var_log_det": 3.5970783874810036e-05,
+    "var_log_del": 0.0006360086338278595,
+    "cov2": -0.0001299732893414524,
+    "total": 0.0005420061283612172,
+    "share_det": 0.06636600952016818,
+    "share_del": 1.1734343959373,
+    "share_cov": -0.23980040545746814,
+    "share_det_naive": 0.05352959172140301,
+    "corr_logdet_logdel": -0.4296528113007899,
+    "corr_logdet_logdel_p": 0.14285190357427305,
+    "var_log_dice_direct": 0.0005420061283612167,
+    "identity_gap": -5.421010862427522e-19,
+    "detection_range": [
+      0.9710743801652892,
+      0.9917355371900827
+    ],
+    "detection_spread": 0.02066115702479343,
+    "delineation_range": [
+      0.805168260917613,
+      0.8828468375819193
+    ],
+    "logdet_spread": 0.021053409197832385,
+    "logdel_spread": 0.09210045333605207,
+    "spread_ratio": 0.22859180856595387,
+    "cov_negative": true
+  },
+  "ood_bootstrap": {
+    "reps": 2000,
+    "seed": 42,
+    "share_det_ci": [
+      0.2599163393705507,
+      0.8477253077659176
+    ],
+    "share_del_ci": [
+      0.2476307359187644,
+      0.7167592697815656
+    ],
+    "share_cov_ci": [
+      -0.4466467354152515,
+      0.40158218323815964
+    ]
+  },
+  "h1": {
+    "n_groups": 20,
+    "frozen_all_exactly_one": true,
+    "frozen_n_saturated": 20,
+    "substantive_min": 0.9710743801652892,
+    "substantive_max": 0.9917355371900827,
+    "substantive_spread": 0.02066115702479343,
+    "substantive_n_saturated": 0,
+    "bar": 0.98,
+    "n_below_bar": 9,
+    "groups_below_bar": [
+      {
+        "group": "baseline/M2SNet",
+        "det_sub": 0.9752066115702479
+      },
+      {
+        "group": "baseline/MultiResUNet",
+        "det_sub": 0.9793388429752066
+      },
+      {
+        "group": "baseline/PSPNet",
+        "det_sub": 0.9793388429752066
+      },
+      {
+        "group": "baseline/PolypPVT",
+        "det_sub": 0.9793388429752066
+      },
+      {
+        "group": "baseline/PraNet",
+        "det_sub": 0.9710743801652892
+      },
+      {
+        "group": "baseline/SANet",
+        "det_sub": 0.9793388429752066
+      },
+      {
+        "group": "baseline/UACANet",
+        "det_sub": 0.9710743801652892
+      },
+      {
+        "group": "baseline/UNet",
+        "det_sub": 0.9793388429752066
+      },
+      {
+        "group": "ablation/baseline",
+        "det_sub": 0.9752066115702479
+      }
+    ],
+    "verdict": "H1 holds EXACTLY under the frozen criterion (all 20 groups = 1.000), but that reading is constructed by the metric smoothing constant and carries no information. Under the substantive criterion the range is 0.9711-0.9917 and 9/20 groups fall below the pre-registered bar 0.98; the pre-registered handling is to write L1-1 as 'approaching saturation' rather than 'saturation'. Cause: det_sub = 1 - k/n exactly, with k the eps-artefact count (2-7 of 242) -- the in-domain variation measures the metric implementation, not the models."
+  },
+  "h2": {
+    "share_det": 0.41465867094122305,
+    "support": 0.35,
+    "refute": 0.2,
+    "boot_ci": [
+      0.2599163393705507,
+      0.8477253077659176
+    ],
+    "verdict": "supported at n=4 (final value pending P2-2b)",
+    "caveat": "n=4 architectures x 4 directions = 16 cells; H2 final judgement is P2-2b"
+  },
+  "id_artefact_diagnostics": {
+    "table": [
+      {
+        "group": "baseline/AttentionUNet",
+        "n": 242,
+        "n_artefact": 3,
+        "det_sub": 0.987603305785124,
+        "dice": 0.8394898226404438
+      },
+      {
+        "group": "baseline/CaraNet",
+        "n": 242,
+        "n_artefact": 4,
+        "det_sub": 0.9834710743801653,
+        "dice": 0.8316442656364066
+      },
+      {
+        "group": "baseline/M2SNet",
+        "n": 242,
+        "n_artefact": 6,
+        "det_sub": 0.9752066115702479,
+        "dice": 0.8603479380379638
+      },
+      {
+        "group": "baseline/MultiResUNet",
+        "n": 242,
+        "n_artefact": 5,
+        "det_sub": 0.9793388429752066,
+        "dice": 0.8424785194947292
+      },
+      {
+        "group": "baseline/PSPNet",
+        "n": 242,
+        "n_artefact": 5,
+        "det_sub": 0.9793388429752066,
+        "dice": 0.8646062004418408
+      },
+      {
+        "group": "baseline/PolypPVT",
+        "n": 242,
+        "n_artefact": 5,
+        "det_sub": 0.9793388429752066,
+        "dice": 0.86379502386353
+      },
+      {
+        "group": "baseline/PraNet",
+        "n": 242,
+        "n_artefact": 7,
+        "det_sub": 0.9710743801652892,
+        "dice": 0.8445122607932337
+      },
+      {
+        "group": "baseline/ResUNet",
+        "n": 242,
+        "n_artefact": 4,
+        "det_sub": 0.9834710743801653,
+        "dice": 0.791859694621517
+      },
+      {
+        "group": "baseline/SANet",
+        "n": 242,
+        "n_artefact": 5,
+        "det_sub": 0.9793388429752066,
+        "dice": 0.848829747077322
+      },
+      {
+        "group": "baseline/SegNet",
+        "n": 242,
+        "n_artefact": 4,
+        "det_sub": 0.9834710743801653,
+        "dice": 0.8506006612701679
+      },
+      {
+        "group": "baseline/TransUNet",
+        "n": 242,
+        "n_artefact": 2,
+        "det_sub": 0.9917355371900827,
+        "dice": 0.8390788241710456
+      },
+      {
+        "group": "baseline/UACANet",
+        "n": 242,
+        "n_artefact": 7,
+        "det_sub": 0.9710743801652892,
+        "dice": 0.8332554599640427
+      },
+      {
+        "group": "baseline/UNet",
+        "n": 242,
+        "n_artefact": 5,
+        "det_sub": 0.9793388429752066,
+        "dice": 0.8238183108298338
+      },
+      {
+        "group": "ablation/baseline",
+        "n": 242,
+        "n_artefact": 6,
+        "det_sub": 0.9752066115702479,
+        "dice": 0.8196866151741546
+      },
+      {
+        "group": "ablation/egm_only",
+        "n": 242,
+        "n_artefact": 3,
+        "det_sub": 0.987603305785124,
+        "dice": 0.8667173532301783
+      },
+      {
+        "group": "ablation/dpa_only",
+        "n": 242,
+        "n_artefact": 3,
+        "det_sub": 0.987603305785124,
+        "dice": 0.8665306454563165
+      },
+      {
+        "group": "ablation/msfa_only",
+        "n": 242,
+        "n_artefact": 4,
+        "det_sub": 0.9834710743801653,
+        "dice": 0.8746053836113604
+      },
+      {
+        "group": "ablation/egm_dpa",
+        "n": 242,
+        "n_artefact": 2,
+        "det_sub": 0.9917355371900827,
+        "dice": 0.869577505658327
+      },
+      {
+        "group": "ablation/egm_msfa",
+        "n": 242,
+        "n_artefact": 2,
+        "det_sub": 0.9917355371900827,
+        "dice": 0.883171651192262
+      },
+      {
+        "group": "ablation/dpa_msfa",
+        "n": 242,
+        "n_artefact": 3,
+        "det_sub": 0.987603305785124,
+        "dice": 0.871169791579765
+      }
+    ],
+    "relation_exact": true,
+    "distinct_det_sub": [
+      0.971074380165,
+      0.97520661157,
+      0.979338842975,
+      0.98347107438,
+      0.987603305785,
+      0.99173553719
+    ],
+    "n_artefact_range": [
+      2,
+      7
+    ],
+    "corr_artefact_dice": -0.3594539321366693,
+    "corr_artefact_dice_p": 0.11957130835719673,
+    "corr_logdet_logdel": 0.11413152856919956,
+    "corr_logdet_logdel_p": 0.6318551511702617,
+    "cov_negative": false,
+    "reading": "det_sub = 1 - k/n holds exactly; the in-domain substantive detection variance is the variance of the eps-artefact count (pipeline noise), not detection ability"
+  },
+  "identity_validity_substantive": {
+    "max_rel_residual": 1.0669924237355092e-11,
+    "valid": true
+  },
+  "criterion_scan": [
+    {
+      "side": "OOD",
+      "crit": 0.0,
+      "n": 16,
+      "det_min": 0.5051020408163265,
+      "det_max": 0.979,
+      "det_spread": 0.4738979591836735,
+      "share_det": 0.41465867094122305,
+      "share_del": 0.3685472367549768,
+      "share_cov": 0.21679409230380023,
+      "total": 0.10667685612595312,
+      "reading": NaN,
+      "n_saturated": NaN
+    },
+    {
+      "side": "ID",
+      "crit": 0.0,
+      "n": 20,
+      "det_min": 1.0,
+      "det_max": 1.0,
+      "det_spread": 0.0,
+      "share_det": 0.0,
+      "share_del": 1.0,
+      "share_cov": 0.0,
+      "total": 0.0007083088191801988,
+      "reading": "frozen",
+      "n_saturated": 20.0
+    },
+    {
+      "side": "OOD",
+      "crit": 1e-06,
+      "n": 16,
+      "det_min": 0.5051020408163265,
+      "det_max": 0.979,
+      "det_spread": 0.4738979591836735,
+      "share_det": 0.41465867094122305,
+      "share_del": 0.3685472367549768,
+      "share_cov": 0.21679409230380023,
+      "total": 0.10667685612595312,
+      "reading": NaN,
+      "n_saturated": NaN
+    },
+    {
+      "side": "ID",
+      "crit": 1e-06,
+      "n": 20,
+      "det_min": 0.9710743801652892,
+      "det_max": 0.9917355371900827,
+      "det_spread": 0.02066115702479343,
+      "share_det": 0.06021398427890957,
+      "share_del": 0.8870321850581953,
+      "share_cov": 0.05275383066289515,
+      "total": 0.0007083088191618264,
+      "reading": "sub",
+      "n_saturated": 0.0
+    },
+    {
+      "side": "OOD",
+      "crit": 0.01,
+      "n": 16,
+      "det_min": 0.47959183673469385,
+      "det_max": 0.974,
+      "det_spread": 0.4944081632653061,
+      "share_det": 0.4743735777169781,
+      "share_del": 0.3163922401088587,
+      "share_cov": 0.2092341821741632,
+      "total": 0.10685001576820446,
+      "reading": NaN,
+      "n_saturated": NaN
+    },
+    {
+      "side": "ID",
+      "crit": 0.01,
+      "n": 20,
+      "det_min": 0.9710743801652892,
+      "det_max": 0.9917355371900827,
+      "det_spread": 0.02066115702479343,
+      "share_det": 0.06021398427890957,
+      "share_del": 0.8870321850581953,
+      "share_cov": 0.05275383066289515,
+      "total": 0.0007083088191618264,
+      "reading": "sub",
+      "n_saturated": 0.0
+    },
+    {
+      "side": "OOD",
+      "crit": 0.05,
+      "n": 16,
+      "det_min": 0.4336734693877551,
+      "det_max": 0.967,
+      "det_spread": 0.5333265306122449,
+      "share_det": 0.5625352104700513,
+      "share_del": 0.2742858211217918,
+      "share_cov": 0.16317896840815696,
+      "total": 0.10793013896343538,
+      "reading": NaN,
+      "n_saturated": NaN
+    },
+    {
+      "side": "ID",
+      "crit": 0.05,
+      "n": 20,
+      "det_min": 0.9710743801652892,
+      "det_max": 0.9917355371900827,
+      "det_spread": 0.02066115702479343,
+      "share_det": 0.06021398427890957,
+      "share_del": 0.8870321850581953,
+      "share_cov": 0.05275383066289515,
+      "total": 0.0007083088191618264,
+      "reading": "sub",
+      "n_saturated": 0.0
+    },
+    {
+      "side": "OOD",
+      "crit": 0.1,
+      "n": 16,
+      "det_min": 0.41836734693877553,
+      "det_max": 0.954,
+      "det_spread": 0.5356326530612244,
+      "share_det": 0.590020897063797,
+      "share_del": 0.2453536550802479,
+      "share_cov": 0.164625447855955,
+      "total": 0.10975952318210104,
+      "reading": NaN,
+      "n_saturated": NaN
+    },
+    {
+      "side": "ID",
+      "crit": 0.1,
+      "n": 20,
+      "det_min": 0.9710743801652892,
+      "det_max": 0.9917355371900827,
+      "det_spread": 0.02066115702479343,
+      "share_det": 0.06021398427890957,
+      "share_del": 0.8870321850581953,
+      "share_cov": 0.05275383066289515,
+      "total": 0.0007083088191618264,
+      "reading": "sub",
+      "n_saturated": 0.0
+    },
+    {
+      "side": "OOD",
+      "crit": 0.3,
+      "n": 16,
+      "det_min": 0.34183673469387754,
+      "det_max": 0.906,
+      "det_spread": 0.5641632653061225,
+      "share_det": 0.6106926271561453,
+      "share_del": 0.1383865312779506,
+      "share_cov": 0.25092084156590416,
+      "total": 0.12601287213288337,
+      "reading": NaN,
+      "n_saturated": NaN
+    },
+    {
+      "side": "ID",
+      "crit": 0.3,
+      "n": 20,
+      "det_min": 0.9710743801652892,
+      "det_max": 0.9917355371900827,
+      "det_spread": 0.02066115702479343,
+      "share_det": 0.06021398427890957,
+      "share_del": 0.8870321850581953,
+      "share_cov": 0.05275383066289515,
+      "total": 0.0007083088191618264,
+      "reading": "sub",
+      "n_saturated": 0.0
+    },
+    {
+      "side": "OOD",
+      "crit": 0.5,
+      "n": 16,
+      "det_min": 0.27040816326530615,
+      "det_max": 0.825,
+      "det_spread": 0.5545918367346938,
+      "share_det": 0.6289994800296139,
+      "share_del": 0.09290908990081782,
+      "share_cov": 0.27809143006956827,
+      "total": 0.16609845797190867,
+      "reading": NaN,
+      "n_saturated": NaN
+    },
+    {
+      "side": "ID",
+      "crit": 0.5,
+      "n": 20,
+      "det_min": 0.9710743801652892,
+      "det_max": 0.9917355371900827,
+      "det_spread": 0.02066115702479343,
+      "share_det": 0.06021398427890957,
+      "share_del": 0.8870321850581953,
+      "share_cov": 0.05275383066289515,
+      "total": 0.0007083088191618264,
+      "reading": "sub",
+      "n_saturated": 0.0
+    }
+  ],
+  "ood_cells": [
+    {
+      "dir": "cvc_to_etis",
+      "arch": "AttentionUNet",
+      "n": 196,
+      "dice": 0.3040613078324626,
+      "det": 0.5663265306122449,
+      "del_": 0.5369010475395469,
+      "n_undet": 85
+    },
+    {
+      "dir": "cvc_to_etis",
+      "arch": "EGAUNet",
+      "n": 196,
+      "dice": 0.5557232278024944,
+      "det": 0.7908163265306123,
+      "del_": 0.7027209847023891,
+      "n_undet": 41
+    },
+    {
+      "dir": "cvc_to_etis",
+      "arch": "TransUNet",
+      "n": 196,
+      "dice": 0.2079871236597708,
+      "det": 0.5051020408163265,
+      "del_": 0.41177248675905337,
+      "n_undet": 97
+    },
+    {
+      "dir": "cvc_to_etis",
+      "arch": "UNet",
+      "n": 196,
+      "dice": 0.3406518498801625,
+      "det": 0.6887755102040817,
+      "del_": 0.4945760187399746,
+      "n_undet": 61
+    },
+    {
+      "dir": "cvc_to_kvasir",
+      "arch": "AttentionUNet",
+      "n": 1000,
+      "dice": 0.35195998355909436,
+      "det": 0.767,
+      "del_": 0.45887872688099274,
+      "n_undet": 233
+    },
+    {
+      "dir": "cvc_to_kvasir",
+      "arch": "EGAUNet",
+      "n": 1000,
+      "dice": 0.7703899751079716,
+      "det": 0.979,
+      "del_": 0.7869151941822797,
+      "n_undet": 21
+    },
+    {
+      "dir": "cvc_to_kvasir",
+      "arch": "TransUNet",
+      "n": 1000,
+      "dice": 0.3869909000363402,
+      "det": 0.895,
+      "del_": 0.4323920670690318,
+      "n_undet": 105
+    },
+    {
+      "dir": "cvc_to_kvasir",
+      "arch": "UNet",
+      "n": 1000,
+      "dice": 0.5149273950095731,
+      "det": 0.934,
+      "del_": 0.5513141274034847,
+      "n_undet": 66
+    },
+    {
+      "dir": "kvasir_to_cvc",
+      "arch": "AttentionUNet",
+      "n": 612,
+      "dice": 0.4458720464405366,
+      "det": 0.8480392156862745,
+      "del_": 0.5257681934450368,
+      "n_undet": 93
+    },
+    {
+      "dir": "kvasir_to_cvc",
+      "arch": "EGAUNet",
+      "n": 612,
+      "dice": 0.7033300153608891,
+      "det": 0.9379084967320261,
+      "del_": 0.7498919327393699,
+      "n_undet": 38
+    },
+    {
+      "dir": "kvasir_to_cvc",
+      "arch": "TransUNet",
+      "n": 612,
+      "dice": 0.5036688743994984,
+      "det": 0.9624183006535948,
+      "del_": 0.5233367591302052,
+      "n_undet": 23
+    },
+    {
+      "dir": "kvasir_to_cvc",
+      "arch": "UNet",
+      "n": 612,
+      "dice": 0.5469838993084065,
+      "det": 0.8954248366013072,
+      "del_": 0.6108652305811917,
+      "n_undet": 64
+    },
+    {
+      "dir": "kvasir_to_etis",
+      "arch": "AttentionUNet",
+      "n": 196,
+      "dice": 0.3790245874855915,
+      "det": 0.576530612244898,
+      "del_": 0.6574231773832261,
+      "n_undet": 83
+    },
+    {
+      "dir": "kvasir_to_etis",
+      "arch": "EGAUNet",
+      "n": 196,
+      "dice": 0.5524751012735769,
+      "det": 0.7551020408163265,
+      "del_": 0.7316562149473513,
+      "n_undet": 48
+    },
+    {
+      "dir": "kvasir_to_etis",
+      "arch": "TransUNet",
+      "n": 196,
+      "dice": 0.4498656877967727,
+      "det": 0.7551020408163265,
+      "del_": 0.5957680727080662,
+      "n_undet": 48
+    },
+    {
+      "dir": "kvasir_to_etis",
+      "arch": "UNet",
+      "n": 196,
+      "dice": 0.38618999091559947,
+      "det": 0.6071428571428571,
+      "del_": 0.6360776314175367,
+      "n_undet": 77
+    }
+  ],
+  "id_groups": [
+    {
+      "group": "baseline/AttentionUNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8394898226404438,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8394898226404438,
+      "det_sub": 0.987603305785124,
+      "del_sub": 0.8500273517948106
+    },
+    {
+      "group": "baseline/CaraNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8316442656364066,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8316442656364066,
+      "det_sub": 0.9834710743801653,
+      "del_sub": 0.8456214801848813
+    },
+    {
+      "group": "baseline/M2SNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8603479380379638,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8603479380379638,
+      "det_sub": 0.9752066115702479,
+      "del_sub": 0.8822211906998477
+    },
+    {
+      "group": "baseline/MultiResUNet",
+      "n": 242,
+      "src": "Dice (proxy)",
+      "dice": 0.8424785194947292,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8424785194947292,
+      "det_sub": 0.9793388429752066,
+      "del_sub": 0.860252327922782
+    },
+    {
+      "group": "baseline/PSPNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8646062004418408,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8646062004418408,
+      "det_sub": 0.9793388429752066,
+      "del_sub": 0.8828468375819193
+    },
+    {
+      "group": "baseline/PolypPVT",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.86379502386353,
+      "det_frozen": 1.0,
+      "del_frozen": 0.86379502386353,
+      "det_sub": 0.9793388429752066,
+      "del_sub": 0.8820185475643201
+    },
+    {
+      "group": "baseline/PraNet",
+      "n": 242,
+      "src": "Dice (proxy)",
+      "dice": 0.8445122607932337,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8445122607932337,
+      "det_sub": 0.9710743801652892,
+      "del_sub": 0.869667945157197
+    },
+    {
+      "group": "baseline/ResUNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.791859694621517,
+      "det_frozen": 1.0,
+      "del_frozen": 0.791859694621517,
+      "det_sub": 0.9834710743801653,
+      "del_sub": 0.805168260917613
+    },
+    {
+      "group": "baseline/SANet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.848829747077322,
+      "det_frozen": 1.0,
+      "del_frozen": 0.848829747077322,
+      "det_sub": 0.9793388429752066,
+      "del_sub": 0.8667375476485558
+    },
+    {
+      "group": "baseline/SegNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8506006612701679,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8506006612701679,
+      "det_sub": 0.9834710743801653,
+      "del_sub": 0.8648964707032114
+    },
+    {
+      "group": "baseline/TransUNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8390788241710456,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8390788241710456,
+      "det_sub": 0.9917355371900827,
+      "del_sub": 0.8460711477057742
+    },
+    {
+      "group": "baseline/UACANet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8332554599640427,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8332554599640427,
+      "det_sub": 0.9710743801652892,
+      "del_sub": 0.8580758353671283
+    },
+    {
+      "group": "baseline/UNet",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8238183108298338,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8238183108298338,
+      "det_sub": 0.9793388429752066,
+      "del_sub": 0.8411984439695774
+    },
+    {
+      "group": "ablation/baseline",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8196866151741546,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8196866151741546,
+      "det_sub": 0.9752066115702479,
+      "del_sub": 0.8405261053903166
+    },
+    {
+      "group": "ablation/egm_only",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8667173532301783,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8667173532301783,
+      "det_sub": 0.987603305785124,
+      "del_sub": 0.8775966505509427
+    },
+    {
+      "group": "ablation/dpa_only",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8665306454563165,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8665306454563165,
+      "det_sub": 0.987603305785124,
+      "del_sub": 0.8774075991649268
+    },
+    {
+      "group": "ablation/msfa_only",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.8746053836113604,
+      "det_frozen": 1.0,
+      "del_frozen": 0.8746053836113604,
+      "det_sub": 0.9834710743801653,
+      "del_sub": 0.8893046337560115
+    },
+    {
+      "group": "ablation/egm_dpa",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.869577505658327,
+      "det_frozen": 1.0,
+      "del_frozen": 0.869577505658327,
+      "det_sub": 0.9917355371900827,
+      "del_sub": 0.8768239848721002
+    },
+    {
+      "group": "ablation/egm_msfa",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.883171651192262,
+      "det_frozen": 1.0,
+      "del_frozen": 0.883171651192262,
+      "det_sub": 0.9917355371900827,
+      "del_sub": 0.8905314149521664
+    },
+    {
+      "group": "ablation/dpa_msfa",
+      "n": 242,
+      "src": "Recall",
+      "dice": 0.871169791579765,
+      "det_frozen": 1.0,
+      "del_frozen": 0.871169791579765,
+      "det_sub": 0.987603305785124,
+      "del_sub": 0.8821049772481075
+    }
+  ],
+  "excluded_artifacts": [
+    {
+      "path": "D:/medical_segmentation/results/test_results/sample_metrics.csv",
+      "reason": "different protocol (M10); not among the 20 pre-registered groups"
+    }
+  ]
+}

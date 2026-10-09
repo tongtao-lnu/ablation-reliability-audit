@@ -1,0 +1,406 @@
+{
+  "segment": "P2-3",
+  "mode": "alignment_test_H3",
+  "generated_at": "2026-09-14T00:32:21",
+  "script": "02_code/analysis/alignment_test.py",
+  "hypothesis": {
+    "id": "H3",
+    "statement": "Spearman(ID 勾画, OOD 检出) 不显著",
+    "caliber": "架构级; 全部可用架构 n=14 (13 baseline + EGAUNet)",
+    "reject_criterion": "显著且 |ρ| > 0.6",
+    "grey_band": "0.538 < |ρ| ≤ 0.6 → 不可判定",
+    "verdict": "NOT_REJECTED"
+  },
+  "data": {
+    "units_csv": "E:/paper2_ablation_reliability/03_results/stats/p31a_units_n14.csv",
+    "n": 14,
+    "x_col": "id_del",
+    "y_col": "ood_det_subst",
+    "units": [
+      {
+        "arch": "EGAUNet",
+        "x": 0.885307265792032,
+        "y": 0.8571428571428571
+      },
+      {
+        "arch": "TransUNet",
+        "x": 0.8390788241710456,
+        "y": 0.7857142857142857
+      },
+      {
+        "arch": "M2SNet",
+        "x": 0.8603479380379638,
+        "y": 0.7448979591836735
+      },
+      {
+        "arch": "SANet",
+        "x": 0.848829747077322,
+        "y": 0.7397959183673469
+      },
+      {
+        "arch": "PraNet",
+        "x": 0.8445122607932337,
+        "y": 0.7806122448979592
+      },
+      {
+        "arch": "PSPNet",
+        "x": 0.8646062004418408,
+        "y": 0.7704081632653061
+      },
+      {
+        "arch": "CaraNet",
+        "x": 0.8316442656364066,
+        "y": 0.75
+      },
+      {
+        "arch": "UACANet",
+        "x": 0.8332554599640427,
+        "y": 0.6989795918367347
+      },
+      {
+        "arch": "PolypPVT",
+        "x": 0.86379502386353,
+        "y": 0.6479591836734694
+      },
+      {
+        "arch": "AttentionUNet",
+        "x": 0.8394898226404438,
+        "y": 0.673469387755102
+      },
+      {
+        "arch": "UNet",
+        "x": 0.8238183108298338,
+        "y": 0.6632653061224489
+      },
+      {
+        "arch": "SegNet",
+        "x": 0.8506006612701679,
+        "y": 0.6326530612244898
+      },
+      {
+        "arch": "MultiResUNet",
+        "x": 0.8424785194947292,
+        "y": 0.6428571428571429
+      },
+      {
+        "arch": "ResUNet",
+        "x": 0.791859694621517,
+        "y": 0.6377551020408163
+      }
+    ],
+    "caliber_assertions": {
+      "n_is_14": true,
+      "id_del_equals_id_dice": true,
+      "ood_frozen_equals_ood_subst": true,
+      "id_det_frozen_is_one": true
+    }
+  },
+  "primary": {
+    "rho": 0.3010989010989011,
+    "abs_rho": 0.3010989010989011,
+    "n": 14,
+    "p_t_approx": 0.2955144656072166,
+    "p_perm_mc": {
+      "p_mc": 0.2950837049162951,
+      "n_null": 1000000,
+      "n_ge": 295083,
+      "se": 0.00045608015085077315
+    },
+    "rho_crit_alpha05_t_approx": 0.5324128046806423,
+    "rho_crit_alpha05_perm_mc": 0.5340659340659342,
+    "rho_crit_preregistered": 0.538,
+    "significant_at_alpha05": false
+  },
+  "effect_size_ci": {
+    "bootstrap": {
+      "b": 10000,
+      "seed": 20260914,
+      "n_valid": 10000,
+      "lo": -0.3288939349318784,
+      "hi": 0.7946428571428571,
+      "median": 0.31263858093126384,
+      "frac_negative": 0.1627
+    },
+    "fisher_z": {
+      "z": 0.31072762605191445,
+      "se": 0.30151134457776363,
+      "lo": -0.2731121538776239,
+      "hi": 0.7171144227876957
+    },
+    "caveat": "架构彼此不独立（13 baseline 共享数据与协议, EGAUNet 与消融网格同源）⇒ bootstrap 区间**偏乐观**, 仅描述性, 不得作推断区间。"
+  },
+  "power": {
+    "mde_preregistered": 0.72,
+    "mde_rechecked": 0.7,
+    "mde_from_proposition_check_json": 0.7,
+    "consistent_with_prereg": true,
+    "recheck": {
+      "k": 14,
+      "reps": 8000,
+      "seed": 42,
+      "step": 0.02,
+      "mde80": 0.7,
+      "power_grid": {
+        "0.20": 0.0961,
+        "0.22": 0.107,
+        "0.24": 0.1215,
+        "0.26": 0.1348,
+        "0.28": 0.1519,
+        "0.30": 0.1711,
+        "0.32": 0.1916,
+        "0.34": 0.2094,
+        "0.36": 0.2311,
+        "0.38": 0.2524,
+        "0.40": 0.2764,
+        "0.42": 0.2975,
+        "0.44": 0.3261,
+        "0.46": 0.3586,
+        "0.48": 0.3894,
+        "0.50": 0.425,
+        "0.52": 0.4585,
+        "0.54": 0.4934,
+        "0.56": 0.5306,
+        "0.58": 0.5691,
+        "0.60": 0.6099,
+        "0.62": 0.6484,
+        "0.64": 0.6867,
+        "0.66": 0.7265,
+        "0.68": 0.7645,
+        "0.70": 0.8011,
+        "0.72": 0.832,
+        "0.74": 0.8611,
+        "0.76": 0.8861,
+        "0.78": 0.9105,
+        "0.80": 0.9326,
+        "0.82": 0.952,
+        "0.84": 0.9655,
+        "0.86": 0.977,
+        "0.88": 0.987,
+        "0.90": 0.9941,
+        "0.92": 0.998,
+        "0.94": 0.9991,
+        "0.96": 0.9999,
+        "0.98": 1.0
+      }
+    },
+    "mandated_wording": "we cannot exclude a moderate association（**绝不写 no association**）"
+  },
+  "rank_reversal": {
+    "n_pairs": 91,
+    "n_concordant": 56,
+    "n_discordant": 35,
+    "n_tied": 0,
+    "kendall_tau_a": 0.23076923076923078,
+    "discordant_pairs": [
+      [
+        "TransUNet",
+        "M2SNet"
+      ],
+      [
+        "TransUNet",
+        "SANet"
+      ],
+      [
+        "TransUNet",
+        "PraNet"
+      ],
+      [
+        "TransUNet",
+        "PSPNet"
+      ],
+      [
+        "TransUNet",
+        "PolypPVT"
+      ],
+      [
+        "TransUNet",
+        "AttentionUNet"
+      ],
+      [
+        "TransUNet",
+        "SegNet"
+      ],
+      [
+        "TransUNet",
+        "MultiResUNet"
+      ],
+      [
+        "M2SNet",
+        "PraNet"
+      ],
+      [
+        "M2SNet",
+        "CaraNet"
+      ],
+      [
+        "M2SNet",
+        "PolypPVT"
+      ],
+      [
+        "SANet",
+        "PraNet"
+      ],
+      [
+        "SANet",
+        "CaraNet"
+      ],
+      [
+        "SANet",
+        "PolypPVT"
+      ],
+      [
+        "SANet",
+        "SegNet"
+      ],
+      [
+        "PraNet",
+        "PSPNet"
+      ],
+      [
+        "PraNet",
+        "PolypPVT"
+      ],
+      [
+        "PraNet",
+        "SegNet"
+      ],
+      [
+        "CaraNet",
+        "UACANet"
+      ],
+      [
+        "CaraNet",
+        "PolypPVT"
+      ],
+      [
+        "CaraNet",
+        "AttentionUNet"
+      ],
+      [
+        "CaraNet",
+        "SegNet"
+      ],
+      [
+        "CaraNet",
+        "MultiResUNet"
+      ],
+      [
+        "UACANet",
+        "PolypPVT"
+      ],
+      [
+        "UACANet",
+        "AttentionUNet"
+      ],
+      [
+        "UACANet",
+        "SegNet"
+      ],
+      [
+        "UACANet",
+        "MultiResUNet"
+      ],
+      [
+        "PolypPVT",
+        "AttentionUNet"
+      ],
+      [
+        "PolypPVT",
+        "UNet"
+      ],
+      [
+        "AttentionUNet",
+        "SegNet"
+      ],
+      [
+        "AttentionUNet",
+        "MultiResUNet"
+      ],
+      [
+        "UNet",
+        "SegNet"
+      ],
+      [
+        "UNet",
+        "MultiResUNet"
+      ],
+      [
+        "SegNet",
+        "MultiResUNet"
+      ],
+      [
+        "SegNet",
+        "ResUNet"
+      ]
+    ],
+    "examples": [
+      [
+        "TransUNet",
+        "M2SNet"
+      ],
+      [
+        "TransUNet",
+        "SANet"
+      ],
+      [
+        "TransUNet",
+        "PraNet"
+      ],
+      [
+        "TransUNet",
+        "PSPNet"
+      ],
+      [
+        "TransUNet",
+        "PolypPVT"
+      ],
+      [
+        "TransUNet",
+        "AttentionUNet"
+      ],
+      [
+        "TransUNet",
+        "SegNet"
+      ],
+      [
+        "TransUNet",
+        "MultiResUNet"
+      ]
+    ]
+  },
+  "auxiliary_spearman": {
+    "id_del__id_dice": {
+      "rho": 1.0,
+      "p_t": 1.4368400759870638e-89
+    },
+    "ood_det_subst__ood_dice": {
+      "rho": 0.9076923076923077,
+      "p_t": 7.3017039968523426e-06
+    },
+    "ood_det_subst__ood_del": {
+      "rho": 0.006593406593406593,
+      "p_t": 0.9821527354577905
+    },
+    "id_det_subst__ood_det_subst": {
+      "rho": 0.09280032822998649,
+      "p_t": 0.7523552855381777
+    },
+    "id_del__ood_del": {
+      "rho": 0.5472527472527473,
+      "p_t": 0.04282204937819734
+    },
+    "id_dice__ood_dice": {
+      "rho": 0.47692307692307695,
+      "p_t": 0.0846484341946867
+    }
+  },
+  "identity_flags": {
+    "id_del__id_dice": "ALGEBRAIC IDENTITY — 冻结判据下 ID 检出恒为 1.000 (B6), 故 Dice ≡ Delin。**禁作功效证据**。",
+    "ood_det_subst__ood_dice": "CONSTRUCTIVE — Dice = Det×Delin 是恒等式; 该高相关反映勾画变异小于检出变异, **禁作功效证据**。"
+  },
+  "notes": [
+    "主检验在数值上等价于 Spearman(ID Dice, OOD 检出)：冻结判据下 ID 检出恒 1.000 ⇒ Dice ≡ Delin。",
+    "OOD 侧冻结/实质两判据严格等价（no-eps），故本结论对判据选择不敏感。",
+    "|ρ| 远低于灰带下限 ⇒ 灰带不适用；但 |ρ| < MDE(0.72) ⇒ 结论为弱结论，措辞受 MDE 限定。"
+  ]
+}

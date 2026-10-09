@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-09-17T00:56:59.057725",
+  "mode": "reconcile-only",
+  "runs": [
+    {
+      "config": "egm_dpa",
+      "n_ours": 242,
+      "mean_dice_ours": 0.869577505658327,
+      "mean_dice_results_json": 0.8695947115640474,
+      "per_image": {
+        "n_matched": 242,
+        "n_only_ours": 0,
+        "n_only_frozen": 0,
+        "mean_dice_frozen": 0.869577505658327,
+        "max_abs_diff_per_image": 0.0
+      },
+      "verdict": "MATCH",
+      "caliber": "sample_metrics.csv",
+      "mean_dice_frozen_csv": 0.869577505658327,
+      "abs_diff_mean_vs_csv": 0.0,
+      "abs_diff_mean_vs_results_json": 1.72059057204077e-05,
+      "frozen_artifact_internal_consistency": {
+        "abs_diff_results_json_vs_csv_mean": 1.72059057204077e-05,
+        "consistent_at_1e-6": false
+      }
+    },
+    {
+      "config": "msfa_only",
+      "n_ours": 242,
+      "mean_dice_ours": 0.8746053836113604,
+      "mean_dice_results_json": 0.8746076873459224,
+      "per_image": {
+        "n_matched": 242,
+        "n_only_ours": 0,
+        "n_only_frozen": 0,
+        "mean_dice_frozen": 0.8746053836113604,
+        "max_abs_diff_per_image": 0.0
+      },
+      "verdict": "MATCH",
+      "caliber": "sample_metrics.csv",
+      "mean_dice_frozen_csv": 0.8746053836113604,
+      "abs_diff_mean_vs_csv": 0.0,
+      "abs_diff_mean_vs_results_json": 2.303734562003612e-06,
+      "frozen_artifact_internal_consistency": {
+        "abs_diff_results_json_vs_csv_mean": 2.303734562003612e-06,
+        "consistent_at_1e-6": false
+      }
+    }
+  ]
+}

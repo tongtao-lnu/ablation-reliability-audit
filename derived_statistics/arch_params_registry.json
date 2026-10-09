@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-09-14T00:52:37",
+  "script": "02_code/audit/egaunet_params.py",
+  "purpose": "EGAUNet 缺 results.json ⇒ 为其建立参数量真源（供 P2-4 的 14 架构回归使用）",
+  "EGAUNet": {
+    "parameters_M": 48.405978,
+    "n_params": 48405978,
+    "n_state_dict": 48429842,
+    "source": "D:/medical_segmentation/outputs/checkpoints/ega_unet/best_model.pth",
+    "source_kind": "checkpoint_model_state_dict + 实例化复核",
+    "in_channels": 3,
+    "base_filters": 64,
+    "checkpoint_epoch": 99,
+    "checkpoint_best_dice": 0.8953301887006002,
+    "caliber": "parameters()（不含 BN running_mean/var/num_batches_tracked），与 13 baseline 的 parameters_M 同口径",
+    "cross_check": {
+      "route_A_state_dict_numel": 48429842,
+      "route_B_state_dict_numel": 48429842,
+      "strict_equal": true,
+      "status": "MATCH"
+    },
+    "caveat": "该 M 值来自**权重结构与实例化配置的一致性**，非训练脚本上报值（EGAUNet 未落 parameters_M）。结构一致 ⇒ 参数量确定；但**不能**据此推断训练超参。"
+  }
+}

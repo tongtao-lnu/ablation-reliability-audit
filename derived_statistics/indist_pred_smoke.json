@@ -1,0 +1,208 @@
+{
+  "segment": "P3-1c",
+  "mode": "in_distribution_per_sample_prediction",
+  "generated_at": "2026-09-14T00:15:45",
+  "script": "02_code/analysis/p3_1c_indist_pred.py",
+  "protocol": {
+    "data": "processed_data/test",
+    "n_images": 8,
+    "archs": [
+      "MultiResUNet",
+      "PraNet"
+    ],
+    "pixel_threshold": 0.5,
+    "eps_id": 1e-08,
+    "ckpt": "experiments/baseline\\<arch>\\best_model.pth",
+    "metric_source": "utils/metrics.py::SegmentationMetrics (eps=1e-8, thr=0.5)",
+    "forward": "autocast() — 与既有 ID 产物一致",
+    "new_column": "Recall = (I + eps) / (G + eps)",
+    "criterion_frozen": "recall > 0.0",
+    "criterion_substantive": "I >= 1 px (== recall_exact > 1e-06)",
+    "reuse": [
+      "p31_cross_eval.build_model",
+      "p31_cross_eval.load_weights",
+      "p3_7_stress_test.load_id_test"
+    ],
+    "gates": {
+      "G1": "逐样本 Dice 复现既有 sample_metrics.csv (tol 1e-9)",
+      "G2": "均值复现 results.json test Dice (tol 1e-6) — 预检已知既有产物不一致"
+    }
+  },
+  "archs": [
+    {
+      "arch": "MultiResUNet",
+      "ckpt_dir": "experiments/baseline\\MultiResUNet",
+      "weight_format": "checkpoint_dict",
+      "n": 8,
+      "out_masks": "E:/paper2_ablation_reliability\\03_results/raw/indist_pred_smoke\\MultiResUNet\\masks",
+      "out_csv": "E:/paper2_ablation_reliability\\03_results/raw/indist_pred_smoke\\MultiResUNet\\sample_metrics.csv",
+      "mean_dice": 0.8987374979924554,
+      "mean_recall": 0.8586367845153506,
+      "mean_precision": 0.9729771047638855,
+      "gt_area_sum": 141021,
+      "pred_area_sum": 128146,
+      "inter_sum": 125426,
+      "n_undetected_sub": 0,
+      "gate_1_sample_csv": {
+        "status": "LEN_MISMATCH",
+        "n_ref": 242,
+        "n_mine": 8
+      },
+      "gate_2_results_json": {
+        "status": "CONFLICT",
+        "ref_path": "experiments/baseline\\MultiResUNet\\results.json",
+        "ours": 0.8987374979924554,
+        "ref": 0.8424789983520822,
+        "abs_diff": 0.056258499640373216,
+        "tol": 1e-06
+      }
+    },
+    {
+      "arch": "PraNet",
+      "ckpt_dir": "experiments/baseline\\PraNet",
+      "weight_format": "checkpoint_dict",
+      "n": 8,
+      "out_masks": "E:/paper2_ablation_reliability\\03_results/raw/indist_pred_smoke\\PraNet\\masks",
+      "out_csv": "E:/paper2_ablation_reliability\\03_results/raw/indist_pred_smoke\\PraNet\\sample_metrics.csv",
+      "mean_dice": 0.9269598458324092,
+      "mean_recall": 0.9079268887146663,
+      "mean_precision": 0.9596802040439456,
+      "gt_area_sum": 141021,
+      "pred_area_sum": 136219,
+      "inter_sum": 131344,
+      "n_undetected_sub": 0,
+      "gate_1_sample_csv": {
+        "status": "LEN_MISMATCH",
+        "n_ref": 242,
+        "n_mine": 8
+      },
+      "gate_2_results_json": {
+        "status": "CONFLICT",
+        "ref_path": "experiments/baseline\\PraNet\\results.json",
+        "ours": 0.9269598458324092,
+        "ref": 0.8445086894782277,
+        "abs_diff": 0.08245115635418154,
+        "tol": 1e-06
+      }
+    }
+  ],
+  "context_13arch": [
+    {
+      "arch": "AttentionUNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8394898226404438,
+      "mean_results_json": 0.839490573765388,
+      "abs_diff": 7.51124944242676e-07,
+      "has_recall": true,
+      "gt_1e6": false
+    },
+    {
+      "arch": "CaraNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8316442656364066,
+      "mean_results_json": 0.8316402455151108,
+      "abs_diff": 4.020121295744694e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "M2SNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8603479380379638,
+      "mean_results_json": 0.8603443168275107,
+      "abs_diff": 3.621210453164103e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "MultiResUNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8424785194947292,
+      "mean_results_json": 0.8424789983520822,
+      "abs_diff": 4.788573529923568e-07,
+      "has_recall": false,
+      "gt_1e6": false
+    },
+    {
+      "arch": "PSPNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8646062004418408,
+      "mean_results_json": 0.864597723724778,
+      "abs_diff": 8.476717062833039e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "PolypPVT",
+      "n": 242,
+      "mean_sample_metrics": 0.86379502386353,
+      "mean_results_json": 0.863838712414674,
+      "abs_diff": 4.3688551144005494e-05,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "PraNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8445122607932337,
+      "mean_results_json": 0.8445086894782277,
+      "abs_diff": 3.5713150060567855e-06,
+      "has_recall": false,
+      "gt_1e6": true
+    },
+    {
+      "arch": "ResUNet",
+      "n": 242,
+      "mean_sample_metrics": 0.791859694621517,
+      "mean_results_json": 0.7918636791355429,
+      "abs_diff": 3.9845140259453515e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "SANet",
+      "n": 242,
+      "mean_sample_metrics": 0.848829747077322,
+      "mean_results_json": 0.8488332589424457,
+      "abs_diff": 3.5118651237064924e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "SegNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8506006612701679,
+      "mean_results_json": 0.850581394296849,
+      "abs_diff": 1.9266973318887715e-05,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "TransUNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8390788241710456,
+      "mean_results_json": 0.8390808278291443,
+      "abs_diff": 2.003658098659322e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "UACANet",
+      "n": 242,
+      "mean_sample_metrics": 0.8332554599640427,
+      "mean_results_json": 0.8332652712308215,
+      "abs_diff": 9.81126677879196e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    },
+    {
+      "arch": "UNet",
+      "n": 242,
+      "mean_sample_metrics": 0.8238183108298338,
+      "mean_results_json": 0.8238195715781346,
+      "abs_diff": 1.2607483007576192e-06,
+      "has_recall": true,
+      "gt_1e6": true
+    }
+  ]
+}

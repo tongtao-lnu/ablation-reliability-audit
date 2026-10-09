@@ -1,0 +1,81 @@
+{
+  "segment": "P3-3",
+  "kind": "throughput_calibration",
+  "generated_at": "2026-09-15T01:29:38",
+  "script": "02_code/analysis/p3_3_calibrate.py",
+  "method": "est_min_100ep = wall_min / epochs * 100（偏保守：把 1 次验证+测试也按 ×100 放大）",
+  "seed_used": 123,
+  "epochs_probed": 1,
+  "batch_size": 8,
+  "smoke_root": "E:/paper2_ablation_reliability/03_results/raw/_p33_calib",
+  "per_config": {
+    "msfa_only": {
+      "config": "msfa_only",
+      "epochs": 1,
+      "wall_min": 2.005352540810903,
+      "rc": 0,
+      "sec_per_epoch": 120.32115244865417,
+      "est_min_100ep": 200.5352540810903,
+      "est_h_100ep": 3.3422542346848383,
+      "hist_min_100ep": 107.7,
+      "ratio_vs_hist": 1.8619800750333362
+    },
+    "dpa_msfa": {
+      "config": "dpa_msfa",
+      "epochs": 1,
+      "wall_min": 2.2382954478263857,
+      "rc": 0,
+      "sec_per_epoch": 134.29772686958313,
+      "est_min_100ep": 223.82954478263858,
+      "est_h_100ep": 3.7304924130439763,
+      "hist_min_100ep": 138.8,
+      "ratio_vs_hist": 1.6126047895002777
+    },
+    "egm_msfa": {
+      "config": "egm_msfa",
+      "epochs": 1,
+      "wall_min": 2.568018937110901,
+      "rc": 0,
+      "sec_per_epoch": 154.08113622665405,
+      "est_min_100ep": 256.8018937110901,
+      "est_h_100ep": 4.2800315618515015,
+      "hist_min_100ep": 147.2,
+      "ratio_vs_hist": 1.7445780822764274
+    },
+    "egm_dpa_msfa": {
+      "config": "egm_dpa_msfa",
+      "epochs": 1,
+      "wall_min": 0.0972808559735616,
+      "rc": 1,
+      "sec_per_epoch": 5.836851358413696,
+      "est_min_100ep": 9.728085597356161,
+      "est_h_100ep": 0.16213475995593601,
+      "hist_min_100ep": 213.5,
+      "ratio_vs_hist": 0.045564803734689276
+    },
+    "egm_dpa": {
+      "config": "egm_dpa",
+      "epochs": 1,
+      "wall_min": 3.3545805335044863,
+      "rc": 0,
+      "sec_per_epoch": 201.27483201026917,
+      "est_min_100ep": 335.4580533504486,
+      "est_h_100ep": 5.59096755584081,
+      "hist_min_100ep": 438.5,
+      "ratio_vs_hist": 0.7650126644251963
+    }
+  },
+  "order": [
+    "msfa_only",
+    "dpa_msfa",
+    "egm_msfa",
+    "egm_dpa_msfa",
+    "egm_dpa"
+  ],
+  "all_ok": false,
+  "per_seed_min_5cfg": 1026.3528315226238,
+  "per_seed_h_5cfg": 17.105880525377064,
+  "two_new_seeds_h_5cfg": 34.21176105075413,
+  "wall_total_min": 10.263528315226237,
+  "disclaimer": "冒烟基于 1 epoch 的墙钟外推，非 100 epoch 实测；正式链每完成一格会用实测覆盖该格的 ETA（见 chain_progress.json）。"
+}
